@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="ArchivoUsuarios.cpp" />
 		<Unit filename="ArchivoUsuarios.h" />
+		<Unit filename="Menus.cpp" />
 		<Unit filename="Menus.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="usuarios.cpp" />

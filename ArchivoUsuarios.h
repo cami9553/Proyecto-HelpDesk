@@ -4,20 +4,22 @@
 
 class archivoUsuario {
 public:
-    void registrar(Usuario &reg);
-    void bajaLogica(int idUsuario);
-    void modificar(Usuario &reg);
+    void registrar(Usuario &reg); //Desarrollada ok
+    void bajaLogica(int idUsuario); //Desarrollada ok
+    void altaLogica(int idUsuario); //Desarrollada ok
+    void modificar(Usuario &reg); //
     Usuario buscarPorId(int idUsuario);
-    Usuario buscarPorUsuario(const char* usuario);
-    bool validarLogin(const char* usuario, const char* clave,Usuario &reg);
-
-    void listarPorRol(int idRol);
-    void listarActivos();
-    int contarActivos();
-    int contarTotalUsuarios();
-    archivoUsuario();
-    archivoUsuario(std::string archivo);
-    int obtenerSiguienteID();
+    Usuario buscarPorEmail(const char* usuario);
+    bool validarLogin(const char* usuario, const char* clave,Usuario &reg); // Desarrollada OK
+    Usuario leerUsuario(int idUsuario); //Desarrollada ok
+    void listarPorRol(int idRol); //Desarrollada ok
+    void listarActivos(); //Desarrollada ok
+    void listarTodos(); //Corregida OK
+    int contarActivos(); //Desarrollada Ok
+    int contarTotalUsuarios(); //Desarrollada ok
+    archivoUsuario(); //Desarrollada ok
+    archivoUsuario(std::string archivo); //Desarrollada ok
+    int obtenerSiguienteID(); //Desarrollada ok
 private:
     std::string _archivo;
     };

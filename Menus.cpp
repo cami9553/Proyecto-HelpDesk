@@ -21,20 +21,22 @@ void ingresoUsuarios(){
     char email[30];
     char contra[30];
 
-    arch.listarActivos();
 
 
+    //cin.ignore();
    do{
     cout << "\n---Iniciar sesion---"<< endl;
     cout << "Ingrese 0 en email para finalizar programa." << endl;
     cout << "Ingrese email:"<< endl;
-    cin >> email;
+
+    cin.getline(email,30);
+
     if(strcmp(email,"0")== 0){
         cout << "Programa finalizado" << endl;
         break;
     }
     cout << "Ingrese contrasena:"<< endl;
-    cin >> contra;
+    cin.getline(contra,30);
     loginExitoso = arch.validarLogin(email,contra,usrLog);
     //cout << loginExitoso;
     if(loginExitoso == true){

@@ -84,9 +84,101 @@ void archivoUsuario::listarActivos(){
     }
     for(int i=0;i<totalUsuario;i++){
         fread(&usr,sizeof(Usuario),1,f);
-        cout <<"Email:"<<usr.getEmail();
-        cout << "Clave:"<<usr.getClave();
-
+        if(usr.getActivo()==true){
+            cout <<"Email:"<<usr.getEmail()<<endl;
+            cout << "Clave:"<<usr.getClave()<<endl;
+        }
     }
+    fclose(f);
+}
+
+void archivoUsuario::bajaLogica(int idUsuario){
+    Usuario usr;
+    FILE *f = fopen(_archivo.c_str(),"rb+");
+    if(f==NULL){
+        cout << "Error al abrir el archivo, el sistema se cerrara."<<endl;
+        exit(1);
+    }
+    fseek(f,(idUsuario - 1)* sizeof(Usuario),SEEK_SET); // SEEK_SET --> Comienzo del archivo
+    fread(&usr,sizeof(Usuario),1,f); //Para leer el registro en la posicion que nos colocamos
+    usr.setActivo(false);
+    fseek(f,(idUsuario - 1) * sizeof(Usuario),SEEK_SET); //el fread nos movio el puntero hacia adelante por eso estos pasos devuelta.
+    fwrite(&usr,sizeof(Usuario),1,f);
+    fclose(f);
+    cout << "El usuario en la posicion:"<< idUsuario << " Se dio de baja exitosamente." << endl;
+}
+
+Usuario archivoUsuario::leerUsuario(int idUsr){
+    Usuario usr;
+    FILE *f;
+    f=fopen(_archivo.c_str(),"rb+");
+    if(f==NULL)
+    {
+        cout<<"ERROR DE ARCHIVO EN LEER CLIENTE"<<endl;
+        exit(1);
+    }
+    fseek(f, idUsr * sizeof(Usuario),0);
+    fread(&usr, sizeof(Usuario), 1,f);
+    fclose(f);
+    return usr;
+    }
+
+void archivoUsuario::listarTodos(){
+    Usuario usr;
+    int i=0;
+    int totalUsuarios = contarTotalUsuarios();
+    for(i=0;i<totalUsuarios;i++){
+        Usuario usr = leerUsuario(i);
+        cout <<"IdUsuario:"<<usr.getIDUsuario()<<endl;
+        cout <<"Email:"<<usr.getEmail()<<endl;
+        cout <<"Nombre:"<<usr.getNombre()<<endl;
+        cout <<"Apellido:"<<usr.getApellido()<<endl;
+        cout <<"Rol:"<<usr.getRol()<<endl;
+        cout <<"Activo:"<<usr.getActivo()<<endl;
+    }
+
+}
+void archivoUsuario::altaLogica(int idUsuario){
+    Usuario usr;
+    FILE *f = fopen(_archivo.c_str(),"rb+");
+    if(f==NULL){
+        cout << "Error al abrir el archivo, el sistema se cerrara."<<endl;
+        exit(1);
+    }
+    fseek(f,(idUsuario - 1)* sizeof(Usuario),SEEK_SET); // SEEK_SET --> Comienzo del archivo
+    fread(&usr,sizeof(Usuario),1,f); //Para leer el registro en la posicion que nos colocamos
+    usr.setActivo(true);
+    fseek(f,(idUsuario - 1) * sizeof(Usuario),SEEK_SET); //el fread nos movio el puntero hacia adelante por eso estos pasos devuelta.
+    fwrite(&usr,sizeof(Usuario),1,f);
+    fclose(f);
+    cout << "El usuario en la posicion:"<< idUsuario << " Se dio de alta exitosamente." << endl;
+}
+void archivoUsuario::listarPorRol(int idRol){
+    int i=0;
+    Usuario usr;
+    int totalUsuarios = contarTotalUsuarios();
+    for(i=0;i<totalUsuarios;i++){
+        Usuario usr = leerUsuario(i);
+        if(usr.getRol()==idRol){
+            cout <<"IdUsuario:"<<usr.getIDUsuario()<<endl;
+            cout <<"Email:"<<usr.getEmail()<<endl;
+            cout <<"Nombre:"<<usr.getNombre()<<endl;
+            cout <<"Apellido:"<<usr.getApellido()<<endl;
+            cout <<"Rol:"<<usr.getRol()<<endl;
+            cout <<"Activo:"<<usr.getActivo()<<endl;
+        }
+    }
+}
+int archivoUsuario::contarActivos(){
+ Usuario usr;
+    int i,cont=0;
+    int totalUsuarios = contarTotalUsuarios();
+    for(i=0;i<totalUsuarios;i++){
+        Usuario usr = leerUsuario(i);
+        if(usr.getActivo()==true){
+            cont++;
+        }
+    }
+    return cont;
 }
 

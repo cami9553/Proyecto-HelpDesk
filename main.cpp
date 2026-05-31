@@ -12,7 +12,7 @@ if(arch.contarTotalUsuarios() > 0){
 }
 Usuario admin;
 
-admin.setEmail("admin");
+admin.setEmail("admin@mail.com");
 admin.setClave("1234");
 admin.setNombre("Admin");
 admin.setApellido("Ad");
@@ -22,12 +22,21 @@ admin.setActivo(true);
 arch.registrar(admin);
 
 cout <<"[Sistema]: Se ha creado el usuario administrador Inicial."<< endl;
-cout << "--> Email:admin | Clave :1234" << endl;
+cout << "--> Email:admin@mail.com| Clave :1234" << endl;
     }
 
 
 int main()
 {
+    archivoUsuario arc;
     crearAdminAviso();
+    //system("cls");
+    //arc.listarActivos();
+    //arc.bajaLogica(1);
+    //arc.altaLogica(1);
+    //arc.listarTodos();
+    //arc.listarPorRol(2);
+    //cout << arc.contarActivos();
+    //system("pause");
     ingresoUsuarios();
 }

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1779946195 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\main.cpp
+1780214134 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
@@ -13,17 +13,17 @@
 
 1779762989 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\usuarios.h
 
-1779942712 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.cpp
+1780214143 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	<cstring>
 
-1779942864 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.h
+1780214353 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.h
 	"usuarios.h"
 
 1779945275 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\menus.h
 
-1779945479 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\menus.cpp
+1780110129 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\menus.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"

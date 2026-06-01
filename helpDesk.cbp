@@ -34,9 +34,15 @@
 		</Compiler>
 		<Unit filename="ArchivoUsuarios.cpp" />
 		<Unit filename="ArchivoUsuarios.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="Menus.cpp" />
 		<Unit filename="Menus.h" />
+		<Unit filename="TicketArchivo.cpp" />
+		<Unit filename="TicketArchivo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="ticket.cpp" />
+		<Unit filename="ticket.h" />
 		<Unit filename="usuarios.cpp" />
 		<Unit filename="usuarios.h" />
 		<Extensions />

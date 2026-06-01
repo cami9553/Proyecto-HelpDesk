@@ -4,6 +4,8 @@ using namespace std;
 #include "usuarios.h"
 #include <cstring>
 #include "Menus.h"
+#include "ticket.h"
+#include "TicketArchivo.h"
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -47,12 +49,12 @@ void ingresoUsuarios(){
             //menuAdmin();
             break;
         case 2:
-            cout << "Bienvenido al menu Admin"<< endl;
+            cout << "Bienvenido al menu Soporte"<< endl;
             //menuSoporte();
             break;
         case 3:
-            cout << "Bienvenido al menu Admin"<< endl;
-            //menuCliente();
+            cout << "Bienvenido al menu Cliente"<< endl;
+            MostrarMenuCliente(usrLog);
             break;
         }
         //break; para que no me muestre nuevamente el iniciar sesion.
@@ -63,5 +65,83 @@ void ingresoUsuarios(){
         muereXLogin(cont); //Si ingresa 3 veces mal usuario contra se cierra el programa.
         }
    }while(true);
+
+}
+
+void MostrarMenuCliente(Usuario &user1){
+
+
+Ticket t1;
+TickeArchivo Archivo;
+int Opcion;
+int Cantidad;
+
+do{
+
+
+cout<<"         Menu Cliente         "<<endl;
+cout<<"------------------------------"<<endl;
+cout<<" 1) Crear Ticket              "<<endl;
+cout<<" 2) Ver mis tickets           "<<endl;
+cout<<" 3) Ver Respuesta de un ticket"<<endl;
+cout<<" 4) Mis datos                 "<<endl;
+cout<<"------------------------------"<<endl;
+cout<<" 0) Cerrar sesion             "<<endl<<endl;
+
+cout<<"Opcion: ";
+cin>>Opcion;
+
+
+
+switch(Opcion){
+
+case 1:
+
+    t1.CreatTicket();
+    if(Archivo.GuardarTicket(t1)){
+        cout<<"Tiket guardado correctamente"<<endl;
+    }else{
+    cout<<"Error al guardar ticket"<<endl;
+    }
+
+
+    break;
+
+
+case 2:
+
+  Cantidad = Archivo.CantidadTickets();
+
+  for(int i=0; i<Cantidad;i++){
+    t1=Archivo.LeerTicket(i);
+    t1.MostrarTicket();
+
+  }
+
+    break;
+
+case 4:
+
+    user1.mostrar();
+    break;
+
+
+case 0:
+
+    break;
+
+
+
+
+
+system ("pause");
+system ("cls");
+
+}
+
+
+
+
+}while(Opcion!=0);
 
 }

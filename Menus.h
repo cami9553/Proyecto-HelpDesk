@@ -5,6 +5,6 @@
 void ingresoUsuarios();
 void menuAdmin();
 void menuSoporte();
-void menuCliente();
+void MostrarMenuCliente(Usuario &user1);
 
 #endif // MENUS_H_INCLUDED

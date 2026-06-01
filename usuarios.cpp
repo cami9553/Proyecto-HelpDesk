@@ -60,4 +60,17 @@ void Usuario::setIdRol(int rol){
 void Usuario::setActivo(bool act){
     _activo = act;
 }
+void Usuario::mostrar(){
 
+    cout << "================================="<< endl;
+    cout << "            Mis Datos            "<< endl;
+    cout << "================================="<< endl;
+    cout << " ID Usuario: " << getIDUsuario() << endl;
+    cout << " Nombre:     " << getNombre() << endl;
+    cout << " Apellido:   " << getApellido() << endl;
+    cout << " Email:      " << getEmail() << endl;
+    cout << "================================="<< endl;
+
+    system("pause");
+
+    }

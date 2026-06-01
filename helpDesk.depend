@@ -1,32 +1,60 @@
 # depslib dependency file v1.0
-1780214134 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\main.cpp
+1780325211 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
 	<cstring>
 	"Menus.h"
 
-1779942713 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\usuarios.cpp
+1780350827 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\usuarios.cpp
 	<iostream>
 	"usuarios.h"
 	<cstring>
 
-1779762989 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\usuarios.h
+1780350518 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\usuarios.h
 
-1780214143 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.cpp
+1780325211 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	<cstring>
 
-1780214353 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.h
+1780325211 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\archivousuarios.h
 	"usuarios.h"
 
-1779945275 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\menus.h
+1780350740 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\menus.h
 
-1780110129 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\menus.cpp
+1780351331 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\menus.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
 	<cstring>
 	"Menus.h"
+	"ticket.h"
+	"TicketArchivo.h"
+
+1780337141 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\fecha.cpp
+	<iostream>
+	<ctime>
+	"Fecha.h"
+
+1780337141 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\fecha.h
+
+1780337702 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\ticketarchivo.cpp
+	<iostream>
+	"TicketArchivo.h"
+	"ticket.h"
+
+1780337339 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\ticketarchivo.h
+	"Ticket.h"
+
+1780337339 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\ticket.h
+	"fecha.h"
+
+1780337718 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdesk\ticket.cpp
+	<iostream>
+	"Ticket.h"
+	"TicketArchivo.h"
+	<cstring>
+	<ctime>
+	"fecha.h"
 

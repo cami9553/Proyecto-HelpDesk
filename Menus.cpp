@@ -6,6 +6,7 @@ using namespace std;
 #include "Menus.h"
 #include "ticket.h"
 #include "TicketArchivo.h"
+#include "GestionUsuarios.h"
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -43,6 +44,7 @@ void ingresoUsuarios(){
     //cout << loginExitoso;
     if(loginExitoso == true){
         rolLogueado = usrLog.getRol();
+
         switch(rolLogueado){
         case 1:
             cout << "Bienvenido al menu Admin"<< endl;
@@ -66,6 +68,112 @@ void ingresoUsuarios(){
         }
    }while(true);
 
+}
+
+
+void MostrarMenuAdmin(Usuario &user1){
+
+    Ticket t1;
+    TickeArchivo Archivo;
+
+    int opcion;
+    int cantidad;
+
+    do{
+        cout << "      MENU ADMINISTRADOR      " << endl;
+        cout << "------------------------------" << endl;
+        cout << " 1- GESTION DE USUARIOS" << endl;
+        cout << " 2- GESTION DE TICKETS" << endl; 
+        cout << " 3- GESTION DE CATEGORIAS" << endl;
+        cout << " 4- GESTION DE AREAS DE SOPORTE" << endl;
+        cout << " 5- GESTION DE ROLES" << endl;
+        cout << " 6- ESTADISTICAS" << endl;
+        cout << " 7- CONFIGURACION " << endl;
+        cout << "------------------------------" << endl;
+        cout << "0- CERRAR SESION" << endl;
+
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        cin.ignore();
+
+        switch(opcion){
+
+            case 1:
+           MenuGestionUsuarios();
+           break;
+
+           case 2:
+           MenuGestionTickets();
+           break;
+
+           case 3:
+           MenuGestionCategorias();
+           break;
+
+           case 4: 
+           MenuGestionAreas();
+           break;
+
+           case 5: 
+           MenuGestionRoles();
+           break;
+
+           case 6:
+           MenuEstadisticas();
+           break;
+
+           case 7:
+           MenuConfiguracion();
+           break;
+
+           case 0:
+           cout << "Sesion cerrada." << endl;
+           break;
+
+           default:
+           cout << "Opcion invalida. " << endl;
+           break;
+        }
+
+        } while(opcion != 0);
+
+}
+ 
+void MenuGestionUsuarios(){
+
+    int opcion;
+
+    do{
+        cout << "GESTION DE USUARIOS" << endl;
+        cout << " 1- Alta" << endl;
+        cout << " 2- Baja" << endl;
+        cout << " 3- Modificacion" << endl;
+        cout << " 4- Listado" << endl;
+        cout << " 0- volver" << endl;
+
+        cin >> opcion;
+
+        switch(opcion){
+
+            case 1:
+            AltaUsuario();
+            break;
+
+            case 2:
+            BajaUsuario();
+            break;
+
+            case 3:
+            ModificacionUsuario();
+            break;
+
+            case 4:
+            listarUsuarios();
+            break;
+        }
+    } while(opcion != 0);
+    
 }
 
 void MostrarMenuCliente(Usuario &user1){

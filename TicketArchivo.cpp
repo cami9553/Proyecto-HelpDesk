@@ -73,6 +73,42 @@ Ticket TickeArchivo:: LeerTicket(int pos){
 }
 
 
+int TickeArchivo::BuscarTicket(int idBuscado){
+    Ticket reg;
+    FILE *p = fopen("tickets.dat", "rb");
 
+    if(p == nullptr){
+        return -1;
+    }
+
+    int pos = 0;
+
+    while(fread(&reg, sizeof(Ticket), 1, p) == 1){
+        if(reg.getIdTicket() == idBuscado){
+            fclose(p);
+            return pos;
+        }
+        pos++;
+    }
+
+    fclose(p);
+    return -1;
+}
+
+bool TickeArchivo::ModificarTicket(Ticket reg, int pos){
+    FILE *p = fopen("tickets.dat", "rb+");
+
+    if(p == nullptr){
+        return false;
+    }
+
+    fseek(p, pos * sizeof(Ticket), SEEK_SET);
+
+    bool escribio = fwrite(&reg, sizeof(Ticket), 1, p);
+
+    fclose(p);
+
+    return escribio;
+}
 
 

@@ -12,6 +12,7 @@ private:
     int idCategoria;
     char asunto[100];
     char descripcion[200];
+    char comentario[200];
     int prioridad;
     int estado;
     Fecha fechaCreacion;
@@ -22,6 +23,7 @@ public:
     bool CreatTicket ();
     void MostrarTicket();
     int NumIdTicket ();
+    void AgregarComentario();
 
 
 };

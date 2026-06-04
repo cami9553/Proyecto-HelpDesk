@@ -51,6 +51,11 @@ cin>>_prioridad;
 prioridad=_prioridad;
 cout<<endl;
 
+/// Inicializar comentario vacío
+comentario[0] = '\0';
+
+
+
 /// id ticket
 
 TickeArchivo archivo;
@@ -84,3 +89,12 @@ cout<<"--------------------------"<<endl;
 
 
  }
+
+
+ void Ticket::AgregarComentario() {
+    char _comentario[200];
+    cout << "Ingrese comentario: ";
+    cin.ignore();
+    cin.getline(_comentario, 200);
+    strcpy(comentario, _comentario);
+}

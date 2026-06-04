@@ -13,6 +13,10 @@ void ListarTickets();
 
 int CantidadTickets();
 
+int BuscarTicket(int idBuscado);
+
+bool ModificarTicket(Ticket reg, int pos);
+
 Ticket LeerTicket(int pos);
 };
 

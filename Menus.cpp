@@ -86,7 +86,7 @@ void MostrarMenuAdmin(Usuario &user1){
         cout << "      MENU ADMINISTRADOR      " << endl;
         cout << "------------------------------" << endl;
         cout << " 1- GESTION DE USUARIOS" << endl;
-        cout << " 2- GESTION DE TICKETS" << endl; 
+        cout << " 2- GESTION DE TICKETS" << endl;
         cout << " 3- GESTION DE CATEGORIAS" << endl;
         cout << " 4- GESTION DE AREAS DE SOPORTE" << endl;
         cout << " 5- GESTION DE ROLES" << endl;
@@ -114,11 +114,11 @@ void MostrarMenuAdmin(Usuario &user1){
            MenuGestionCategorias();
            break;
 
-           case 4: 
+           case 4:
            MenuGestionAreas();
            break;
 
-           case 5: 
+           case 5:
            MenuGestionRoles();
            break;
 
@@ -162,8 +162,7 @@ void MostrarMenuAdmin(Usuario &user1){
   void MenuConfiguracion(){
     cout << "Menu Configuracion" << endl;
 }
- 
-  
+
 void MenuGestionUsuarios(){
 
     int opcion;
@@ -197,7 +196,7 @@ void MenuGestionUsuarios(){
             break;
         }
     } while(opcion != 0);
-    
+
 }
 
 void MostrarMenuCliente(Usuario &user1){
@@ -221,7 +220,7 @@ cout<<"------------------------------"<<endl;
 cout<<" 0) Cerrar sesion             "<<endl<<endl;
 
 cout<<"Opcion: ";
-cin>>Opcion;
+cin >> Opcion;
 
 
 
@@ -327,3 +326,110 @@ void MenuGestionTickets()
     }while(opcion != 0);
 
 }
+
+void menuSoporte(){
+
+
+Ticket t1;
+TickeArchivo Archivo;
+int Opcion;
+int Cantidad;
+    do
+    {
+
+
+        cout << "MENU SOPORTE" << endl<<endl;
+        cout << "------------------------------------" << endl;
+        cout << "1) VER MIS TICKETS ASIGNADOS" << endl;
+        cout << "2) VER TICKETS ABIERTOS" << endl;
+        cout << "3) CAMBIAR ESTADO DE TICKET" << endl;
+        cout << "4) RESPONDER TIKECT" << endl;
+        cout << "------------------------------------" << endl<<endl;
+        cout << "0) CERRAR SESION" << endl<<endl;
+        cout<<"Opcion: ";
+        cin>>Opcion;
+        if (Opcion < 0 || Opcion > 4) {
+        cout << endl<<endl;
+        cout << "!!!Opcion invalida, intente de nuevo.!!!" << endl;
+        cout << endl<<endl;
+        system ("pause");
+        system("cls");
+        } else {
+        system("cls");
+
+    }
+
+
+        switch(Opcion)
+        {
+
+
+
+        case 1:
+
+        /// ver mis tickets asignados
+            break;
+
+        case 2:
+        /// ver tickets abiertos
+
+            break;
+        case 3:
+            /// modificar estado del tickect
+            break;
+
+        case 4:
+            {
+                int idBuscado;
+
+                cout << "Ingrese el ID del ticket: ";
+                cin >> idBuscado;
+
+                int pos = Archivo.BuscarTicket(idBuscado);
+
+                if(pos != -1)
+                {
+                    Ticket reg = Archivo.LeerTicket(pos);
+
+                    reg.AgregarComentario();
+
+                    if(Archivo.ModificarTicket(reg, pos))
+                    {
+                        cout << "Comentario agregado correctamente." << endl;
+                    }
+                    else
+                    {
+                        cout << "Error al guardar el comentario." << endl;
+                    }
+                }
+                else
+                {
+                    cout << "No se encontro el ticket." << endl;
+                }
+
+                system("pause");
+                system("cls");
+            }
+            break;
+
+
+        case 0:
+
+            break;
+
+
+
+
+
+system ("pause");
+system ("cls");
+
+}
+
+
+
+
+}while(Opcion!=0);
+
+}
+

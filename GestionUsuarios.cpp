@@ -11,14 +11,25 @@ void AltaUsuario(){
     Usuario reg;
     archivoUsuario arch;
 
-    reg.Cargar();
+    reg.cargar();
 
-    if(arch.Guardar(reg)){
-        cout << "Guadado correctamente" << endl;
-    }
+    if(arch.registrar(reg)){
+      cout << "Usuario guardado correctamente" << endl;
+ }
 
     else{
         cout << "Error al guardar el usuario" << endl;
     }
+
+}
+void BajaUsuario(){
+
+}
+
+void ModificacionUsuario(){
+
+}
+
+void listarUsuarios(){
 
 }

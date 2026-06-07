@@ -3,7 +3,7 @@
 #include "TicketArchivo.h"
 #include <cstring>
 #include <ctime>
-#include "fecha.h"
+#include "Fecha.h"
 
 using namespace std;
 
@@ -82,5 +82,10 @@ fechaCreacion.MostrarFecha();
 cout<<endl;
 cout<<"--------------------------"<<endl;
 
+
+ }
+
+ int Ticket::getIdTicket(){
+    return idTicket;
 
  }

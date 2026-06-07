@@ -4,7 +4,7 @@
 
 class archivoUsuario {
 public:
-    void registrar(Usuario &reg); //Desarrollada ok
+    bool registrar(Usuario &reg); //Desarrollada ok
     void bajaLogica(int idUsuario); //Desarrollada ok
     void altaLogica(int idUsuario); //Desarrollada ok
     void modificar(Usuario &reg); //

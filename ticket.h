@@ -23,6 +23,8 @@ public:
     void MostrarTicket();
     int NumIdTicket ();
 
+    int getIdTicket();
+
 
 };
 

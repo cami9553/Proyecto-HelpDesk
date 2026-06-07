@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe compilar archivo activo",
+            "command": "C:\\MinGW\\bin\\g++.exe",
+            "args": [
+    "-fdiagnostics-color=always",
+    "-g",
+    "main.cpp",
+    "Menus.cpp",
+    "GestionUsuarios.cpp",
+    "GestionTickets.cpp",
+    "usuarios.cpp",
+    "ArchivoUsuarios.cpp",
+    "ticket.cpp",
+    "TicketArchivo.cpp",
+    "Fecha.cpp",
+    "-o",
+    "programa.exe"
+],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarea generada por el depurador."
+        }
+    ],
+    "version": "2.0.0"
+}

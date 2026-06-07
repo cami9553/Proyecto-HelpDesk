@@ -7,6 +7,7 @@ using namespace std;
 #include "ticket.h"
 #include "TicketArchivo.h"
 #include "GestionUsuarios.h"
+#include "GestionTickets.h"
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -48,11 +49,11 @@ void ingresoUsuarios(){
         switch(rolLogueado){
         case 1:
             cout << "Bienvenido al menu Admin"<< endl;
-            //menuAdmin();
+            MostrarMenuAdmin(usrLog);
             break;
         case 2:
             cout << "Bienvenido al menu Soporte"<< endl;
-            //menuSoporte();
+            MostrarMenuSoporte(usrLog);
             break;
         case 3:
             cout << "Bienvenido al menu Cliente"<< endl;
@@ -69,7 +70,9 @@ void ingresoUsuarios(){
    }while(true);
 
 }
-
+void MostrarMenuSoporte(Usuario &user1){
+    cout << "Menu Soporte" << endl;
+}
 
 void MostrarMenuAdmin(Usuario &user1){
 
@@ -128,7 +131,7 @@ void MostrarMenuAdmin(Usuario &user1){
            break;
 
            case 0:
-           cout << "Sesion cerrada." << endl;
+           cout << "Sesion cerrada." << endl; 
            break;
 
            default:
@@ -138,8 +141,29 @@ void MostrarMenuAdmin(Usuario &user1){
 
         } while(opcion != 0);
 
+}   
+
+    void MenuGestionCategorias(){
+    cout << "Menu Gestion Categorias" << endl;
+}
+
+   void MenuGestionAreas(){
+    cout << "Menu Gestion Areas" << endl;
+}
+   
+   void MenuGestionRoles(){
+    cout << "Menu Gestion Roles" << endl;
+}
+
+  void MenuEstadisticas(){
+    cout << "Menu Estadisticas" << endl;
+}
+   
+  void MenuConfiguracion(){
+    cout << "Menu Configuracion" << endl;
 }
  
+  
 void MenuGestionUsuarios(){
 
     int opcion;
@@ -251,5 +275,55 @@ system ("cls");
 
 
 }while(Opcion!=0);
+
+}
+
+void MenuGestionTickets()
+{
+
+    int opcion;
+
+    do{
+        cout << " GESTION DE TICKETS" << endl;
+        cout << "------------------------------" << endl;
+        cout << " 1- Visualizar todos los tickets" << endl;
+        cout << " 2- Reasignar tickets" << endl;
+        cout << " 3- Modificar prioridad" << endl;
+        cout << " 4- Modificar estado" << endl;
+        cout << " 0- volver" << endl;
+        
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch(opcion){
+
+            case 1:
+            VisualizarTickets();
+            break;
+
+            case 2: 
+            ReasignarTicket();
+            break;
+
+            case 3:
+            ModificarPrioridad();
+            break;
+
+            case 4:
+            ModificarEstado();
+            break;
+
+            case 0: 
+            break;
+
+            default:
+            cout << "Opcion invalida." << endl;
+            break;
+
+        }
+        system ("pause");
+        system ("cls");
+
+    }while(opcion != 0);
 
 }

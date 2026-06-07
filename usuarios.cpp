@@ -74,3 +74,30 @@ void Usuario::mostrar(){
     system("pause");
 
     }
+
+    void Usuario::cargar(){
+        string email, nombre, apellido, clave;
+        int rol;
+
+        cout << "Email: ";
+        cin >> email;
+
+        cout << "Nombre: ";
+        cin >> nombre;
+
+        cout << "Apellido: ";
+        cin >> apellido;
+
+        cout << "Clave: ";
+        cin >> clave;
+
+        cout << "Rol: ";
+        cin >> rol;
+
+        setEmail(email);
+        setNombre(nombre);
+        setApellido(apellido);
+        setClave(clave);
+        setIdRol(rol);
+
+    }

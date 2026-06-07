@@ -10,7 +10,7 @@ archivoUsuario::archivoUsuario(std::string archivo){
 }
 
 
-archivoUsuario::contarTotalUsuarios(){
+int archivoUsuario::contarTotalUsuarios(){
  int cant_registros;
  FILE *p = fopen(_archivo.c_str(),"rb");
  if(p == NULL){
@@ -24,7 +24,7 @@ archivoUsuario::contarTotalUsuarios(){
  cant_registros = bytes / sizeof(Usuario);
  return cant_registros;
 }
-archivoUsuario::obtenerSiguienteID(){
+int archivoUsuario::obtenerSiguienteID(){
     int siguienteID;
     FILE *f = fopen(_archivo.c_str(),"rb");
     if(f==NULL){
@@ -39,7 +39,7 @@ archivoUsuario::obtenerSiguienteID(){
     return siguienteID;
     }
 
-void archivoUsuario::registrar(Usuario &reg){
+bool archivoUsuario::registrar(Usuario &reg){
     FILE *f = fopen(_archivo.c_str(),"ab");
     if(f == NULL){
         cout << "error al insertar usuario, el sistema se cerrara."<<endl;
@@ -51,6 +51,8 @@ void archivoUsuario::registrar(Usuario &reg){
 
     fwrite(&reg,sizeof(Usuario),1,f);
     fclose(f);
+
+    return true;
     }
 
 bool archivoUsuario::validarLogin(const char *usuario, const char *clave, Usuario &reg){

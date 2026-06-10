@@ -7,9 +7,9 @@ public:
     bool registrar(Usuario &reg); //Desarrollada ok
     void bajaLogica(int idUsuario); //Desarrollada ok
     void altaLogica(int idUsuario); //Desarrollada ok
-    void modificar(Usuario &reg); //
-    Usuario buscarPorId(int idUsuario);
-    Usuario buscarPorEmail(const char* usuario);
+    void modificar(Usuario &reg); //Desarrollada ok
+    //Usuario buscarPorId(int idUsuario); Por el momento no se utiliza, reemplazada por leerUsuario
+    Usuario buscarPorEmail(const char* usuario); //Desarrollada ok
     bool validarLogin(const char* usuario, const char* clave,Usuario &reg); // Desarrollada OK
     Usuario leerUsuario(int idUsuario); //Desarrollada ok
     void listarPorRol(int idRol); //Desarrollada ok

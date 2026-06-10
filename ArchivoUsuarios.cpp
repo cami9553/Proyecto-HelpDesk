@@ -183,4 +183,42 @@ int archivoUsuario::contarActivos(){
     }
     return cont;
 }
+Usuario archivoUsuario::buscarPorEmail(const char *usuario){
+    int i=0;
+    Usuario usr;
+    int totalUsuarios = contarTotalUsuarios();
+    for(i=0;i<totalUsuarios;i++){
+        Usuario usrAct = leerUsuario(i);
+        if(strcmp(usrAct.getEmail(),usuario)==0 && usrAct.getActivo()==1){
+            cout <<"IdUsuario:"<<usrAct.getIDUsuario()<<endl;
+            cout <<"Email:"<<usrAct.getEmail()<<endl;
+            cout <<"Nombre:"<<usrAct.getNombre()<<endl;
+            cout <<"Apellido:"<<usrAct.getApellido()<<endl;
+            cout <<"Rol:"<<usrAct.getRol()<<endl;
+            cout <<"Activo:"<<usrAct.getActivo()<<endl;
 
+            return usrAct;
+                }
+            }
+    Usuario usrVacio;
+    usrVacio.setIDUsuario(-1);
+    return usrVacio;
+}
+bool archivoUsuario::modificar(Usuario &reg){
+    int pos = reg.getIDUsuario() - 1;
+
+    FILE *f ;
+    f=fopen(_archivo.c_str(),"rb+");
+    if(f==NULL)
+    {
+        cout<<"ERROR DE ARCHIVO EN LEER CLIENTE"<<endl;
+        exit(1);
+    }
+
+    fseek(f, pos * sizeof(Usuario),SEEK_SET);
+
+    bool guardado = (fwrite(&reg,sizeof(Usuario),1,f)== 1);
+
+    fclose(f);
+    return guardado;
+}

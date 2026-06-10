@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <string>
 #include "ArchivoUsuarios.h"
 #include "usuarios.h"
 #include <cstring>
@@ -8,6 +9,7 @@ using namespace std;
 #include "TicketArchivo.h"
 #include "GestionUsuarios.h"
 #include "GestionTickets.h"
+#include "GestionCategorias.h"
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -144,7 +146,46 @@ void MostrarMenuAdmin(Usuario &user1){
 }   
 
     void MenuGestionCategorias(){
-    cout << "Menu Gestion Categorias" << endl;
+        int opcion;
+
+    do{
+        cout << "\n ====== GESTION DE CATEGORIAS ======" << endl;
+        cout << "1 - Alta Categoria" << endl;
+        cout << "2 - Baja Categoria" << endl;
+        cout << "3 - Modificar Categoria" << endl;
+        cout << "4 - Listar categorias" << endl;
+        cout << "0 - Volver" << endl;
+
+        cin >> opcion;
+
+        switch(opcion){
+
+            case 1: 
+            cout << "Alta Categoria" << endl;
+            break;
+
+            case 2:
+            cout << "Baja Categoria" << endl;
+            break;
+
+            case 3:
+            cout << "Modificar Categoria" << endl;
+            break;
+
+            case 4: 
+            cout << "Listar Categorias" << endl;
+            break;
+
+            case 0:
+            cout << "Volver al menu anterior" << endl;
+            break;
+
+            default:
+            cout << "Opcion invalida." << endl;
+            break;
+
+        }
+    }while(opcion != 0);
 }
 
    void MenuGestionAreas(){
@@ -204,7 +245,7 @@ void MostrarMenuCliente(Usuario &user1){
 
 Ticket t1;
 TickeArchivo Archivo;
-int Opcion;
+int opcion;
 int Cantidad;
 
 do{
@@ -220,11 +261,11 @@ cout<<"------------------------------"<<endl;
 cout<<" 0) Cerrar sesion             "<<endl<<endl;
 
 cout<<"Opcion: ";
-cin >> Opcion;
+cin >> opcion;
 
 
 
-switch(Opcion){
+switch(opcion){
 
 case 1:
 
@@ -273,7 +314,7 @@ system ("cls");
 
 
 
-}while(Opcion!=0);
+}while(opcion!=0);
 
 }
 
@@ -332,7 +373,7 @@ void menuSoporte(){
 
 Ticket t1;
 TickeArchivo Archivo;
-int Opcion;
+int opcion;
 int Cantidad;
     do
     {
@@ -347,8 +388,10 @@ int Cantidad;
         cout << "------------------------------------" << endl<<endl;
         cout << "0) CERRAR SESION" << endl<<endl;
         cout<<"Opcion: ";
-        cin>>Opcion;
-        if (Opcion < 0 || Opcion > 4) {
+
+        cin >> opcion;
+
+        if (opcion < 0 || opcion > 4) {
         cout << endl<<endl;
         cout << "!!!Opcion invalida, intente de nuevo.!!!" << endl;
         cout << endl<<endl;
@@ -360,7 +403,7 @@ int Cantidad;
     }
 
 
-        switch(Opcion)
+        switch(opcion)
         {
 
 
@@ -429,7 +472,7 @@ system ("cls");
 
 
 
-}while(Opcion!=0);
+}while(opcion!=0);
 
 }
 

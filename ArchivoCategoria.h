@@ -12,10 +12,9 @@ public:
   bool registrar(Categoria &reg);
 
   Categoria leerCategoria(int pos);
-
   void listarTodas();
-
-  void bajaLogica(int idCategoria);
+  
+  void bajaLogica(int idCategora);
 
   int contarTotalCategorias();
 

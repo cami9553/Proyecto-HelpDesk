@@ -130,7 +130,7 @@ void archivoUsuario::listarTodos(){
     int i=0;
     int totalUsuarios = contarTotalUsuarios();
     for(i=0;i<totalUsuarios;i++){
-        Usuario usr = leerUsuario(i);
+         usr = leerUsuario(i);
         cout <<"IdUsuario:"<<usr.getIDUsuario()<<endl;
         cout <<"Email:"<<usr.getEmail()<<endl;
         cout <<"Nombre:"<<usr.getNombre()<<endl;
@@ -160,7 +160,7 @@ void archivoUsuario::listarPorRol(int idRol){
     Usuario usr;
     int totalUsuarios = contarTotalUsuarios();
     for(i=0;i<totalUsuarios;i++){
-        Usuario usr = leerUsuario(i);
+         usr = leerUsuario(i);
         if(usr.getRol()==idRol){
             cout <<"IdUsuario:"<<usr.getIDUsuario()<<endl;
             cout <<"Email:"<<usr.getEmail()<<endl;

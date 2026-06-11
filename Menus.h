@@ -6,7 +6,7 @@ void ingresoUsuarios();
 
 void MostrarMenuAdmin(Usuario &user1);
 void MostrarMenuCliente(Usuario &user1);
-void MostrarMenuSoporte(Usuario &user1);
+//void MostrarMenuSoporte(Usuario &user1);
 
 
 void MenuGestionUsuarios();

@@ -221,19 +221,19 @@ void MenuGestionUsuarios(){
         switch(opcion){
 
             case 1:
-            //AltaUsuario();
+            AltaUsuario();
             break;
 
             case 2:
-            //BajaUsuario();
+            BajaUsuario();
             break;
 
             case 3:
-            //ModificacionUsuario();
+            ModificacionUsuario();
             break;
 
             case 4:
-            //listarUsuarios();
+            listarUsuarios();
             break;
         }
     } while(opcion != 0);

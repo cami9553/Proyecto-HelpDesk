@@ -7,7 +7,7 @@
 using namespace std;
 
 void AltaUsuario(){
-
+ 
     Usuario reg;
     archivoUsuario arch;
 
@@ -23,8 +23,31 @@ void AltaUsuario(){
 
 }
 void BajaUsuario(){
+ archivoUsuario arch;
+ int id;
+ int cantidad;
+ cout << "--------------------------------------------" << endl;
+ cout << "Ingrese el ID del usuario a dar de baja: " << endl;
+ cin >> id;
+
+ cantidad = arch.contarTotalUsuarios();
+
+ arch.contarTotalUsuarios();
+
+  if( id >= 1 && id <= cantidad){
+
+     arch.bajaLogica(id);
+     cout << "-------------------------------------------" << endl;
+     cout << "Usuario dado de baja correctamente." << endl;
+  }
+  
+  else {
+    cout << "Error. ID no encontrado." << endl;
+
+  }
 
 }
+
 
 void ModificacionUsuario(){
 

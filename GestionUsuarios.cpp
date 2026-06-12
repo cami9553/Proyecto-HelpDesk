@@ -50,9 +50,38 @@ void BajaUsuario(){
 
 
 void ModificacionUsuario(){
+ Usuario reg; 
+ archivoUsuario arch;
+ int id;
 
+  cout << "Ingrese el ID del usuario a modificar: ";
+  cin >> id;
+
+  int cantidad = arch.contarTotalUsuarios();
+  
+  if( id < 1 || id > cantidad){
+    cout << "ID no valido." << endl; 
+  } 
+  else {
+    reg = arch.leerUsuario(id);
+    reg.mostrar();
+    reg.cargar(); 
+
+     if(arch.modificar(reg)){
+       cout << "Usuario modificado correctamente." << endl;
+    }
+    else{
+        cout << "Error al modificar usuario. " << endl;
+    }
+    system("pause");
+   }
 }
 
 void listarUsuarios(){
+
+    archivoUsuario arch;
+    arch.listarTodos();
+    
+    system("pause");
 
 }

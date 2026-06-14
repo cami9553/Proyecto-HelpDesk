@@ -10,6 +10,7 @@ using namespace std;
 #include "GestionUsuarios.h"
 #include "GestionTickets.h"
 #include "GestionCategorias.h"
+#include "GestionEstadisticas.h"
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -238,6 +239,34 @@ void MenuGestionUsuarios(){
         }
     } while(opcion != 0);
 
+}
+void MenuGestionEstadistica(){
+
+int opcion;
+
+do { 
+    cout << "-------------------" << endl;
+    cout << "ESTADISTICAS" << endl;
+    cout << "-------------------" << endl;
+    cout << "1- Resumen General " << endl; 
+    cout << "0- Volver" << endl; 
+    cin >> opcion;
+
+
+    switch (opcion)
+    {
+    case 1:
+        ResumenGeneral();
+        break;
+
+    case 0: 
+      break; 
+    
+    default: 
+    cout << "Opcion invalida." << endl;
+        break;
+    }
+}while(opcion !=0);
 }
 
 void MostrarMenuCliente(Usuario &user1){

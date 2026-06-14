@@ -13,7 +13,6 @@ void MenuGestionUsuarios();
 void MenuGestionTickets();
 void MenuGestionCategorias();
 void MenuGestionAreas();
-void MenuGestionAreas();
 void MenuGestionRoles();
 void MenuEstadisticas();
 void MenuConfiguracion();

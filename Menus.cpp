@@ -12,8 +12,8 @@ using namespace std;
 #include "GestionCategorias.h"
 #include "GestionEstadisticas.h"
 #include "Menus.h"
-
-
+#include "ArchivoAreaSoporte.h"
+#include "AreaSoporte.h"
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -124,7 +124,7 @@ void MostrarMenuAdmin(Usuario &user1){
            break;
 
            case 4:
-           MenuGestionAreas();
+           MenuGestionAreasSoporte();
            break;
 
            case 5:
@@ -167,7 +167,7 @@ void MostrarMenuAdmin(Usuario &user1){
 
         switch(opcion){
 
-            case 1: 
+            case 1:
             cout << "Alta Categoria" << endl;
             break;
 
@@ -179,7 +179,7 @@ void MostrarMenuAdmin(Usuario &user1){
             cout << "Modificar Categoria" << endl;
             break;
 
-            case 4: 
+            case 4:
             cout << "Listar Categorias" << endl;
             break;
 
@@ -195,7 +195,7 @@ void MostrarMenuAdmin(Usuario &user1){
     }while(opcion != 0);
 }
 
-   void MenuGestionAreasSoporte(){
+void MenuGestionAreasSoporte(){
     int opcion;
     char nameAr[30];
     char descAr[30];
@@ -299,12 +299,12 @@ void MenuGestionEstadisticas(){
 
 int opcion;
 
-do { 
+do {
     cout << "-------------------" << endl;
     cout << "ESTADISTICAS" << endl;
     cout << "-------------------" << endl;
-    cout << "1- Resumen General " << endl; 
-    cout << "0- Volver" << endl; 
+    cout << "1- Resumen General " << endl;
+    cout << "0- Volver" << endl;
     cin >> opcion;
 
 
@@ -314,10 +314,10 @@ do {
         ResumenGeneral();
         break;
 
-    case 0: 
-      break; 
-    
-    default: 
+    case 0:
+      break;
+
+    default:
     cout << "Opcion invalida." << endl;
         break;
     }
@@ -825,4 +825,4 @@ void menuModificarAreaSoporte(){
         }
     }while(opcion != 0);
 
-    }    
+    }

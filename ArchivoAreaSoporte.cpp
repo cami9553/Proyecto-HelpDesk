@@ -70,7 +70,7 @@ void archivoAreaSoporte::altaLogica(int idArea){
     fseek(f,(idArea - 1)* sizeof(areaSoporte),SEEK_SET);
     fwrite(&are,sizeof(areaSoporte),1,f);
     fclose(f);
-    cout << "El area en la posicion "<< idArea << "Se dio de baja exitosamente. ";
+    cout << "El area en la posicion "<< idArea << "Se dio de Alta exitosamente. ";
 }
 
 bool archivoAreaSoporte::creaAreaSoporte(areaSoporte &AR){

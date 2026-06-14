@@ -123,3 +123,107 @@
 
 1780964554 c:\users\ysyary\documents\github\proyecto-helpdesk\gestiontickets.h
 
+1780351458 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\fecha.cpp
+	<iostream>
+	<ctime>
+	"Fecha.h"
+
+1780351458 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\fecha.h
+
+1781047870 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\main.cpp
+	<iostream>
+	"ArchivoUsuarios.h"
+	"usuarios.h"
+	<cstring>
+	"Menus.h"
+
+1781143751 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\archivousuarios.h
+	"usuarios.h"
+
+1780351458 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\usuarios.h
+
+1781421833 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\menus.h
+	"usuarios.h"
+
+1780964554 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\ticket.cpp
+	<iostream>
+	"Ticket.h"
+	"TicketArchivo.h"
+	<cstring>
+	<ctime>
+	"Fecha.h"
+
+1780964554 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\ticket.h
+	"fecha.h"
+
+1780544795 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\ticketarchivo.h
+	"Ticket.h"
+
+1780544795 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\ticketarchivo.cpp
+	<iostream>
+	"TicketArchivo.h"
+	"ticket.h"
+
+1780964554 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\usuarios.cpp
+	<iostream>
+	"usuarios.h"
+	<cstring>
+
+1781146797 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\archivousuarios.cpp
+	<iostream>
+	"ArchivoUsuarios.h"
+	<cstring>
+
+1781420656 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\archivoareasoporte.cpp
+	<iostream>
+	<cstring>
+	"ArchivoAreaSoporte.h"
+
+1781415894 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\archivoareasoporte.h
+	"AreaSoporte.h"
+	<cstring>
+
+1781330229 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\areasoporte.h
+
+1781330063 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\areasoporte.cpp
+	<iostream>
+	"AreaSoporte.h"
+	<cstring>
+
+1781421857 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\menus.cpp
+	<iostream>
+	<string>
+	"ArchivoUsuarios.h"
+	"usuarios.h"
+	<cstring>
+	"Menus.h"
+	"ticket.h"
+	"TicketArchivo.h"
+	"GestionUsuarios.h"
+	"GestionTickets.h"
+	"GestionCategorias.h"
+	"GestionEstadisticas.h"
+	"Menus.h"
+	"ArchivoAreaSoporte.h"
+	"AreaSoporte.h"
+
+1780964554 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\gestionusuarios.h
+
+1780964554 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\gestiontickets.h
+
+1781143751 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\gestioncategorias.h
+
+1781420771 c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\gestionestadisticas.h
+
+1781420771 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\gestionusuarios.cpp
+	<iostream>
+	"GestionUsuarios.h"
+	"ArchivoUsuarios.h"
+	"usuarios.h"
+
+1781420771 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\gestionestadisticas.cpp
+	<iostream>
+	"GestionEstadisticas.h"
+	"TicketArchivo.h"
+	"ArchivoUsuarios.h"
+

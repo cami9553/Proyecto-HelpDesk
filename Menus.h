@@ -1,6 +1,6 @@
 #ifndef MENUS_H_INCLUDED
 #define MENUS_H_INCLUDED
-#include "usuarios.h" 
+#include "usuarios.h"
 
 void muereXLogin(int cont);
 void ingresoUsuarios();
@@ -14,6 +14,7 @@ void MenuGestionUsuarios();
 void MenuGestionTickets();
 void MenuGestionCategorias();
 void MenuGestionAreasSoporte();
+void menuModificarAreaSoporte();
 void MenuGestionRoles();
 void MenuGestionEstadisticas();
 void MenuConfiguracion();

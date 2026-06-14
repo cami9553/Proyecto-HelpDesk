@@ -11,6 +11,7 @@
     "Menus.cpp",
     "GestionUsuarios.cpp",
     "GestionTickets.cpp",
+    "GestionEstadisticas.cpp",
     "usuarios.cpp",
     "ArchivoUsuarios.cpp",
     "ticket.cpp",

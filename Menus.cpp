@@ -11,6 +11,9 @@ using namespace std;
 #include "GestionTickets.h"
 #include "GestionCategorias.h"
 #include "GestionEstadisticas.h"
+#include "Menus.h"
+
+
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -18,6 +21,9 @@ void muereXLogin(int cont){
        exit(1);
         }
 }
+void MostrarMenuAdmin(Usuario &user1);
+void MostrarMenuSoporte(Usuario &user1);
+void MostrarMenuCliente(Usuario &user1);
 
 void ingresoUsuarios(){
     int cont=0;
@@ -126,7 +132,7 @@ void MostrarMenuAdmin(Usuario &user1){
            break;
 
            case 6:
-           MenuEstadisticas();
+           MenuGestionEstadisticas();
            break;
 
            case 7:
@@ -197,10 +203,6 @@ void MostrarMenuAdmin(Usuario &user1){
     cout << "Menu Gestion Roles" << endl;
 }
 
-  void MenuEstadisticas(){
-    cout << "Menu Estadisticas" << endl;
-}
-
   void MenuConfiguracion(){
     cout << "Menu Configuracion" << endl;
 }
@@ -240,7 +242,7 @@ void MenuGestionUsuarios(){
     } while(opcion != 0);
 
 }
-void MenuGestionEstadistica(){
+void MenuGestionEstadisticas(){
 
 int opcion;
 

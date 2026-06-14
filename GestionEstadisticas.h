@@ -1,7 +1,7 @@
 #ifndef GESTIONESTADISTICA_H_INCLUDED  
 #define GESTIONESTADISTICA_H_INCLUDED
 
-void MenuGestionEstadistica();
+void MenuGestionEstadisticas();
 void ResumenGeneral();
 
 int contarTotalUsuariios();

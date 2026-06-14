@@ -13,7 +13,7 @@ void MostrarMenuSoporte(Usuario &user1);
 void MenuGestionUsuarios();
 void MenuGestionTickets();
 void MenuGestionCategorias();
-void MenuGestionAreas();
+void MenuGestionAreasSoporte();
 void MenuGestionRoles();
 void MenuGestionEstadisticas();
 void MenuConfiguracion();

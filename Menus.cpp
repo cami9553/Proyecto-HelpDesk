@@ -195,8 +195,61 @@ void MostrarMenuAdmin(Usuario &user1){
     }while(opcion != 0);
 }
 
-   void MenuGestionAreas(){
-    cout << "Menu Gestion Areas" << endl;
+   void MenuGestionAreasSoporte(){
+    int opcion;
+    char nameAr[30];
+    char descAr[30];
+    archivoAreaSoporte arch;
+
+
+    do{
+       cout << "Menu Gestion Areas" << endl;
+       cout << "============================" << endl;
+       cout << "1-CREAR AREA SOPORTE" << endl;
+       cout << "2-ALTA AREA SOPORTE" << endl;
+       cout << "3-BAJA AREA SOPORTE" << endl;
+       cout << "4-MODIFICAR AREA SOPORTE" << endl;
+       cout << "5-MOSTRAR AREAS SOPORTE" << endl;
+       cout << "6-MOSTRAR AREA SOPORTE ACTIVAS" << endl;
+       cout << "0-SALIR                 " << endl;
+       cout << "============================" << endl;
+       cin  >> opcion;
+       cin.ignore();
+       areaSoporte AR;
+       int idAlta,idBaja;
+       switch(opcion){
+        case 1:
+            cout << "Ingrese el nombre del area nuevo: "<< endl;
+            cin.getline(nameAr,30);
+            AR.setNombre(nameAr);
+            cout << "Ingrese descripcion del area nuevo: " << endl;
+            cin.getline(descAr,30);
+            AR.setDescripcion(descAr);
+            arch.creaAreaSoporte(AR);
+            break;
+        case 2:
+            cout << "Ingresar el id que quiere volver a activar: " << endl;
+            cin >> idAlta;
+            arch.altaLogica(idAlta);
+            break;
+        case 3:
+            cout << "Ingresar el id que quiere dar de baja: " << endl;
+            cin >> idBaja;
+            arch.bajaLogica(idBaja);
+            break;
+        case 4:
+            menuModificarAreaSoporte();
+            break;
+        case 5:
+            arch.listarTodos();
+            break;
+        case 6:
+            arch.listarActivos();
+            break;
+       }
+
+    }while(opcion !=0);
+
 }
 
    void MenuGestionRoles(){
@@ -690,3 +743,86 @@ char nuevoValor[30];
 
 
     }
+void menuModificarAreaSoporte(){
+  char nuevoValor[30];
+    int Estado;
+    int opcion;
+    int idArea;
+    bool guardado;
+    archivoAreaSoporte arch;
+
+    do{
+
+        cout << "==========================" << endl;
+        cout << "¿Que desea Modificar?" << endl;
+        cout << "1-Nombre area soporte" << endl;
+        cout << "2-Descripcion area soporte"<< endl;
+        cout << "3-Estado Area soporte " << endl;
+        cout << "0-Salir." << endl;
+        cin >> opcion;
+        cin.ignore();
+        if(opcion ==  0){
+            cout << "Saliendo del menu modificar." << endl;
+            break;
+        }
+        cout << "==========================" << endl;
+        cout << "Ingrese el IdArea que desea modificar: "<< endl;
+        cin >> idArea;
+        cin.ignore();
+        areaSoporte arModificar = arch.leerAreaSoporte(idArea);
+
+        switch(opcion){
+    case 1:
+        cout << "Ingrese el nuevo nombre de el area soporte: " << endl;
+        cin.getline(nuevoValor,30);
+        arModificar.setNombre(nuevoValor);
+        guardado = arch.modificar(arModificar);
+        if(guardado == true){
+            cout << "Nuevo nombre de area guardado con exito." << endl;
+            }else {
+                cout << "El nuevo nombre de area no se pudo guardar "<< endl;
+                }
+                break;
+    case 2:
+        cout << "Ingrese la descripcion nueva de el area soporte: " << endl;
+        cin.getline(nuevoValor,30);
+        arModificar.setDescripcion(nuevoValor);
+        guardado = arch.modificar(arModificar);
+        if(guardado == true){
+            cout << "Nueva descripcion de area guardado con exito." << endl;
+            }else {
+                cout << "la nueva descripcion de area no se pudo guardar "<< endl;
+                }
+                break;
+    case 3:
+        cout << "ingrese 1 : Activar " << endl;
+        cout << "ingrese 2 : Desactivar " << endl;
+        cin >> Estado;
+        if (Estado == 1 ){
+            arModificar.setActivo(true);
+            guardado = arch.modificar(arModificar);
+            if(guardado == true){
+                cout << "Nuevo estado guardado con exito." << endl;
+            }else {
+                cout << "No se pudo guardar el nuevo estado." << endl;
+                }
+        }else if(Estado == 2){
+            arModificar.setActivo(false);
+            guardado = arch.modificar(arModificar);
+            if(guardado == true){
+                cout << "Nuevo estado guardado con exito." << endl;
+            }else {
+                cout << "No se pudo guardar el nuevo estado." << endl;
+                }
+            }
+                break;
+    case 0:
+        cout << "Saliendo del menu modificar." << endl;
+        break;
+    default:
+        cout << "Ingreso una opcion incorrecta!" << endl;
+        break;
+        }
+    }while(opcion != 0);
+
+    }    

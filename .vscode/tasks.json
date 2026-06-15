@@ -4,7 +4,7 @@
             "type": "cppbuild",
             "label": "C/C++: g++.exe compilar archivo activo",
             "command": "C:\\MinGW\\bin\\g++.exe",
-            "args": [
+           "args": [
     "-fdiagnostics-color=always",
     "-g",
     "main.cpp",
@@ -12,11 +12,17 @@
     "GestionUsuarios.cpp",
     "GestionTickets.cpp",
     "GestionEstadisticas.cpp",
+    "GestionCategorias.cpp",
     "usuarios.cpp",
     "ArchivoUsuarios.cpp",
     "ticket.cpp",
     "TicketArchivo.cpp",
     "Fecha.cpp",
+    "AreaSoporte.cpp",
+    "ArchivoAreaSoporte.cpp",
+    "Categoria.cpp",
+    "ArchivoCategoria.cpp",
+    "MenuAdmiConfiguracion.cpp",
     "-o",
     "programa.exe"
 ],

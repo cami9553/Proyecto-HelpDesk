@@ -14,6 +14,8 @@ using namespace std;
 #include "Menus.h"
 #include "ArchivoAreaSoporte.h"
 #include "AreaSoporte.h"
+#include "MenuAdmiConfiguracion.h"
+
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -136,7 +138,7 @@ void MostrarMenuAdmin(Usuario &user1){
            break;
 
            case 7:
-           MenuConfiguracion();
+           MenuConfiguracion(user1);
            break;
 
            case 0:
@@ -256,10 +258,6 @@ void MenuGestionAreasSoporte(){
     cout << "Menu Gestion Roles" << endl;
 }
 
-  void MenuConfiguracion(){
-    cout << "Menu Configuracion" << endl;
-}
-
 void MenuGestionUsuarios(){
 
     int opcion;
@@ -306,7 +304,16 @@ do {
     cout << "1- Resumen General " << endl;
     cout << "0- Volver" << endl;
     cin >> opcion;
+    
+    if(cin.fail()){
+        cout << "Algo salio mal. Debe ingresar un numero." << endl;
 
+        cin.clear();
+        cin.ignore();
+
+        continue;
+
+    }
 
     switch (opcion)
     {
@@ -323,6 +330,49 @@ do {
     }
 }while(opcion !=0);
 }
+
+void MenuConfiguracion(Usuario &user1){
+   
+    int opcion;
+
+    do{
+        cout << "Configuracion" << endl;
+        cout << "1- Cambiar claves. " << endl;
+        cout << "2- Ver mis datos" <<endl;
+        cout << "0- Volver." << endl;
+        cin >> opcion;
+
+        if(cin.fail()){
+        cout << "Algo salio mal. Debe ingresar un numero." << endl;
+
+        cin.clear();
+        cin.ignore();
+
+        continue;
+
+    }
+
+    switch (opcion)
+    {
+    case 1:
+        cambiarContrasenia(user1);
+        break;
+
+    case 2:
+        verMisDatos(user1);
+        break;
+
+    case 0:
+      break;
+    
+    default:
+     cout << "Opcion invalida." << endl;
+        break;
+    }
+    } while (opcion != 0);
+}
+
+
 
 void MostrarMenuCliente(Usuario &user1){
 

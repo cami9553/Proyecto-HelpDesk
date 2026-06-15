@@ -17,7 +17,7 @@ void MenuGestionAreasSoporte();
 void menuModificarAreaSoporte();
 void MenuGestionRoles();
 void MenuGestionEstadisticas();
-void MenuConfiguracion();
+void MenuConfiguracion(Usuario &user1);
 
 
 void ingresoUsuarios();

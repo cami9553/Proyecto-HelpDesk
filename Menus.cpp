@@ -17,6 +17,7 @@ using namespace std;
 #include "MenuAdmiConfiguracion.h"
 
 
+
 void muereXLogin(int cont){
     if(cont >=3){
        cout << "Ingreso mal el login 3 veces, el proceso se cerrara."<<endl;
@@ -138,7 +139,7 @@ void MostrarMenuAdmin(Usuario &user1){
            break;
 
            case 7:
-           MenuConfiguracion(user1);
+           MenuAdmiConfiguracion(user1);
            break;
 
            case 0:
@@ -153,7 +154,59 @@ void MostrarMenuAdmin(Usuario &user1){
         } while(opcion != 0);
 
 }
+void MenuAdmiConfiguracion(Usuario &user1){
+   
+    int opcion;
 
+    do{
+        cout << "1- Cambiar Clave" << endl;
+        cout << "2- Ver Mis Datos" << endl;
+        cout << "3- Copia de Seguridad" << endl;
+        cout << "4- Restaurar Copia" << endl;
+        cout << "5- Exportar CSV" << endl;
+        cout << "0- Volver" << endl;
+        cin >> opcion;
+
+        if(cin.fail()){
+        cout << "Algo salio mal. Debe ingresar un numero." << endl;
+
+        cin.clear();
+        cin.ignore();
+
+        continue;
+
+    }
+
+    switch (opcion)
+    {
+    case 1:
+        cambiarContrasenia(user1);
+        break;
+
+    case 2:
+        verMisDatos(user1);
+        break;
+
+    case 3:
+       MenuBackup();
+        break;
+
+    case 4: 
+       MenuRestauracion();
+       break;
+    case 5:
+      MenuExportacionCSV();
+      break;
+
+    case 0:
+      break;
+    
+    default:
+     cout << "Opcion invalida." << endl;
+        break;
+    }
+    } while (opcion != 0);
+}
     void MenuGestionCategorias(){
         int opcion;
 
@@ -331,46 +384,6 @@ do {
 }while(opcion !=0);
 }
 
-void MenuConfiguracion(Usuario &user1){
-   
-    int opcion;
-
-    do{
-        cout << "Configuracion" << endl;
-        cout << "1- Cambiar claves. " << endl;
-        cout << "2- Ver mis datos" <<endl;
-        cout << "0- Volver." << endl;
-        cin >> opcion;
-
-        if(cin.fail()){
-        cout << "Algo salio mal. Debe ingresar un numero." << endl;
-
-        cin.clear();
-        cin.ignore();
-
-        continue;
-
-    }
-
-    switch (opcion)
-    {
-    case 1:
-        cambiarContrasenia(user1);
-        break;
-
-    case 2:
-        verMisDatos(user1);
-        break;
-
-    case 0:
-      break;
-    
-    default:
-     cout << "Opcion invalida." << endl;
-        break;
-    }
-    } while (opcion != 0);
-}
 
 
 
@@ -876,3 +889,5 @@ void menuModificarAreaSoporte(){
     }while(opcion != 0);
 
     }
+
+

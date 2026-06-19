@@ -15,7 +15,8 @@ using namespace std;
 #include "ArchivoAreaSoporte.h"
 #include "AreaSoporte.h"
 #include "MenuAdmiConfiguracion.h"
-
+#include "Roles.h"
+#include "ArchivoRoles.h"
 
 
 void muereXLogin(int cont){
@@ -155,7 +156,7 @@ void MostrarMenuAdmin(Usuario &user1){
 
 }
 void MenuAdmiConfiguracion(Usuario &user1){
-   
+
     int opcion;
 
     do{
@@ -191,7 +192,7 @@ void MenuAdmiConfiguracion(Usuario &user1){
        MenuBackup();
         break;
 
-    case 4: 
+    case 4:
        MenuRestauracion();
        break;
     case 5:
@@ -200,7 +201,7 @@ void MenuAdmiConfiguracion(Usuario &user1){
 
     case 0:
       break;
-    
+
     default:
      cout << "Opcion invalida." << endl;
         break;
@@ -308,7 +309,37 @@ void MenuGestionAreasSoporte(){
 }
 
    void MenuGestionRoles(){
+    int opcion;
+    rolesArchivo rarch;
+     char descr[30];
+    do{
     cout << "Menu Gestion Roles" << endl;
+    cout << "1-Crear Rol" << endl;
+    cout << "2-Modificacion Rol" << endl;
+    cout << "3-Mostrar Roles" << endl;
+    cout << "0-Salir" << endl;
+    cin >> opcion;
+    cin.ignore();
+    roles rol;
+    if(opcion == 0){
+        break;
+    }
+    switch(opcion){
+case 1:
+    cout << "Ingrese la descripcion del nuevo ROL: "<< endl;
+    cin.getline(descr,30);
+    rol.setDescripcion(descr);
+    rarch.registrar(rol);
+    break;
+case 2:
+    MenuModificarRoles();
+    break;
+case 3:
+    rarch.listarTodos();
+    break;
+    }
+
+        }while(opcion != 0);
 }
 
 void MenuGestionUsuarios(){
@@ -357,7 +388,7 @@ do {
     cout << "1- Resumen General " << endl;
     cout << "0- Volver" << endl;
     cin >> opcion;
-    
+
     if(cin.fail()){
         cout << "Algo salio mal. Debe ingresar un numero." << endl;
 
@@ -889,5 +920,74 @@ void menuModificarAreaSoporte(){
     }while(opcion != 0);
 
     }
+
+void MenuModificarRoles(){
+    int opcion;
+    int Estado;
+    bool guardado;
+    int idMod;
+    char newDesc[30];
+    rolesArchivo rArch;
+    do{
+
+        cout << "==========================" << endl;
+        cout << "Que desea Modificar?" << endl;
+        cout << "1-Descripcion Rol" << endl;
+        cout << "2-Estado Rol" << endl;
+        cout << "0-Salir." << endl;
+        cout << "==========================" << endl;
+        cin >> opcion;
+        cin.ignore();
+        if(opcion ==  0){
+            cout << "Saliendo del menu modificar." << endl;
+            break;
+        }
+        cout << "==========================" << endl;
+        cout <<"Ingrese el id del rol que desea modificar: "<< endl;
+        cin >>idMod;
+        cin.ignore();
+        roles rol = rArch.leerRol(idMod-1);
+
+        switch(opcion){
+    case 1:
+        cout << "Ingrese la nueva descripcion: "<<endl;
+        cin.getline(newDesc,30);
+        rol.setDescripcion(newDesc);
+        guardado = rArch.modificar(rol);
+        if(guardado == true) {
+            cout <<"Nueva descripcion de rol guardado con exito."<< endl;
+        }else{
+            cout <<"No se pudo guardad la nueva descripcion del rol."<< endl;
+        }
+        break;
+    case 2:
+        cout << "ingrese 1 : Activar " << endl;
+        cout << "ingrese 2 : Desactivar " << endl;
+        cin >> Estado;
+        if(Estado== 1){
+            rol.setEstado(true);
+            guardado = rArch.modificar(rol);
+            if(guardado == true){
+                cout << "Nuevo estado de rol guardado con exito." << endl;
+                }else{
+                    cout << "No se pudo guardar el nuevo estado del rol" << endl;
+                    }
+            }else{
+                rol.setEstado(false);
+            guardado = rArch.modificar(rol);
+            if(guardado == true){
+                cout << "Nuevo estado de rol guardado con exito." << endl;
+                }else{
+                    cout << "No se pudo guardar el nuevo estado del rol" << endl;
+                    }
+                }
+                break;
+        }
+
+    }while(opcion !=0);
+
+
+
+}
 
 

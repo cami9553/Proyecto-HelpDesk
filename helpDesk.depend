@@ -58,21 +58,22 @@
 	<ctime>
 	"fecha.h"
 
-1780351458 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1781047870 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
 	<cstring>
 	"Menus.h"
 
-1780964554 c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.h
+1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.h
 	"usuarios.h"
 
 1780351458 c:\users\ysyary\documents\github\proyecto-helpdesk\usuarios.h
 
-1780444563 c:\users\ysyary\documents\github\proyecto-helpdesk\menus.h
+1781848200 c:\users\ysyary\documents\github\proyecto-helpdesk\menus.h
+	"usuarios.h"
 
-1780964554 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.cpp
+1781146797 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	<cstring>

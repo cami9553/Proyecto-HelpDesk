@@ -16,6 +16,7 @@ void MenuGestionCategorias();
 void MenuGestionAreasSoporte();
 void menuModificarAreaSoporte();
 void MenuGestionRoles();
+void MenuModificarRoles();
 void MenuGestionEstadisticas();
 void MenuAdmiConfiguracion(Usuario &user1);
 

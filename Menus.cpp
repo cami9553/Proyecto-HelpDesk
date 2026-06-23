@@ -87,7 +87,7 @@ void MostrarMenuSoporte(Usuario &user1){
 
 Ticket t1;
 TickeArchivo Archivo;
-int Opcion,OpcAsig,contin;
+int Opcion,OpcAsig,contin,idAsig,nuevoEstado;
 int i,Cantidad=0;
 bool guardado;
     do
@@ -122,12 +122,20 @@ bool guardado;
 
 
         case 1:
-
-        /// ver mis tickets asignados
+            Cantidad = Archivo.CantidadTickets();
+            for(i=0;i<Cantidad;i++){
+                Ticket tleido = Archivo.LeerTicket(i);
+                if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
+                    tleido.MostrarTicket();
+                }
+            }
             break;
 
         case 2:
             Cantidad = Archivo.CantidadTickets();
+            if(Cantidad==0){
+                cout <<"No hay tickets registrados."<< endl;
+            }
             for(i=0;i<Cantidad;i++){
                 Ticket tleido = Archivo.LeerTicket(i);
                 if(tleido.getEstado() == 0){
@@ -145,19 +153,56 @@ bool guardado;
                         }else{
                             cout << "No se pudo asignar el ticket."<<endl;
                             }
+
                             cout << "Desea asignarse otro ticket?" <<endl;
                             cout << "1-Si" << endl;
                             cout << "2-No" << endl;
+                            cin >> contin;
                             if(contin == 2){
                                 break;
+                            }else{
+                            system("cls");
                             }
                     }
                 }
-            }
 
+            }
             break;
         case 3:
-            /// modificar estado del tickect
+            {
+            cout << "En este apartado solamente podra modificar el estado de los tickets los cuales usted tiene asignado..." << endl;
+            cout << "Los tickets asignados son:" << endl;
+            Cantidad = Archivo.CantidadTickets();
+            for(i=0;i<Cantidad;i++){
+                Ticket tleido = Archivo.LeerTicket(i);
+                if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
+                    tleido.MostrarTicket();
+                }
+            }
+            cout << "Ingrese el id de el ticket a modificar: " << endl;
+            cin >> idAsig;
+            int pos = Archivo.BuscarTicket(idAsig);
+            if(pos != -1){
+            Ticket tleido = Archivo.LeerTicket(pos);
+
+            cout << "Que estado desea asignar?" << endl;
+            cout << "0-Abierto" << endl;
+            cout << "1-En proceso" <<endl;
+            cout << "2-Resuelto" << endl;
+            cout << "3-Cerrado " << endl;
+            cout << "============================" << endl;
+            cin >> nuevoEstado;
+            tleido.setEstado(nuevoEstado);
+            guardado = Archivo.ModificarTicket(tleido,pos);
+            if(guardado == true){
+                cout << "Estado cambiado con exito." << endl;
+            }else{
+                cout << "No se pudo cambiar el estado de el ticket." <<endl;
+            }
+            }else{
+                cout << "No se encontro el ticket!" <<endl;
+            }
+            }
             break;
 
         case 4:

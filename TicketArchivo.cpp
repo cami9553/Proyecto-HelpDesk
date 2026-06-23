@@ -75,7 +75,7 @@ Ticket TickeArchivo:: LeerTicket(int pos){
 
 int TickeArchivo::BuscarTicket(int idBuscado){
     Ticket reg;
-    FILE *p = fopen("tickets.dat", "rb");
+    FILE *p = fopen("ticket.dat", "rb");
 
     if(p == nullptr){
         return -1;
@@ -96,7 +96,7 @@ int TickeArchivo::BuscarTicket(int idBuscado){
 }
 
 bool TickeArchivo::ModificarTicket(Ticket reg, int pos){
-    FILE *p = fopen("tickets.dat", "rb+");
+    FILE *p = fopen("ticket.dat", "rb+");
 
     if(p == nullptr){
         return false;

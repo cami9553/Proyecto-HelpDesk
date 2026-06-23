@@ -66,6 +66,7 @@ cout << "--------- Fecha de Cierre ---------" << endl;
 fechaCierre.CargarFecha();
 cout << endl;
 
+cin.ignore();
 estado=0;
 
 
@@ -81,6 +82,7 @@ return true;
 
  }
 int Ticket::getIdUsuario() {return idUsuario;}
+int Ticket::getIdUsrSoporte() {return idUsrSoporte;}
 int Ticket::getIdAreaSoporte() { return idAreaSoporte; }
 int Ticket::getIdCategoria() { return idCategoria; }
 int Ticket::getPrioridad() { return prioridad; }

@@ -32,6 +32,7 @@ public:
     const char* getDescripcion();
     const char* getComentario();
     int getIdAreaSoporte();
+    int getIdUsrSoporte();
     int getIdCategoria();
     int getPrioridad();
     int getEstado();

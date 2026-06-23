@@ -1,13 +1,14 @@
 #ifndef TICKET_H_INCLUDED
 #define TICKET_H_INCLUDED
 #include "fecha.h"
-
+#include "usuarios.h"
 class Ticket {
 
 private:
 
     int idTicket;
     int idUsuario;
+    int idUsrSoporte;
     int idAreaSoporte;
     int idCategoria;
     char asunto[100];
@@ -20,13 +21,34 @@ private:
 
 public:
 
-    bool CreatTicket ();
+    bool CreatTicket (Usuario logd);
     void MostrarTicket();
     int NumIdTicket ();
     void AgregarComentario();
 
     int getIdTicket();
-
+    int getIdUsuario();
+    const char* getAsunto();
+    const char* getDescripcion();
+    const char* getComentario();
+    int getIdAreaSoporte();
+    int getIdCategoria();
+    int getPrioridad();
+    int getEstado();
+    Fecha getFechaCreacion();
+    Fecha getFechaCierre();
+    void setIdTicket(int id);
+    void setIdUsuario(int id);
+    void setIdUsrSoporte(int _idUsrSoporte);
+    void setAsunto(std::string _asunto);
+    void setDescripcion(std::string _desc);
+    void setComentario(std::string _coment);
+    void setIdAreaSoporte(int idArea);
+    void setIdCategoria(int idCat);
+    void setPrioridad(int prio);
+    void setEstado(int est);
+    void setFechaCreacion(Fecha fCreacion);
+    void setFechaCierre(Fecha fCierre);
 
 };
 

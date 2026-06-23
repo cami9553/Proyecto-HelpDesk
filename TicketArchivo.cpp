@@ -15,7 +15,7 @@ FILE* arch;
 
 
 ///apertura del archivo
-arch = fopen("ticket.dat", "wb");
+arch = fopen("ticket.dat", "ab");
 
 ///validación
 if (arch==nullptr){
@@ -111,4 +111,30 @@ bool TickeArchivo::ModificarTicket(Ticket reg, int pos){
     return escribio;
 }
 
+void TickeArchivo::ListarTickets(){
+    Ticket tk;
+    int i = 0;
+    int totalTickets = CantidadTickets();
+    for(i=0;i<totalTickets;i++){
+        tk = LeerTicket(i);
+        cout << "========================================"<< endl;
+        cout << "ID TICKET: " << tk.getIdTicket() << endl;
+        cout << "Cargado por el usuario: "<< tk.getIdUsuario() <<endl ;
+        cout << "Asunto : " << tk.getAsunto() <<endl;
+        cout << "Comentario: " << tk.getComentario() << endl;
+        cout << "Descripcion: " << tk.getDescripcion() << endl;
+        cout << "Estado: " << tk.getEstado() << endl;
+        cout << "Fecha Cierre: " ;
+        tk.getFechaCierre().MostrarFecha();
+        cout << endl;
+        cout << "Fecha Creacion: " ;
+        tk.getFechaCreacion().MostrarFecha();
+        cout << endl;
+        cout << "ID AREA SOPORTE ASIGNADO: " << tk.getIdAreaSoporte()<< endl;
+        cout << "ID CATEGORIA: " << tk.getIdCategoria() <<endl;
+        cout << "PRIORIDAD TICKET: " << tk.getPrioridad() << endl;
 
+
+    }
+
+}

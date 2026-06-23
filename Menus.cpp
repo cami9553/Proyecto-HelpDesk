@@ -84,9 +84,129 @@ void ingresoUsuarios(){
 
 }
 void MostrarMenuSoporte(Usuario &user1){
-    cout << "Menu Soporte" << endl;
-}
 
+Ticket t1;
+TickeArchivo Archivo;
+int Opcion,OpcAsig,contin;
+int i,Cantidad=0;
+bool guardado;
+    do
+    {
+
+
+        cout << "MENU SOPORTE" << endl<<endl;
+        cout << "------------------------------------" << endl;
+        cout << "1) VER MIS TICKETS ASIGNADOS" << endl;
+        cout << "2) VER TICKETS ABIERTOS" << endl;
+        cout << "3) CAMBIAR ESTADO DE TICKET" << endl;
+        cout << "4) RESPONDER TICKET" << endl;
+        cout << "------------------------------------" << endl<<endl;
+        cout << "0) CERRAR SESION" << endl<<endl;
+        cout<<"Opcion: ";
+        cin>>Opcion;
+        if (Opcion < 0 || Opcion > 4) {
+        cout << endl<<endl;
+        cout << "!!!Opcion invalida, intente de nuevo.!!!" << endl;
+        cout << endl<<endl;
+        system ("pause");
+        system("cls");
+        } else {
+        system("cls");
+
+    }
+
+
+        switch(Opcion)
+        {
+
+
+
+        case 1:
+
+        /// ver mis tickets asignados
+            break;
+
+        case 2:
+            Cantidad = Archivo.CantidadTickets();
+            for(i=0;i<Cantidad;i++){
+                Ticket tleido = Archivo.LeerTicket(i);
+                if(tleido.getEstado() == 0){
+                    tleido.MostrarTicket();
+                    cout << "Desea asignarse este ticket?" << endl;
+                    cout << "1-Si" << endl;
+                    cout << "2-No" << endl;
+                    cin >> OpcAsig;
+                    if(OpcAsig==1){
+                        tleido.setEstado(1);
+                        tleido.setIdUsrSoporte(user1.getIDUsuario());
+                        guardado = Archivo.ModificarTicket(tleido,i);
+                        if(guardado ==  true){
+                            cout << "Ticket asignado con exito" << endl;
+                        }else{
+                            cout << "No se pudo asignar el ticket."<<endl;
+                            }
+                            cout << "Desea asignarse otro ticket?" <<endl;
+                            cout << "1-Si" << endl;
+                            cout << "2-No" << endl;
+                            if(contin == 2){
+                                break;
+                            }
+                    }
+                }
+            }
+
+            break;
+        case 3:
+            /// modificar estado del tickect
+            break;
+
+        case 4:
+            {
+                int idBuscado;
+
+                cout << "Ingrese el ID del ticket: ";
+                cin >> idBuscado;
+
+                int pos = Archivo.BuscarTicket(idBuscado);
+
+                if(pos != -1)
+                {
+                    Ticket reg = Archivo.LeerTicket(pos);
+
+                    reg.AgregarComentario();
+
+                    if(Archivo.ModificarTicket(reg, pos))
+                    {
+                        cout << "Comentario agregado correctamente." << endl;
+                    }
+                    else
+                    {
+                        cout << "Error al guardar el comentario." << endl;
+                    }
+                }
+                else
+                {
+                    cout << "No se encontro el ticket." << endl;
+                }
+
+                system("pause");
+                system("cls");
+            }
+            break;
+
+
+        case 0:
+
+            break;
+        }
+
+
+
+
+system("pause");
+system("cls");
+    }while(Opcion!=0);
+}
 void MostrarMenuAdmin(Usuario &user1){
 
     Ticket t1;
@@ -181,22 +301,22 @@ void MenuAdmiConfiguracion(Usuario &user1){
     switch (opcion)
     {
     case 1:
-        cambiarContrasenia(user1);
+        //cambiarContrasenia(user1);
         break;
 
     case 2:
-        verMisDatos(user1);
+        //verMisDatos(user1);
         break;
 
     case 3:
-       MenuBackup();
+       //MenuBackup();
         break;
 
     case 4:
-       MenuRestauracion();
+       //MenuRestauracion();
        break;
     case 5:
-      MenuExportacionCSV();
+      //MenuExportacionCSV();
       break;
 
     case 0:
@@ -440,21 +560,19 @@ cout<<" 0) Cerrar sesion             "<<endl<<endl;
 
 cout<<"Opcion: ";
 cin >> opcion;
-
+cin.ignore();
 
 
 switch(opcion){
 
 case 1:
 
-    t1.CreatTicket();
+    t1.CreatTicket(user1);
     if(Archivo.GuardarTicket(t1)){
         cout<<"Tiket guardado correctamente"<<endl;
     }else{
     cout<<"Error al guardar ticket"<<endl;
     }
-
-
     break;
 
 
@@ -465,7 +583,6 @@ case 2:
   for(int i=0; i<Cantidad;i++){
     t1=Archivo.LeerTicket(i);
     t1.MostrarTicket();
-
   }
 
     break;
@@ -479,17 +596,12 @@ case 4:
 case 0:
 
     break;
-
-
-
-
-
-system ("pause");
-system ("cls");
-
 }
 
-
+if(opcion != 0){
+    system ("pause");
+    system ("cls");
+}
 
 
 }while(opcion!=0);
@@ -853,6 +965,7 @@ void menuModificarAreaSoporte(){
         cout << "2-Descripcion area soporte"<< endl;
         cout << "3-Estado Area soporte " << endl;
         cout << "0-Salir." << endl;
+        cout << "==========================" << endl;
         cin >> opcion;
         cin.ignore();
         if(opcion ==  0){
@@ -861,6 +974,7 @@ void menuModificarAreaSoporte(){
         }
         cout << "==========================" << endl;
         cout << "Ingrese el IdArea que desea modificar: "<< endl;
+        cout << "==========================" << endl;
         cin >> idArea;
         cin.ignore();
         areaSoporte arModificar = arch.leerAreaSoporte(idArea);

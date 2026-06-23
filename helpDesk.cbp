@@ -32,12 +32,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoAreaSoporte.cpp" />
+		<Unit filename="ArchivoAreaSoporte.h" />
+		<Unit filename="ArchivoRoles.cpp" />
+		<Unit filename="ArchivoRoles.h" />
 		<Unit filename="ArchivoUsuarios.cpp" />
 		<Unit filename="ArchivoUsuarios.h" />
+		<Unit filename="AreaSoporte.cpp" />
+		<Unit filename="AreaSoporte.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="GestionEstadisticas.cpp" />
+		<Unit filename="GestionEstadisticas.h" />
+		<Unit filename="GestionUsuarios.cpp" />
+		<Unit filename="GestionUsuarios.h" />
 		<Unit filename="Menus.cpp" />
 		<Unit filename="Menus.h" />
+		<Unit filename="Roles.cpp" />
+		<Unit filename="Roles.h" />
 		<Unit filename="TicketArchivo.cpp" />
 		<Unit filename="TicketArchivo.h" />
 		<Unit filename="main.cpp" />

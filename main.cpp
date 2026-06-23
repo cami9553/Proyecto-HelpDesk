@@ -4,6 +4,9 @@ using namespace std;
 #include "usuarios.h"
 #include <cstring>
 #include "Menus.h"
+#include "ticket.h"
+#include "TicketArchivo.h"
+
 void crearAdminAviso(){
 archivoUsuario arch;
 
@@ -30,6 +33,8 @@ int main()
 {
     archivoUsuario arc;
     crearAdminAviso();
+    TickeArchivo tk;
+    //==================================PRUEBAS========================
     //system("cls");
     //arc.listarActivos();
     //arc.bajaLogica(1);
@@ -38,5 +43,7 @@ int main()
     //arc.listarPorRol(2);
     //cout << arc.contarActivos();
     //system("pause");
+    tk.ListarTickets();
+    //==================================PRUEBAS========================
     ingresoUsuarios();
 }

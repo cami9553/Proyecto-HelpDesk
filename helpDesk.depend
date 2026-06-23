@@ -58,19 +58,21 @@
 	<ctime>
 	"fecha.h"
 
-1781047870 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1782102901 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
 	<cstring>
 	"Menus.h"
+	"ticket.h"
+	"TicketArchivo.h"
 
 1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.h
 	"usuarios.h"
 
 1780351458 c:\users\ysyary\documents\github\proyecto-helpdesk\usuarios.h
 
-1781848200 c:\users\ysyary\documents\github\proyecto-helpdesk\menus.h
+1781942306 c:\users\ysyary\documents\github\proyecto-helpdesk\menus.h
 	"usuarios.h"
 
 1781146797 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.cpp
@@ -85,21 +87,23 @@
 
 1780351458 c:\users\ysyary\documents\github\proyecto-helpdesk\fecha.h
 
-1780964554 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.cpp
+1782176156 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.cpp
 	<iostream>
 	"Ticket.h"
 	"TicketArchivo.h"
 	<cstring>
 	<ctime>
 	"Fecha.h"
+	"usuarios.h"
 
-1780964554 c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.h
+1782176156 c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.h
 	"fecha.h"
+	"usuarios.h"
 
 1780544795 c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.h
 	"Ticket.h"
 
-1780544795 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.cpp
+1782100313 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.cpp
 	<iostream>
 	"TicketArchivo.h"
 	"ticket.h"
@@ -109,8 +113,9 @@
 	"usuarios.h"
 	<cstring>
 
-1781047804 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
+1782176156 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
 	<iostream>
+	<string>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
 	<cstring>
@@ -119,6 +124,14 @@
 	"TicketArchivo.h"
 	"GestionUsuarios.h"
 	"GestionTickets.h"
+	"GestionCategorias.h"
+	"GestionEstadisticas.h"
+	"Menus.h"
+	"ArchivoAreaSoporte.h"
+	"AreaSoporte.h"
+	"MenuAdmiConfiguracion.h"
+	"Roles.h"
+	"ArchivoRoles.h"
 
 1780964554 c:\users\ysyary\documents\github\proyecto-helpdesk\gestionusuarios.h
 
@@ -223,6 +236,57 @@
 	"usuarios.h"
 
 1781420771 source:c:\users\ysyary\desktop\ary\utn\programacion2\proyecto_helpdesk\helpdeskgithub_14062026\gestionestadisticas.cpp
+	<iostream>
+	"GestionEstadisticas.h"
+	"TicketArchivo.h"
+	"ArchivoUsuarios.h"
+
+1781942306 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivoroles.cpp
+	<iostream>
+	"ArchivoRoles.h"
+	<cstring>
+
+1781942306 c:\users\ysyary\documents\github\proyecto-helpdesk\archivoroles.h
+	"Roles.h"
+
+1781942306 c:\users\ysyary\documents\github\proyecto-helpdesk\roles.h
+	"Roles.h"
+
+1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\gestioncategorias.h
+
+1781420771 c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.h
+
+1781415894 c:\users\ysyary\documents\github\proyecto-helpdesk\archivoareasoporte.h
+	"AreaSoporte.h"
+	<cstring>
+
+1781330229 c:\users\ysyary\documents\github\proyecto-helpdesk\areasoporte.h
+
+1781835404 c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.h
+	"usuarios.h"
+
+1781942306 source:c:\users\ysyary\documents\github\proyecto-helpdesk\roles.cpp
+	<iostream>
+	"Roles.h"
+	<cstring>
+
+1781330063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\areasoporte.cpp
+	<iostream>
+	"AreaSoporte.h"
+	<cstring>
+
+1781422554 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivoareasoporte.cpp
+	<iostream>
+	<cstring>
+	"ArchivoAreaSoporte.h"
+
+1781420771 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionusuarios.cpp
+	<iostream>
+	"GestionUsuarios.h"
+	"ArchivoUsuarios.h"
+	"usuarios.h"
+
+1781420771 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.cpp
 	<iostream>
 	"GestionEstadisticas.h"
 	"TicketArchivo.h"

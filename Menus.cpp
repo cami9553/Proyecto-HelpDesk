@@ -18,7 +18,9 @@ using namespace std;
 #include "MenuAdmiConfiguracion.h"
 #include "Roles.h"
 #include "ArchivoRoles.h"
-
+#include "Categoria.h"
+#include "Respuestas.h"
+#include "ArchivoRespuestas.h"
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -88,8 +90,10 @@ void MostrarMenuSoporte(Usuario &user1){
 
 Ticket t1;
 TickeArchivo Archivo;
+archivoRespuesta archResp;
 int Opcion,OpcAsig,contin,idAsig,nuevoEstado;
 int i,Cantidad=0;
+char mensaje[200];
 bool guardado;
     do
     {
@@ -209,7 +213,8 @@ bool guardado;
         case 4:
             {
                 int idBuscado;
-
+                respuestas resp;
+                Fecha fActual;
                 cout << "Ingrese el ID del ticket: ";
                 cin >> idBuscado;
 
@@ -217,18 +222,24 @@ bool guardado;
 
                 if(pos != -1)
                 {
-                    Ticket reg = Archivo.LeerTicket(pos);
+                    Ticket tleido =  Archivo.LeerTicket(pos);
+                    tleido.MostrarTicket();
 
-                    reg.AgregarComentario();
+                    cin.ignore();
+                    resp.setIdTicket(idBuscado);
+                    cout << "Ingrese el mensaje:  " << endl;
+                    cin.getline(mensaje,200);
+                    resp.setContenido(mensaje);
+                    fActual.CargarFechaActual();
+                    resp.setFechaHora(fActual);
+                    resp.setIdUsuarioAutor(user1.getIDUsuario());
+                    guardado = archResp.cargarArchivo(resp);
+                    if(guardado == true){
+                        cout << "Respuesta guardada con exito." << endl;
+                    }else{
+                        cout << "No se pudo guardar la respuesta." << endl;
+                    }
 
-                    if(Archivo.ModificarTicket(reg, pos))
-                    {
-                        cout << "Comentario agregado correctamente." << endl;
-                    }
-                    else
-                    {
-                        cout << "Error al guardar el comentario." << endl;
-                    }
                 }
                 else
                 {

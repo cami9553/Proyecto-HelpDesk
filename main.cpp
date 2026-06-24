@@ -6,6 +6,7 @@ using namespace std;
 #include "Menus.h"
 #include "ticket.h"
 #include "TicketArchivo.h"
+#include "ArchivoRespuestas.h"
 
 void crearAdminAviso(){
 archivoUsuario arch;
@@ -34,8 +35,10 @@ int main()
     archivoUsuario arc;
     crearAdminAviso();
     TickeArchivo tk;
+    archivoRespuesta archR;
     //==================================PRUEBAS========================
     //system("cls");
+    archR.todasRespuestasxTicket(1);
     //arc.listarActivos();
     //arc.bajaLogica(1);
     //arc.altaLogica(1);
@@ -43,7 +46,7 @@ int main()
     //arc.listarPorRol(2);
     //cout << arc.contarActivos();
     //system("pause");
-    tk.ListarTickets();
+    //tk.ListarTickets();
     //==================================PRUEBAS========================
     ingresoUsuarios();
 }

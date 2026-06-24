@@ -58,7 +58,7 @@
 	<ctime>
 	"fecha.h"
 
-1782102901 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1782280016 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
@@ -66,6 +66,7 @@
 	"Menus.h"
 	"ticket.h"
 	"TicketArchivo.h"
+	"ArchivoRespuestas.h"
 
 1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.h
 	"usuarios.h"
@@ -113,7 +114,7 @@
 	"usuarios.h"
 	<cstring>
 
-1782193801 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
+1782279631 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
 	<iostream>
 	<string>
 	"ArchivoUsuarios.h"
@@ -125,6 +126,7 @@
 	"GestionUsuarios.h"
 	"GestionTickets.h"
 	"GestionCategorias.h"
+	"Categoria.h"
 	"GestionEstadisticas.h"
 	"Menus.h"
 	"ArchivoAreaSoporte.h"
@@ -132,6 +134,9 @@
 	"MenuAdmiConfiguracion.h"
 	"Roles.h"
 	"ArchivoRoles.h"
+	"Categoria.h"
+	"Respuestas.h"
+	"ArchivoRespuestas.h"
 
 1780964554 c:\users\ysyary\documents\github\proyecto-helpdesk\gestionusuarios.h
 
@@ -262,7 +267,7 @@
 
 1781330229 c:\users\ysyary\documents\github\proyecto-helpdesk\areasoporte.h
 
-1781835404 c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.h
+1782269413 c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.h
 	"usuarios.h"
 
 1781942306 source:c:\users\ysyary\documents\github\proyecto-helpdesk\roles.cpp
@@ -291,4 +296,43 @@
 	"GestionEstadisticas.h"
 	"TicketArchivo.h"
 	"ArchivoUsuarios.h"
+
+1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\categoria.h
+
+1781143751 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivocategoria.cpp
+	<iostream>
+	"ArchivoCategoria.h"
+	<cstring>
+
+1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\archivocategoria.h
+	"Categoria.h"
+	<string>
+
+1782269413 source:c:\users\ysyary\documents\github\proyecto-helpdesk\categoria.cpp
+	<iostream>
+	<cstring>
+	"Categoria.h"
+
+1782269413 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestioncategorias.cpp
+	<iostream>
+	"GestionCategorias.h"
+	"ArchivoCategoria.h"
+	"Categoria.h"
+
+1782280176 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivorespuestas.cpp
+	<iostream>
+	"ArchivoRespuestas.h"
+	"usuarios.h"
+	"ArchivoUsuarios.h"
+
+1782275919 c:\users\ysyary\documents\github\proyecto-helpdesk\archivorespuestas.h
+	"Respuestas.h"
+
+1782277791 c:\users\ysyary\documents\github\proyecto-helpdesk\respuestas.h
+	"fecha.h"
+
+1782278645 source:c:\users\ysyary\documents\github\proyecto-helpdesk\respuestas.cpp
+	<iostream>
+	"Respuestas.h"
+	<cstring>
 

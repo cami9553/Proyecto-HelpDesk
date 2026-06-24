@@ -8,13 +8,28 @@ void verMisDatos(Usuario &user1);
 void MenuAdmiConfiguracion(Usuario &user1);
 void MenuBackup();
 
-void MenuRestauracion();
+
 void MenuExportacionCSV();
 void backupUsuarios();
 void backupTickets();
 void backupCategorias();
-void backupAreas();
+void backupAreaSoporte();
 void backupCompleto();
+
+void MenuRestauracion();
+
+void restaurarUsuarios();
+void restaurarTickets();
+void restaurarCategorias();
+void restaurarAreaSoporte();
+void restaurarCompleto();
+
+void exportarCategoriaCSV();
+
+void exportarUsuariosCSV();
+void exportarTicketCSV();
+void exportarCategoriasCSV();
+void exportarAreaSoporteCSV();
 
 
 #endif 

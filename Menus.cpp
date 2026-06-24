@@ -10,6 +10,7 @@ using namespace std;
 #include "GestionUsuarios.h"
 #include "GestionTickets.h"
 #include "GestionCategorias.h"
+#include "Categoria.h"
 #include "GestionEstadisticas.h"
 #include "Menus.h"
 #include "ArchivoAreaSoporte.h"
@@ -389,19 +390,19 @@ void MenuAdmiConfiguracion(Usuario &user1){
         switch(opcion){
 
             case 1:
-            cout << "Alta Categoria" << endl;
+            AltaCategoria();
             break;
 
             case 2:
-            cout << "Baja Categoria" << endl;
+            BajaCategoria();
             break;
 
             case 3:
-            cout << "Modificar Categoria" << endl;
+            ModificarCategoria();
             break;
 
             case 4:
-            cout << "Listar Categorias" << endl;
+            ListarCategorias();
             break;
 
             case 0:

@@ -36,6 +36,7 @@ bool Categoria::getActivo(){
 
 void Categoria::cargar(){
     cout << "Nombre: ";
+    cin >> ws;
     cin.getline(_nombre,30);
     _activo = true;
 }

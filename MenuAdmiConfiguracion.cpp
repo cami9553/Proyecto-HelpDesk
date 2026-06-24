@@ -1,6 +1,12 @@
 #include <iostream> 
 using namespace std;
 #include "MenuAdmiConfiguracion.h" 
+#include "AreaSoporte.h"
+#include <fstream>
+#include "Categoria.h"
+#include "ticket.h"
+#include "AreaSoporte.h"
+
 
 void cambiarContrasenia(Usuario &user1){
 
@@ -19,12 +25,99 @@ void verMisDatos(Usuario &user1){
     cout << "Apellido: " << user1.getApellido() << endl;
     cout << "Rol: " << user1.getRol() << endl;
 }
+
 void MenuRestauracion(){
-    cout << "Menu Restauracion" << endl;
+    
+     int opcion;
+
+     do{
+
+        cout << "RESTAURAR COPIA" << endl;
+        cout << "1- Usuarios" << endl;
+        cout << "2- Tickets" << endl;
+        cout << "3- Categorias" << endl;
+        cout << "4- Area de Soporte" << endl;
+        cout << "5- Todos los archivos" << endl; 
+        cout << "0- Volver" << endl;
+
+         cout << "Opcion: ";
+         cin >> opcion;
+
+         switch (opcion)
+         {
+         case 1:
+            restaurarUsuarios();
+            break;
+        case 2:
+           restaurarTickets();
+           break;
+
+        case 3:
+           restaurarCategorias();
+           break;
+
+        case 4:
+          restaurarAreaSoporte();
+          break;
+
+        case 5:
+         restaurarCompleto();
+         break;
+
+        case 0:
+         break;
+
+          default:
+          cout << "Opcion invalida." << endl;
+            break;
+         }
+        }while(opcion != 0);
 }
 
 void MenuExportacionCSV(){
-    cout << "Menu Exportacion CSV" << endl;
+    
+    int opcion;
+
+    do{
+
+        cout << "EXPORTAR CSV" << endl;
+        cout << "1- Usuarios" << endl;
+        cout << "2- Tickets" << endl;
+        cout << "3- Categorias" << endl;
+        cout << "4- Areas de Soporte" << endl;
+        cout << "0- Volver" << endl;
+
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch (opcion){
+
+        case 1:
+            exportarUsuariosCSV();
+            break;
+        
+        case 2: 
+          exportarTicketCSV();
+           break;
+
+        case 3:
+         exportarCategoriasCSV();
+          break;
+          
+        case 4: 
+           exportarAreaSoporteCSV();
+            break;
+          
+        case 0: 
+         break;
+
+
+          default:
+          cout << "Opcion invalida." << endl;
+            break;
+        }
+
+    }while(opcion != 0);
 }
 
 
@@ -70,7 +163,7 @@ void MenuBackup(){
             break;
 
         case 4:
-            backupAreas();
+            backupAreaSoporte();
             break;
 
         case 5:
@@ -92,21 +185,341 @@ void MenuBackup(){
 }
 
 void backupUsuarios(){
-    cout << "Backup Usuarios" << endl;
+
+    cout << "ENTRE A BACKUP DE USUARIOS" << endl;
+
+    ifstream origen("usuarios.dat", ios::binary);
+    ofstream destino("backups/usuarios.dat", ios::binary);
+
+    if(!origen){
+        cout << "No se pudo abrir usuarios.dat" << endl;
+        return;
+    }
+
+    if(!destino){
+        cout << "No se pudo crear el backup" << endl;
+        return;
+    }
+
+    destino << origen.rdbuf();
+
+    cout << "--------------------------------" << endl;
+    cout << "Backup realiziado correctamente." << endl;
+    cout << "--------------------------------" << endl;
+
+    cout << "Copiando usuarios.dat..." << endl;
+    origen.close();
+    destino.close();
 }
 
 void backupTickets(){
-    cout << "Backup Tickets" << endl;
+     ifstream origen("ticket.dat", ios::binary);
+     ofstream destino("backups/ticket.dat", ios::binary);  // revisar bien esto
+
+    if(!origen){
+        cout << "No se pudo abrir ticket.dat" << endl;
+        return;
+    }
+
+    if(!destino){
+        cout << "No se pudo crear el backup" << endl;
+        return;
+    }
+
+    destino << origen.rdbuf();
+
+    cout << "Backup realiziado correctamente." << endl;
+
+    origen.close();
+    destino.close();
 }
 
 void backupCategorias(){
-    cout << "Backup Categorias" << endl;
+
+     ifstream origen("categorias.dat", ios::binary);
+     ofstream destino("backups/categorias.dat", ios::binary);
+
+    if(!origen){
+        cout << "No se pudo abrir categorias.dat" << endl;
+        return;
+    }
+
+    if(!destino){
+        cout << "No se pudo crear el backup" << endl;
+        return;
+    }
+ 
+    destino << origen.rdbuf();
+
+    cout << "Backup realiziado correctamente." << endl;
+
+    origen.close();
+    destino.close();
 }
 
-void backupAreas(){
-    cout << "Backup Areas de Soporte" << endl;
+void backupAreaSoporte(){
+     ifstream origen("areaSoporte.dat", ios::binary);
+     ofstream destino("backups/areaSoporte.dat", ios::binary);
+
+    if(!origen){
+        cout << "No se pudo abrir areaSoporte.dat" << endl;
+        return;
+    }
+
+    if(!destino){
+        cout << "No se pudo crear el backup" << endl;
+        return;
+    }
+
+    destino << origen.rdbuf();
+
+    cout << "Backup realiziado correctamente." << endl;
+
+    origen.close();
+    destino.close();
 }
 
 void backupCompleto(){
-    cout << "Backup Completo" << endl;
+     backupUsuarios();
+     backupTickets();
+     backupCategorias();
+     backupAreaSoporte();
+
+     cout << "Backup completo realizado." << endl;
+}
+
+void restaurarUsuarios(){
+    ifstream origen("backups/usuarios.dat", ios::binary);
+    ofstream destino("usuarios.dat", ios::binary);
+
+    if (!origen){
+        cout << "No existe el backup de usuarios." << endl;
+        return;
+    }
+
+    if(!destino){
+        cout << "no se pudo restaurar usuarios.dat" << endl;
+        return;
+
+    } 
+
+    destino << origen.rdbuf();
+
+    cout << "Usuarios restaurados correctamente." << endl;
+
+    origen.close();
+    destino.close();
+
+}
+
+void restaurarTickets(){
+    ifstream origen("backups/ticket.dat", ios::binary);
+    ofstream destino("ticket.dat", ios::binary);
+
+    if (!origen){
+        cout << "No existe el backup de ticket." << endl;
+        return;
+    }
+
+    if (!destino){
+        cout << "no se pudo restaurar ticket.dat" << endl;
+        return;
+    }
+
+    destino << origen.rdbuf();
+     cout << "Tickets restaurados correctamente." << endl;
+
+     origen.close();
+     destino.close();
+}
+
+void restaurarCategorias(){
+    ifstream origen("backups/categorias.dat", ios::binary);
+    ofstream destino("categorias.dat", ios::binary);
+
+    if (!origen){
+        cout << "No existe el backup categorias" << endl;
+        return;
+    }
+
+    if (!destino){
+        cout << "No se pudo restaurar categorias.dat" << endl;
+        return;
+    }
+    destino << origen.rdbuf();
+    cout <<  "Categorias restaurado correctamente" << endl;
+
+    origen.close();
+    destino.close();
+    
+}
+
+void restaurarAreaSoporte(){
+    ifstream origen("backups/areaSoporte.dat", ios::binary);
+    ofstream destino("areaSoporte.dat", ios::binary);
+
+    if (!origen){
+      cout << "No existe el backup areaSoporte.dat." << endl;
+      return;
+    
+
+    if (!destino) {
+        cout << "No se pudo restaurar areaSoporte.dat" << endl;
+        return;
+    }
+
+    destino << origen.rdbuf();
+    cout << "Area restaurado correctamente" << endl;
+    
+    origen.close();
+    destino.close(); 
+    
+}
+}
+
+void restaurarCompleto(){
+    
+    restaurarUsuarios();
+    restaurarTickets();
+    restaurarCategorias();
+    restaurarAreaSoporte();
+
+    cout << "Restauracion completa realizada" << endl;
+
+}
+
+void exportarCategoriasCSV(){
+
+    ifstream archivoDat("categorias.dat", ios::binary);
+    ofstream archivoCSV("categorias.csv");
+
+    if (!archivoDat)
+    {
+        cout << "No se pudo abrir categorias.dat" << endl;
+        return;
+    }
+
+    if (!archivoCSV)
+    {
+        cout << "No se pudo crear categorias.csv" << endl;
+        return;
+    }
+    Categoria reg;
+
+    archivoCSV << "ID, Nombre, Activo" << endl;
+
+
+    while(archivoDat.read((char*)&reg, sizeof(Categoria))){
+        archivoCSV << reg.getIdCategoria() << ",";
+        archivoCSV << reg.getNombre() << ",";
+        archivoCSV << reg.getActivo() << endl;
+    }
+    
+    archivoDat.close();
+    archivoCSV.close();
+
+    cout << "Categorias exportadas correctamente a categoria.csv" << endl;
+    
+}
+
+void exportarUsuariosCSV(){
+
+    ifstream archivoDat("usuarios.dat", ios::binary);
+    ofstream archivoCSV("usuarios.csv");
+
+    if (!archivoDat)
+    {
+        cout << "No se pudo abrir usuarios.dat" << endl;
+        return;
+    }
+
+    if (!archivoCSV)
+    {
+        cout << "No se pudo crear usuarios.dat" << endl;
+        return;
+    }
+    
+    Usuario reg;
+
+    archivoCSV <<"ID, Email, Nombre, Apellido, Rol" << endl;
+
+    while(archivoDat.read((char*)&reg, sizeof(Usuario))){
+        archivoCSV << reg.getIDUsuario() << ",";
+        archivoCSV << reg.getEmail()<< ",";
+        archivoCSV << reg.getNombre() << ",";
+        archivoCSV << reg.getApellido() << ",";
+        archivoCSV << reg.getRol() << ",";
+    }
+    archivoDat.close();
+    archivoCSV.close();
+
+    cout << "Usuarios exportados correctamente a usuarios.csv" << endl;
+}
+
+void exportarTicketCSV(){
+
+    ifstream archivoDat("ticket.dat", ios::binary);
+    ofstream archivoCSV("ticket.csv");
+
+    if (!archivoDat)
+    {
+        cout << "No se pudo abrir ticket.dat" << endl;
+        return;
+    }
+
+    if (!archivoCSV)
+    {
+        cout << "No se pudo crear ticket.dat" << endl;
+        return;
+    }
+    Ticket reg;
+
+    archivoCSV << "ID" << endl;
+
+       while(archivoDat.read((char*)&reg, sizeof(Ticket))){
+        archivoCSV << reg.getIdTicket() << endl;
+    }
+
+    archivoDat.close();
+    archivoCSV.close();
+
+    cout << "Tickets exportados correctamente a tickets." << endl;
+    
+
+    
+}
+
+void exportarAreaSoporteCSV(){
+
+
+    ifstream archivoDat("areaSoporte.dat", ios::binary);
+    ofstream archivoCSV("areaSoporte.csv");
+
+    if (!archivoDat)
+    {
+        cout << "No se pudo abrir areaSoporte.dat" << endl;
+        return;
+    }
+
+    if (!archivoCSV)
+    {
+        cout << "No se pudo crear areaSoporte.csv" << endl;
+        return;
+    }
+
+    areaSoporte reg;
+
+    archivoCSV << "ID,Nombre,Descripcion,Activo" << endl;
+    
+    while(archivoDat.read((char*)&reg, sizeof(areaSoporte))){
+        archivoCSV << reg.getIdAreaSoporte() << ",";
+        archivoCSV << reg.getNombre() << ",";
+        archivoCSV << reg.getDescripcion() << ",";
+        archivoCSV << reg.getActivo() << endl;
+    }
+
+    archivoDat.close();
+    archivoCSV.close();
+
+    cout << "Areas de soporte exportadas correctamente a areaSoporte.csv." << endl;
 }

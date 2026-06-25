@@ -382,22 +382,22 @@ void MenuAdmiConfiguracion(Usuario &user1){
     switch (opcion)
     {
     case 1:
-        //cambiarContrasenia(user1);
+        cambiarContrasenia(user1);
         break;
 
     case 2:
-        //verMisDatos(user1);
+        verMisDatos(user1);
         break;
 
     case 3:
-       //MenuBackup();
+       MenuBackup();
         break;
 
     case 4:
-       //MenuRestauracion();
+       MenuRestauracion();
        break;
     case 5:
-      //MenuExportacionCSV();
+      MenuExportacionCSV();
       break;
 
     case 0:

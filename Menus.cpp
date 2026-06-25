@@ -43,6 +43,107 @@ void MostrarMenuAdmin(Usuario &user1);
 void MostrarMenuSoporte(Usuario &user1);
 void MostrarMenuCliente(Usuario &user1);
 
+void menuModificarAdmin(Usuario &usrlog){
+archivoUsuario arch;
+bool guardado;
+int opcion,usrAModificar,nuevoValorRol;
+char nuevoValor[30];
+   cout << "==========================" << endl;
+   cout << "Ingrese el idUsuario que desea modificar: "<<endl;
+   cin  >> usrAModificar;
+   cout << "==========================" << endl;
+
+    do{
+        cout << "==========================" << endl;
+        cout << "¿Que desea modificar?     " << endl;
+        cout << "1-Nombre                  " << endl;
+        cout << "2-Apellido                " << endl;
+        cout << "3-Email                   " << endl;
+        cout << "4-Clave                   " << endl;
+        cout << "5-Rol                     " << endl;
+        cout << "0-Salir.                  " << endl;
+        cout << "==========================" << endl;
+        cin >> opcion;
+
+        Usuario usrAEditar = arch.leerUsuario(usrAModificar - 1);
+        switch(opcion){
+    case 1:
+        cout << "Ingrese nuevo nombre: "<< endl;
+        cin.ignore();
+        cin.getline(nuevoValor,30);
+        usrAEditar.setNombre(nuevoValor);
+
+        guardado = arch.modificar(usrAEditar);
+        if(guardado == true){
+            cout <<"Nuevo nombre guardado con exito."<<endl;
+        }else{
+            cout <<"No se pudo guardar el nuevo nombre."<<endl;
+            }
+        system("pause");
+        break;
+    case 2:
+        cout << "Ingrese nuevo Apellido: " << endl;
+        cin.ignore();
+        cin.getline(nuevoValor,30);
+        usrAEditar.setApellido(nuevoValor);
+
+        guardado = arch.modificar(usrAEditar);
+        if(guardado == true){
+            cout <<"Nuevo Apellido guardado con exito."<<endl;
+        }else{
+            cout <<"No se pudo guardar el nuevo Apellido."<<endl;
+            }
+        system("pause");
+        break;
+    case 3:
+        cout << "Ingrese el nuevo email: " << endl;
+        cin >> nuevoValor;
+        usrAEditar.setEmail(nuevoValor);
+
+        guardado = arch.modificar(usrAEditar);
+        if(guardado == true){
+            cout <<"Nuevo Email guardado con exito."<<endl;
+        }else{
+            cout <<"No se pudo guardar el nuevo email."<<endl;
+            }
+        system("pause");
+        break;
+    case 4:
+        cout << "Ingrese la nueva clave: " << endl;
+        cin >> nuevoValor;
+        usrAEditar.setClave(nuevoValor);
+
+        guardado = arch.modificar(usrAEditar);
+        if(guardado == true){
+            cout <<"Nueva clave guardado con exito."<<endl;
+        }else{
+            cout <<"No se pudo guardar la nueva clave."<<endl;
+            }
+        system("pause");
+        break;
+    case 5:
+        cout << "Ingrese el nuevo rol: " << endl;
+        cin >> nuevoValorRol;
+        usrAEditar.setIdRol(nuevoValorRol);
+
+        guardado = arch.modificar(usrAEditar);
+        if(guardado == true){
+            cout <<"Nuevo rol guardado con exito."<<endl;
+        }else{
+            cout <<"No se pudo guardar el nuevo rol."<<endl;
+            }
+        system("pause");
+        break;
+    case 0:
+        cout << "Saliendo del menu modificar!" << endl;
+        break;
+        }
+
+        }while(opcion != 0);
+
+
+    }
+
 void ingresoUsuarios(){
     int cont=0;
     int rolLogueado =0;
@@ -71,6 +172,7 @@ void ingresoUsuarios(){
     loginExitoso = arch.validarLogin(email,contra,usrLog);
     //cout << loginExitoso;
     if(loginExitoso == true){
+            system("cls");
         rolLogueado = usrLog.getRol();
 
         switch(rolLogueado){
@@ -92,9 +194,11 @@ void ingresoUsuarios(){
         }
         //break; para que no me muestre nuevamente el iniciar sesion.
     }else{
+
         cout<< "Contrasena incorrecta."<< endl;
         cont++;
-        cout<<"contador: " <<cont<<endl;
+        //cout<<"contador: " <<cont<<endl;
+        cin.ignore();
         muereXLogin(cont); //Si ingresa 3 veces mal usuario contra se cierra el programa.
         }
    }while(true);
@@ -546,11 +650,14 @@ case 3:
 void MenuGestionUsuarios(){
 
     int opcion;
-
+    int OpcionEstado=0;
+    int IdUsr;
+    archivoUsuario archU;
+    Usuario usr ;
     do{
         cout << "GESTION DE USUARIOS" << endl;
-        cout << " 1- Alta" << endl;
-        cout << " 2- Baja" << endl;
+        cout << " 1- Crear" << endl;
+        cout << " 2- Alta/Baja logica" << endl;
         cout << " 3- Modificacion" << endl;
         cout << " 4- Listado" << endl;
         cout << " 0- volver" << endl;
@@ -560,17 +667,44 @@ void MenuGestionUsuarios(){
         switch(opcion){
 
             case 1:
+
             system("pause");
             system("cls");
             AltaUsuario();
             break;
 
             case 2:
+               {
+
+
+            cout << "Desea Activar o Desactivar un usuario?"<< endl;
+            cout << "1-Activar" << endl;
+            cout << "2-Desactivar" << endl;
+            cin >> OpcionEstado;
+            if(OpcionEstado>0 && OpcionEstado < 3){
+            if(OpcionEstado == 1){
+                cout << "Ingrese el id que desea volver a activar." << endl;
+                cin >> IdUsr;
+                Usuario usrleido = archU.leerUsuario(IdUsr - 1);
+                usrleido.setActivo(true);
+                bool guardado = archU.modificar(usrleido);
+                if(guardado == true){
+                    cout << "estado modificado con exito" << endl;
+                }else{
+                    cout << "No se pudo modificar "<< endl;
+                }
+
+            }else{
             BajaUsuario();
+            }
+            }else{
+                cout << "Ingreso opcion incorrecta" << endl;
+            }
+               }
             break;
 
             case 3:
-            ModificacionUsuario();
+            menuModificarAdmin(usr);
             break;
 
             case 4:
@@ -964,106 +1098,6 @@ char nuevoValor[30];
 
 
 
-void menuModificarAdmin(Usuario &usrlog){
-archivoUsuario arch;
-bool guardado;
-int opcion,usrAModificar,nuevoValorRol;
-char nuevoValor[30];
-   cout << "==========================" << endl;
-   cout << "Ingrese el idUsuario que desea modificar: "<<endl;
-   cin  >> usrAModificar;
-   cout << "==========================" << endl;
-
-    do{
-        cout << "==========================" << endl;
-        cout << "¿Que desea modificar?     " << endl;
-        cout << "1-Nombre                  " << endl;
-        cout << "2-Apellido                " << endl;
-        cout << "3-Email                   " << endl;
-        cout << "4-Clave                   " << endl;
-        cout << "5-Rol                     " << endl;
-        cout << "0-Salir.                  " << endl;
-        cout << "==========================" << endl;
-        cin >> opcion;
-
-        Usuario usrAEditar = arch.leerUsuario(usrAModificar);
-        switch(opcion){
-    case 1:
-        cout << "Ingrese nuevo nombre: "<< endl;
-        cin.ignore();
-        cin.getline(nuevoValor,30);
-        usrAEditar.setNombre(nuevoValor);
-
-        guardado = arch.modificar(usrAEditar);
-        if(guardado == true){
-            cout <<"Nuevo nombre guardado con exito."<<endl;
-        }else{
-            cout <<"No se pudo guardar el nuevo nombre."<<endl;
-            }
-        system("pause");
-        break;
-    case 2:
-        cout << "Ingrese nuevo Apellido: " << endl;
-        cin.ignore();
-        cin.getline(nuevoValor,30);
-        usrAEditar.setApellido(nuevoValor);
-
-        guardado = arch.modificar(usrAEditar);
-        if(guardado == true){
-            cout <<"Nuevo Apellido guardado con exito."<<endl;
-        }else{
-            cout <<"No se pudo guardar el nuevo Apellido."<<endl;
-            }
-        system("pause");
-        break;
-    case 3:
-        cout << "Ingrese el nuevo email: " << endl;
-        cin >> nuevoValor;
-        usrAEditar.setEmail(nuevoValor);
-
-        guardado = arch.modificar(usrAEditar);
-        if(guardado == true){
-            cout <<"Nuevo Email guardado con exito."<<endl;
-        }else{
-            cout <<"No se pudo guardar el nuevo email."<<endl;
-            }
-        system("pause");
-        break;
-    case 4:
-        cout << "Ingrese la nueva clave: " << endl;
-        cin >> nuevoValor;
-        usrAEditar.setClave(nuevoValor);
-
-        guardado = arch.modificar(usrAEditar);
-        if(guardado == true){
-            cout <<"Nueva clave guardado con exito."<<endl;
-        }else{
-            cout <<"No se pudo guardar la nueva clave."<<endl;
-            }
-        system("pause");
-        break;
-    case 5:
-        cout << "Ingrese el nuevo rol: " << endl;
-        cin >> nuevoValorRol;
-        usrAEditar.setIdRol(nuevoValorRol);
-
-        guardado = arch.modificar(usrAEditar);
-        if(guardado == true){
-            cout <<"Nuevo rol guardado con exito."<<endl;
-        }else{
-            cout <<"No se pudo guardar el nuevo rol."<<endl;
-            }
-        system("pause");
-        break;
-    case 0:
-        cout << "Saliendo del menu modificar!" << endl;
-        break;
-        }
-
-        }while(opcion != 0);
-
-
-    }
 void menuModificarAreaSoporte(){
   char nuevoValor[30];
     int Estado;

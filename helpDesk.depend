@@ -118,7 +118,7 @@
 	"ArchivoRoles.h"
 	"ArchivoUsuarios.h"
 
-1782368342 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
+1782429550 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
 	<iostream>
 	<string>
 	"ArchivoUsuarios.h"
@@ -339,4 +339,20 @@
 	<iostream>
 	"Respuestas.h"
 	<cstring>
+
+1782423937 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestiontickets.cpp
+	<iostream>
+	"GestionTickets.h"
+	"ticket.h"
+	"TicketArchivo.h"
+
+1782426532 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.cpp
+	<iostream>
+	"MenuAdmiConfiguracion.h"
+	"AreaSoporte.h"
+	<fstream>
+	"Categoria.h"
+	"ticket.h"
+	"AreaSoporte.h"
+	"ArchivoUsuarios.h"
 

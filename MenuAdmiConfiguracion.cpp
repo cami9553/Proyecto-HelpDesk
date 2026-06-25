@@ -1,21 +1,27 @@
-#include <iostream> 
+#include <iostream>
 using namespace std;
-#include "MenuAdmiConfiguracion.h" 
+#include "MenuAdmiConfiguracion.h"
 #include "AreaSoporte.h"
 #include <fstream>
 #include "Categoria.h"
 #include "ticket.h"
 #include "AreaSoporte.h"
-
+#include "ArchivoUsuarios.h"
 
 void cambiarContrasenia(Usuario &user1){
-
+    archivoUsuario archU;
     string nuevaClave;
 
     cout << "Ingres una nueva Clave: ";
     cin >> nuevaClave;
 
      user1.setClave(nuevaClave);
+     bool guardado = archU.modificar(user1);
+     if(guardado== true){
+           cout << "contrasenia modificada correctamente: "<< endl;
+     }else{
+        cout << "No se pudo cambiar contrasenia" << endl;
+        }
 }
 void verMisDatos(Usuario &user1){
 
@@ -27,7 +33,7 @@ void verMisDatos(Usuario &user1){
 }
 
 void MenuRestauracion(){
-    
+
      int opcion;
 
      do{
@@ -37,7 +43,7 @@ void MenuRestauracion(){
         cout << "2- Tickets" << endl;
         cout << "3- Categorias" << endl;
         cout << "4- Area de Soporte" << endl;
-        cout << "5- Todos los archivos" << endl; 
+        cout << "5- Todos los archivos" << endl;
         cout << "0- Volver" << endl;
 
          cout << "Opcion: ";
@@ -75,7 +81,7 @@ void MenuRestauracion(){
 }
 
 void MenuExportacionCSV(){
-    
+
     int opcion;
 
     do{
@@ -95,20 +101,20 @@ void MenuExportacionCSV(){
         case 1:
             exportarUsuariosCSV();
             break;
-        
-        case 2: 
+
+        case 2:
           exportarTicketCSV();
            break;
 
         case 3:
          exportarCategoriasCSV();
           break;
-          
-        case 4: 
+
+        case 4:
            exportarAreaSoporteCSV();
             break;
-          
-        case 0: 
+
+        case 0:
          break;
 
 
@@ -132,18 +138,18 @@ void MenuBackup(){
         cout << "2- Tickets" << endl;
         cout << "3- Categorias" << endl;
         cout << "4- Areas de Soporte" << endl;
-        cout << "5- Todos los archivos" << endl; 
+        cout << "5- Todos los archivos" << endl;
         cout << "0- Volver" << endl;
 
         cout << "Opcion: ";
         cin >> opcion;
 
         if(cin.fail()){
-            cout << "Debe ingresar un numero." << endl; 
+            cout << "Debe ingresar un numero." << endl;
 
             cin.clear();
             cin.ignore(1000, '\n');
-            
+
             continue;
         }
 
@@ -152,13 +158,13 @@ void MenuBackup(){
         case 1:
             backupUsuarios();
             break;
-        
+
 
         case 2:
             backupTickets();
             break;
 
-        case 3: 
+        case 3:
             backupCategorias();
             break;
 
@@ -248,7 +254,7 @@ void backupCategorias(){
         cout << "No se pudo crear el backup" << endl;
         return;
     }
- 
+
     destino << origen.rdbuf();
 
     cout << "Backup realiziado correctamente." << endl;
@@ -301,7 +307,7 @@ void restaurarUsuarios(){
         cout << "no se pudo restaurar usuarios.dat" << endl;
         return;
 
-    } 
+    }
 
     destino << origen.rdbuf();
 
@@ -351,7 +357,7 @@ void restaurarCategorias(){
 
     origen.close();
     destino.close();
-    
+
 }
 
 void restaurarAreaSoporte(){
@@ -361,7 +367,7 @@ void restaurarAreaSoporte(){
     if (!origen){
       cout << "No existe el backup areaSoporte.dat." << endl;
       return;
-    
+
 
     if (!destino) {
         cout << "No se pudo restaurar areaSoporte.dat" << endl;
@@ -370,15 +376,15 @@ void restaurarAreaSoporte(){
 
     destino << origen.rdbuf();
     cout << "Area restaurado correctamente" << endl;
-    
+
     origen.close();
-    destino.close(); 
-    
+    destino.close();
+
 }
 }
 
 void restaurarCompleto(){
-    
+
     restaurarUsuarios();
     restaurarTickets();
     restaurarCategorias();
@@ -414,12 +420,12 @@ void exportarCategoriasCSV(){
         archivoCSV << reg.getNombre() << ",";
         archivoCSV << reg.getActivo() << endl;
     }
-    
+
     archivoDat.close();
     archivoCSV.close();
 
     cout << "Categorias exportadas correctamente a categoria.csv" << endl;
-    
+
 }
 
 void exportarUsuariosCSV(){
@@ -438,7 +444,7 @@ void exportarUsuariosCSV(){
         cout << "No se pudo crear usuarios.dat" << endl;
         return;
     }
-    
+
     Usuario reg;
 
     archivoCSV <<"ID, Email, Nombre, Apellido, Rol" << endl;
@@ -484,9 +490,9 @@ void exportarTicketCSV(){
     archivoCSV.close();
 
     cout << "Tickets exportados correctamente a tickets." << endl;
-    
 
-    
+
+
 }
 
 void exportarAreaSoporteCSV(){
@@ -510,7 +516,7 @@ void exportarAreaSoporteCSV(){
     areaSoporte reg;
 
     archivoCSV << "ID,Nombre,Descripcion,Activo" << endl;
-    
+
     while(archivoDat.read((char*)&reg, sizeof(areaSoporte))){
         archivoCSV << reg.getIdAreaSoporte() << ",";
         archivoCSV << reg.getNombre() << ",";

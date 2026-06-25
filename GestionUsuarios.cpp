@@ -7,20 +7,20 @@
 using namespace std;
 
 void AltaUsuario(){
- 
+
     Usuario reg;
     archivoUsuario arch;
+    bool guardado;
 
-    reg.cargar();
-
+    guardado = reg.cargar();
+    if(guardado == true){
     if(arch.registrar(reg)){
       cout << "Usuario guardado correctamente" << endl;
  }
-
     else{
         cout << "Error al guardar el usuario" << endl;
     }
-
+  }
 }
 void BajaUsuario(){
  archivoUsuario arch;
@@ -40,7 +40,7 @@ void BajaUsuario(){
      cout << "-------------------------------------------" << endl;
      cout << "Usuario dado de baja correctamente." << endl;
   }
-  
+
   else {
     cout << "Error. ID no encontrado." << endl;
 
@@ -50,7 +50,7 @@ void BajaUsuario(){
 
 
 void ModificacionUsuario(){
- Usuario reg; 
+ Usuario reg;
  archivoUsuario arch;
  int id;
 
@@ -58,14 +58,14 @@ void ModificacionUsuario(){
   cin >> id;
 
   int cantidad = arch.contarTotalUsuarios();
-  
+
   if( id < 1 || id > cantidad){
-    cout << "ID no valido." << endl; 
-  } 
+    cout << "ID no valido." << endl;
+  }
   else {
     reg = arch.leerUsuario(id);
     reg.mostrar();
-    reg.cargar(); 
+    reg.cargar();
 
      if(arch.modificar(reg)){
        cout << "Usuario modificado correctamente." << endl;
@@ -81,7 +81,7 @@ void listarUsuarios(){
 
     archivoUsuario arch;
     arch.listarTodos();
-    
+
     system("pause");
 
 }

@@ -2,7 +2,9 @@
 using namespace std;
 #include "usuarios.h"
 #include <cstring>
-
+#include "Roles.h"
+#include "ArchivoRoles.h"
+#include "ArchivoUsuarios.h"
 Usuario::Usuario(){
 
 }
@@ -75,29 +77,64 @@ void Usuario::mostrar(){
 
     }
 
-    void Usuario::cargar(){
-        string email, nombre, apellido, clave;
+    bool Usuario::cargar(){
+        char email[30], nombre[30], apellido[30], clave[30];
         int rol;
-
+        int i=0;
+        archivoUsuario archU;
+        rolesArchivo rArchivo;
+        roles rolLeido;
+        Usuario usr;
+        bool validar1 = false;
+        bool validar2;
         cout << "Email: ";
         cin >> email;
+        cin.ignore();
+        for(i=0;i<archU.contarTotalUsuarios();i++){
+            usr = archU.leerUsuario(i);
+            if(strcmp(usr.getEmail(),email)==0){
+                validar1 = true;
+                cout << "EL email ya se encuentra registrado." << endl;
+                return false;
+            }else{
+                validar1 = false;
+            }
+        }
 
         cout << "Nombre: ";
-        cin >> nombre;
+        cin.getline(nombre,30);
 
         cout << "Apellido: ";
-        cin >> apellido;
+        cin.getline(apellido,30);
 
         cout << "Clave: ";
         cin >> clave;
 
-        cout << "Rol: ";
+        cout << "Los roles existentes son: " << endl;
+        rArchivo.listarTodos();
         cin >> rol;
 
-        setEmail(email);
-        setNombre(nombre);
-        setApellido(apellido);
-        setClave(clave);
-        setIdRol(rol);
-
+        int cantrol = rArchivo.contarTotalRoles();
+        if(rol>0 and rol <=cantrol){
+            rolLeido = rArchivo.leerRol(rol-1);
+            if(rolLeido.getEstado()==1){
+                setEmail(email);
+                setNombre(nombre);
+                setApellido(apellido);
+                setClave(clave);
+                setIdRol(rol);
+                validar2 = true;
+            }else{
+                cout << "El rol que eligio no se encuentra activo." << endl;
+                return false;
+                }
+        }else{
+            cout << "Rol Inexistente"<<endl;
+            validar2 = false;
+            }
+        if(validar1==false and validar2==true){
+            return true;
+        }else{
+            return false;
+        }
     }

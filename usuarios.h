@@ -14,7 +14,7 @@ public:
     Usuario();
 
     Usuario(int idUsuario,std::string email, std::string nombre, std::string apellido, std::string clave, int idRol, bool activo);
-    void cargar();
+    bool cargar();
     void mostrar();
     //GETTERS
     int getIDUsuario();

@@ -7,6 +7,7 @@ using namespace std;
 #include "ticket.h"
 #include "TicketArchivo.h"
 #include "ArchivoRespuestas.h"
+#include "ArchivoRoles.h"
 
 void crearAdminAviso(){
 archivoUsuario arch;
@@ -36,10 +37,14 @@ int main()
     crearAdminAviso();
     TickeArchivo tk;
     archivoRespuesta archR;
+    rolesArchivo archrol;
     //==================================PRUEBAS========================
     //system("cls");
-    archR.todasRespuestasxTicket(1);
+    //cout << archrol.contarTotalRoles();
+    //archrol.listarTodos();
+    //archR.todasRespuestasxTicket(1);
     //arc.listarActivos();
+    //cout << "cantidad usuarios: "<< arc.contarTotalUsuarios() <<endl;
     //arc.bajaLogica(1);
     //arc.altaLogica(1);
     //arc.listarTodos();

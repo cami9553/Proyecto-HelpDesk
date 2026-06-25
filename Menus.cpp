@@ -536,6 +536,8 @@ void MenuGestionUsuarios(){
         switch(opcion){
 
             case 1:
+            system("pause");
+            system("cls");
             AltaUsuario();
             break;
 
@@ -643,7 +645,39 @@ case 2:
   }
 
     break;
+case 3:
+    {
+    archivoRespuesta archr;
+    int idTickBuscado;
+    int i = 0;
+    cout << "En este apartado solamente podra ver respuestas sobre los tickets los cuales usted creo..." << endl;
+    cout << "Los tickets creados son:" << endl;
+    Cantidad = Archivo.CantidadTickets();
+    int *PosTicketsCreado= new int[Cantidad+1]();
+    for(i=0;i<Cantidad;i++){
+        Ticket tleido = Archivo.LeerTicket(i);
+        if(tleido.getIdUsuario() == user1.getIDUsuario()){
+            tleido.MostrarTicket();
+            PosTicketsCreado[i+1]=1;
+            system("pause");
+            }
+        }
+        cout << "Ingrese el ticket que usted desea modificar: " << endl;
+        cin >> idTickBuscado;
+        if(PosTicketsCreado[idTickBuscado]==1){
+            cout <<"Este ticket lo tiene asignado" << endl;
+            cout <<"================================="<< endl;
+            Ticket leidoOk = Archivo.LeerTicket(idTickBuscado-1);
+             int idTicketValidado = leidoOk.getIdTicket();
+            archr.todasRespuestasxTicket(idTicketValidado);
+        }else{
+            cout << "Este ticket no se encuentra asignado a usted." << endl;
+        }
 
+     delete[] PosTicketsCreado;
+    }
+
+    break;
 case 4:
 
     user1.mostrar();

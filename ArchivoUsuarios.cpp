@@ -25,25 +25,14 @@ int archivoUsuario::contarTotalUsuarios(){
  return cant_registros;
 }
 int archivoUsuario::obtenerSiguienteID(){
-    int siguienteID;
-    FILE *f = fopen(_archivo.c_str(),"rb");
-    if(f==NULL){
-        cout << "error al abrir archivo, el sistema se cerrara."<<endl;
-        exit(1); //Exit me va a terminar el programa directamente.
-        }
-    fseek(f,0,SEEK_END);
-    int bytes = ftell(f);
-    fclose(f);
-    siguienteID = (bytes /sizeof(Usuario))+1;
-
-    return siguienteID;
+    return contarTotalUsuarios() + 1;
     }
 
 bool archivoUsuario::registrar(Usuario &reg){
     FILE *f = fopen(_archivo.c_str(),"ab");
     if(f == NULL){
         cout << "error al insertar usuario, el sistema se cerrara."<<endl;
-        exit(1); //Exit me va a terminar el programa directamente.
+        return 0; //Exit me va a terminar el programa directamente.
         }
     int siguienteID = obtenerSiguienteID();
     reg.setIDUsuario(siguienteID);
@@ -137,6 +126,7 @@ void archivoUsuario::listarTodos(){
         cout <<"Apellido:"<<usr.getApellido()<<endl;
         cout <<"Rol:"<<usr.getRol()<<endl;
         cout <<"Activo:"<<usr.getActivo()<<endl;
+        cout <<"================================"<<endl;
     }
 
 }

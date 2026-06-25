@@ -115,7 +115,7 @@ int rolesArchivo::contarTotalRoles(){
  int cant_registros;
  FILE *p = fopen(_archivo.c_str(),"rb");
  if(p == NULL){
-        cout << "error de archivo en contar usuarios." << endl;
+        cout << "error de archivo en contar total roles." << endl;
     exit(1);
  }
  fseek(p,0,SEEK_END);
@@ -133,10 +133,15 @@ void rolesArchivo::listarTodos(){
     int totalUsuarios = contarTotalRoles();
     for(i=0;i<totalUsuarios;i++){
          rol = leerRol(i);
-        cout << "==========================" << endl;
+
         cout <<"idrol:"<<rol.getIdRol()<<endl;
         cout <<"descripcion:"<<rol.getDescripcion()<<endl;
-        cout <<"estado:"<<rol.getEstado()<<endl;
+        if(rol.getEstado()==0){
+            cout <<"Estado:Inactivo"<<endl;
+        }else if(rol.getEstado()==1){
+            cout << "Estado: Activo" << endl;
+            }
+
         cout << "==========================" << endl;
     }
 

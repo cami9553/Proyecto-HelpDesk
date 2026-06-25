@@ -23,6 +23,8 @@
     "Categoria.cpp",
     "ArchivoCategoria.cpp",
     "MenuAdmiConfiguracion.cpp",
+    "ArchivoRoles.cpp",
+    "Roles.cpp",
     "-o",
     "programa.exe"
 ],

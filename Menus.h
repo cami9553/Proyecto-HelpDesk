@@ -25,5 +25,5 @@ void ingresoUsuarios();
 void menuAdmin();
 void menuSoporte();
 void MostrarMenuCliente(Usuario &user1);
-
+bool validarIdElegido(int idAsig, Usuario &user1);
 #endif // MENUS_H_INCLUDED

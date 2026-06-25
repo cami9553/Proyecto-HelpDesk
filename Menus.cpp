@@ -21,6 +21,17 @@ using namespace std;
 #include "Categoria.h"
 #include "Respuestas.h"
 #include "ArchivoRespuestas.h"
+bool validarIdElegido(int idAsig, Usuario &user1){
+    TickeArchivo Archivo;
+    int Cantidad = Archivo.CantidadTickets();
+    for(int i=0; i<Cantidad; i++){
+        Ticket tleido = Archivo.LeerTicket(i);
+        if(tleido.getIdUsrSoporte() == user1.getIDUsuario() && tleido.getIdTicket() == idAsig){
+            return true;
+        }
+    }
+    return false;
+}
 
 void muereXLogin(int cont){
     if(cont >=3){
@@ -66,14 +77,17 @@ void ingresoUsuarios(){
         case 1:
             cout << "Bienvenido al menu Admin"<< endl;
             MostrarMenuAdmin(usrLog);
+            cin.ignore();
             break;
         case 2:
             cout << "Bienvenido al menu Soporte"<< endl;
             MostrarMenuSoporte(usrLog);
+            cin.ignore();
             break;
         case 3:
             cout << "Bienvenido al menu Cliente"<< endl;
             MostrarMenuCliente(usrLog);
+            cin.ignore();
             break;
         }
         //break; para que no me muestre nuevamente el iniciar sesion.
@@ -186,28 +200,38 @@ bool guardado;
             }
             cout << "Ingrese el id de el ticket a modificar: " << endl;
             cin >> idAsig;
+
+            bool esValido = validarIdElegido(idAsig, user1);
+            if(esValido == false){
+                cout << "El id ingresado no corresponde a ningun ticket asignado a usted." << endl;
+            }else{
             int pos = Archivo.BuscarTicket(idAsig);
             if(pos != -1){
             Ticket tleido = Archivo.LeerTicket(pos);
 
             cout << "Que estado desea asignar?" << endl;
             cout << "0-Abierto" << endl;
-            cout << "1-En proceso" <<endl;
+            cout << "1-Asignado" <<endl;
             cout << "2-Resuelto" << endl;
             cout << "3-Cerrado " << endl;
             cout << "============================" << endl;
             cin >> nuevoEstado;
-            tleido.setEstado(nuevoEstado);
-            guardado = Archivo.ModificarTicket(tleido,pos);
-            if(guardado == true){
-                cout << "Estado cambiado con exito." << endl;
+            if(nuevoEstado >= 0 && nuevoEstado <= 3){
+                tleido.setEstado(nuevoEstado);
+                guardado = Archivo.ModificarTicket(tleido, pos);
+                if(guardado == true){
+                    cout << "Estado cambiado con exito." << endl;
+                }else{
+                    cout << "No se pudo cambiar el estado de el ticket." << endl;
+                }
             }else{
-                cout << "No se pudo cambiar el estado de el ticket." <<endl;
+                cout << "Estado invalido." << endl;
             }
             }else{
                 cout << "No se encontro el ticket!" <<endl;
             }
             }
+        }
             break;
 
         case 4:

@@ -106,7 +106,15 @@ cout<<"Asunto: "<<asunto<<endl;
 cout<<"Descripcion: "<<descripcion<<endl;
 cout<<"Categoria: "<<idCategoria<<endl;
 cout<<"Prioridad: "<<prioridad<<endl;
-cout<<"Estado: " <<estado<<endl;
+if(estado == 0){
+    cout << "Estado: Sin Asignar." << endl;
+}else if(estado == 1){
+    cout << "Estado: Asignado." << endl;
+    }else if(estado == 2){
+        cout << "Estado: En Proceso" << endl;
+        }else if(estado == 3){
+            cout << "Estado : Cerrado " << endl;
+            }
 cout<<"Fecha creacion: ";
 fechaCreacion.MostrarFecha();
 cout<<endl;

@@ -58,7 +58,7 @@
 	<ctime>
 	"fecha.h"
 
-1782362024 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1782364848 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
@@ -74,7 +74,7 @@
 
 1782360719 c:\users\ysyary\documents\github\proyecto-helpdesk\usuarios.h
 
-1781942306 c:\users\ysyary\documents\github\proyecto-helpdesk\menus.h
+1782366660 c:\users\ysyary\documents\github\proyecto-helpdesk\menus.h
 	"usuarios.h"
 
 1782363107 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.cpp
@@ -89,7 +89,7 @@
 
 1780351458 c:\users\ysyary\documents\github\proyecto-helpdesk\fecha.h
 
-1782189802 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.cpp
+1782368606 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.cpp
 	<iostream>
 	"Ticket.h"
 	"TicketArchivo.h"
@@ -118,7 +118,7 @@
 	"ArchivoRoles.h"
 	"ArchivoUsuarios.h"
 
-1782363872 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
+1782368342 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
 	<iostream>
 	<string>
 	"ArchivoUsuarios.h"

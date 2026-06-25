@@ -743,19 +743,19 @@ void MenuGestionTickets()
         switch(opcion){
 
             case 1:
-            //VisualizarTickets();
+            VisualizarTickets();
             break;
 
             case 2:
-            //ReasignarTicket();
+            ReasignarTicket();
             break;
 
             case 3:
-            //ModificarPrioridad();
+            ModificarPrioridad();
             break;
 
             case 4:
-            //ModificarEstado();
+            ModificarEstado();
             break;
 
             case 0:

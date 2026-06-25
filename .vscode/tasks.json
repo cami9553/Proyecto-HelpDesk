@@ -25,6 +25,8 @@
     "MenuAdmiConfiguracion.cpp",
     "ArchivoRoles.cpp",
     "Roles.cpp",
+    "ArchivoRespuestas.cpp",
+    "Respuestas.cpp",
     "-o",
     "programa.exe"
 ],

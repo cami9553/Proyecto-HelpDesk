@@ -34,4 +34,11 @@ void ModificarCategoria(){
 
 void ListarCategorias(){
 
+    ArchivoCategoria arch;
+
+     cout << "LISTADO DE CATEGORIAS" << endl;
+
+     arch.listarTodas();
+     system("pause");
+
 }

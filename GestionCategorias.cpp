@@ -18,7 +18,7 @@ void AltaCategoria(){
         cout << "Categoria guardada correctamente." << endl;
     }
     else{
-        cout << "Error al guardad la categoria." << endl;
+        cout << "Error al guardar la categoria." << endl;
     }
         system("pause");
 
@@ -29,8 +29,56 @@ void BajaCategoria(){
 }
 
 void ModificarCategoria(){
+ ArchivoCategoria arch;
+ Categoria reg;
 
+ int id;
+ int cantidad;
+ int pos = -1;
+
+ cout << "Ingrese ID de categoria a modificar: ";
+ cin >> id;
+
+ cantidad = arch.contarTotalCategorias();
+
+ for(int i = 0; i < cantidad; i++){
+    reg = arch.leerCategoria(i);
+
+    if(reg.getIdCategoria() == id){
+        pos = i;
+        break;
+    }
+ }
+
+ if(pos == -1){
+    cout << "No se encontro la categoria." << endl;
+    system("pause");
+    return;
+ }
+
+ reg = arch.leerCategoria(pos);
+
+    cout << "Categoria encontrada:" << endl;
+    reg.mostrar();
+
+    char nuevoNombre[30];
+
+    cout << "Ingrese nuevo nombre: ";
+    cin.ignore();
+    cin.getline(nuevoNombre, 30);
+
+    reg.setNombre(nuevoNombre);
+
+    if(arch.modificarCategoria(reg, pos)){
+        cout << "Categoria modificada correctamente." << endl;
+    }
+    else{
+        cout << "Error al modificar la categoria." << endl;
+    }
+
+    system("pause");
 }
+
 
 void ListarCategorias(){
 

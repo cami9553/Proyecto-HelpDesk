@@ -12,6 +12,7 @@ public:
   bool registrar(Categoria &reg);
 
   Categoria leerCategoria(int pos);
+  bool modificarCategoria(Categoria reg, int pos);
   void listarTodas();
   
   void bajaLogica(int idCategora);
@@ -19,7 +20,6 @@ public:
   int contarTotalCategorias();
 
   int obtenerSiguienteID();
-
 
   private:
   std::string _archivo;

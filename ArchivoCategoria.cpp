@@ -100,3 +100,40 @@ void ArchivoCategoria::bajaLogica(int idCategoria){
 
     cout << "La categoria fue dada de baja correctamente." << endl;
 }
+
+bool ArchivoCategoria::modificarCategoria(Categoria reg, int pos){
+
+    FILE *p = fopen(_archivo.c_str(), "rb+");
+
+    if(p == NULL){
+
+        return false;
+    }
+
+    fseek(p, pos * sizeof(Categoria), SEEK_SET);
+
+    bool pudoEscribir =  fwrite(&reg, sizeof(Categoria), 1, p);
+
+    fclose(p);
+
+    return pudoEscribir;
+}
+
+Categoria ArchivoCategoria::leerCategoria(int pos){
+
+    Categoria reg;
+
+    FILE *p = fopen(_archivo.c_str(), "rb");
+
+    if(p == NULL){
+        return reg;
+    }
+
+    fseek(p, pos * sizeof(Categoria), SEEK_SET);
+
+    fread(&reg, sizeof(Categoria), 1, p);
+
+    fclose(p);
+
+    return reg;
+}

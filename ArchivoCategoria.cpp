@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 #include "ArchivoCategoria.h"
 #include <cstring>
 using namespace std;
@@ -29,7 +29,7 @@ int ArchivoCategoria::contarTotalCategorias(){
 
     return bytes / sizeof(Categoria);
 }
- 
+
 int ArchivoCategoria::obtenerSiguienteID(){
 
    return contarTotalCategorias() + 1;
@@ -136,4 +136,22 @@ Categoria ArchivoCategoria::leerCategoria(int pos){
     fclose(p);
 
     return reg;
+}
+void ArchivoCategoria::altaLogica(int idCategoria){
+    Categoria cat;
+
+    FILE *f = fopen(_archivo.c_str(), "rb+");
+    if(f == NULL){
+        cout << "Error al abrir el archivo." << endl;
+        return;
+    }
+
+    fseek(f, (idCategoria - 1) * sizeof(Categoria), SEEK_SET);
+    fread(&cat, sizeof(Categoria), 1, f);
+    cat.setActivo(true);
+    fseek(f, (idCategoria - 1) * sizeof(Categoria), SEEK_SET);
+    fwrite(&cat, sizeof(Categoria), 1, f);
+    fclose(f);
+
+    cout << "La categoria fue activada correctamente." << endl;
 }

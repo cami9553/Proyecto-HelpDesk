@@ -58,7 +58,7 @@
 	<ctime>
 	"fecha.h"
 
-1782364848 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1782431806 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
@@ -68,6 +68,7 @@
 	"TicketArchivo.h"
 	"ArchivoRespuestas.h"
 	"ArchivoRoles.h"
+	"ArchivoCategoria.h"
 
 1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\archivousuarios.h
 	"usuarios.h"
@@ -118,7 +119,7 @@
 	"ArchivoRoles.h"
 	"ArchivoUsuarios.h"
 
-1782429550 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
+1782431358 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
 	<iostream>
 	<string>
 	"ArchivoUsuarios.h"
@@ -303,12 +304,12 @@
 
 1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\categoria.h
 
-1781143751 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivocategoria.cpp
+1782431617 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivocategoria.cpp
 	<iostream>
 	"ArchivoCategoria.h"
 	<cstring>
 
-1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\archivocategoria.h
+1782431806 c:\users\ysyary\documents\github\proyecto-helpdesk\archivocategoria.h
 	"Categoria.h"
 	<string>
 
@@ -317,7 +318,7 @@
 	<cstring>
 	"Categoria.h"
 
-1782269413 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestioncategorias.cpp
+1782431178 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestioncategorias.cpp
 	<iostream>
 	"GestionCategorias.h"
 	"ArchivoCategoria.h"

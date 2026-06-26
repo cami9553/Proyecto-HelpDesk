@@ -8,13 +8,13 @@ class ArchivoCategoria{
 public:
   ArchivoCategoria();
   ArchivoCategoria(std::string archivo);
-
+  void altaLogica(int idCategoria);
   bool registrar(Categoria &reg);
 
   Categoria leerCategoria(int pos);
   bool modificarCategoria(Categoria reg, int pos);
   void listarTodas();
-  
+
   void bajaLogica(int idCategora);
 
   int contarTotalCategorias();
@@ -25,5 +25,5 @@ public:
   std::string _archivo;
 };
 
-#endif 
+#endif
 

@@ -3,7 +3,7 @@ using namespace std;
 
 #include "GestionCategorias.h"
 #include "ArchivoCategoria.h"
-#include "Categoria.h" 
+#include "Categoria.h"
 
 void AltaCategoria(){
 
@@ -25,7 +25,18 @@ void AltaCategoria(){
 }
 
 void BajaCategoria(){
-
+    ArchivoCategoria arch;
+    int id;
+    arch.listarTodas();
+    cout << "Ingrese el ID de la categoria a dar de baja: ";
+    cin >> id;
+    int cantidad = arch.contarTotalCategorias();
+    if(id >= 1 && id <= cantidad){
+        arch.bajaLogica(id);
+    }else{
+        cout << "ID no valido." << endl;
+    }
+    system("pause");
 }
 
 void ModificarCategoria(){

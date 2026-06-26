@@ -8,6 +8,7 @@ using namespace std;
 #include "TicketArchivo.h"
 #include "ArchivoRespuestas.h"
 #include "ArchivoRoles.h"
+#include "ArchivoCategoria.h"
 
 void crearAdminAviso(){
 archivoUsuario arch;

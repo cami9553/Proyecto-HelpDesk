@@ -20,7 +20,9 @@ using namespace std;
 #include "ArchivoRoles.h"
 #include "Categoria.h"
 #include "Respuestas.h"
+#include "ArchivoCategoria.h"
 #include "ArchivoRespuestas.h"
+
 bool validarIdElegido(int idAsig, Usuario &user1){
     TickeArchivo Archivo;
     int Cantidad = Archivo.CantidadTickets();
@@ -518,8 +520,8 @@ void MenuAdmiConfiguracion(Usuario &user1){
 
     do{
         cout << "\n ====== GESTION DE CATEGORIAS ======" << endl;
-        cout << "1 - Alta Categoria" << endl;
-        cout << "2 - Baja Categoria" << endl;
+        cout << "1 - Crear Categoria" << endl;
+        cout << "2 - Alta/Baja Categoria" << endl;
         cout << "3 - Modificar Categoria" << endl;
         cout << "4 - Listar categorias" << endl;
         cout << "0 - Volver" << endl;
@@ -533,7 +535,30 @@ void MenuAdmiConfiguracion(Usuario &user1){
             break;
 
             case 2:
-            BajaCategoria();
+    {
+            int opcionEstado, idCat;
+            ArchivoCategoria archCat;
+
+            archCat.listarTodas();
+
+            cout << "Desea Activar o Desactivar una categoria?" << endl;
+            cout << "1-Activar" << endl;
+            cout << "2-Desactivar" << endl;
+            cin >> opcionEstado;
+
+            if(opcionEstado == 1){
+                cout << "Ingrese el ID de la categoria a activar: ";
+                cin >> idCat;
+                archCat.altaLogica(idCat);
+            }else if(opcionEstado == 2){
+                cout << "Ingrese el ID de la categoria a desactivar: ";
+                cin >> idCat;
+                archCat.bajaLogica(idCat);
+            }else{
+                cout << "Opcion invalida." << endl;
+            }
+            system("pause");
+            }
             break;
 
             case 3:

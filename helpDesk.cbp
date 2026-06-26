@@ -52,8 +52,12 @@
 		<Unit filename="GestionCategorias.h" />
 		<Unit filename="GestionEstadisticas.cpp" />
 		<Unit filename="GestionEstadisticas.h" />
+		<Unit filename="GestionTickets.cpp" />
+		<Unit filename="GestionTickets.h" />
 		<Unit filename="GestionUsuarios.cpp" />
 		<Unit filename="GestionUsuarios.h" />
+		<Unit filename="MenuAdmiConfiguracion.cpp" />
+		<Unit filename="MenuAdmiConfiguracion.h" />
 		<Unit filename="Menus.cpp" />
 		<Unit filename="Menus.h" />
 		<Unit filename="Respuestas.cpp" />

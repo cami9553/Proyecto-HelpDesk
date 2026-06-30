@@ -58,8 +58,16 @@
 		<Unit filename="GestionUsuarios.h" />
 		<Unit filename="MenuAdmiConfiguracion.cpp" />
 		<Unit filename="MenuAdmiConfiguracion.h" />
+		<Unit filename="MenuAdmin.cpp" />
+		<Unit filename="MenuAdmin.h" />
+		<Unit filename="MenuClientes.cpp" />
+		<Unit filename="MenuClientes.h" />
+		<Unit filename="MenuSoporte.cpp" />
+		<Unit filename="MenuSoporte.h" />
 		<Unit filename="Menus.cpp" />
 		<Unit filename="Menus.h" />
+		<Unit filename="ModificarUsuariosSoporteCliente.cpp" />
+		<Unit filename="ModificarUsuariosSoporteCliente.h" />
 		<Unit filename="Respuestas.cpp" />
 		<Unit filename="Respuestas.h" />
 		<Unit filename="Roles.cpp" />

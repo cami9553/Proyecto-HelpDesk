@@ -1,0 +1,209 @@
+#include <iostream>
+using namespace std;
+#include "MenuSoporte.h"
+#include "ticket.h"
+#include "TicketArchivo.h"
+#include "ArchivoRespuestas.h"
+#include "Respuestas.h"
+#include "Fecha.h"
+
+
+bool validarIdElegido(int idAsig, Usuario &user1){
+    TickeArchivo Archivo;
+    int Cantidad = Archivo.CantidadTickets();
+    for(int i=0; i<Cantidad; i++){
+        Ticket tleido = Archivo.LeerTicket(i);
+        if(tleido.getIdUsrSoporte() == user1.getIDUsuario() && tleido.getIdTicket() == idAsig){
+            return true;
+        }
+    }
+    return false;
+}
+void MostrarMenuSoporte(Usuario &user1){
+
+Ticket t1;
+TickeArchivo Archivo;
+archivoRespuesta archResp;
+int Opcion,OpcAsig,contin,idAsig,nuevoEstado;
+int i,Cantidad=0;
+char mensaje[200];
+bool guardado;
+    do
+    {
+
+
+        cout << "MENU SOPORTE" << endl<<endl;
+        cout << "------------------------------------" << endl;
+        cout << "1) VER MIS TICKETS ASIGNADOS" << endl;
+        cout << "2) VER TICKETS ABIERTOS" << endl;
+        cout << "3) CAMBIAR ESTADO DE TICKET" << endl;
+        cout << "4) RESPONDER TICKET" << endl;
+        cout << "------------------------------------" << endl<<endl;
+        cout << "0) CERRAR SESION" << endl<<endl;
+        cout<<"Opcion: ";
+        cin>>Opcion;
+        if (Opcion < 0 || Opcion > 4) {
+        cout << endl<<endl;
+        cout << "!!!Opcion invalida, intente de nuevo.!!!" << endl;
+        cout << endl<<endl;
+        system ("pause");
+        system("cls");
+        } else {
+        system("cls");
+
+    }
+
+
+        switch(Opcion)
+        {
+
+
+
+        case 1:
+            Cantidad = Archivo.CantidadTickets();
+            for(i=0;i<Cantidad;i++){
+                Ticket tleido = Archivo.LeerTicket(i);
+                if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
+                    tleido.MostrarTicket();
+                }
+            }
+            break;
+
+        case 2:
+            Cantidad = Archivo.CantidadTickets();
+            if(Cantidad==0){
+                cout <<"No hay tickets registrados."<< endl;
+            }
+            for(i=0;i<Cantidad;i++){
+                Ticket tleido = Archivo.LeerTicket(i);
+                if(tleido.getEstado() == 0){
+                    tleido.MostrarTicket();
+                    cout << "Desea asignarse este ticket?" << endl;
+                    cout << "1-Si" << endl;
+                    cout << "2-No" << endl;
+                    cin >> OpcAsig;
+                    if(OpcAsig==1){
+                        tleido.setEstado(1);
+                        tleido.setIdUsrSoporte(user1.getIDUsuario());
+                        guardado = Archivo.ModificarTicket(tleido,i);
+                        if(guardado ==  true){
+                            cout << "Ticket asignado con exito" << endl;
+                        }else{
+                            cout << "No se pudo asignar el ticket."<<endl;
+                            }
+
+                            cout << "Desea asignarse otro ticket?" <<endl;
+                            cout << "1-Si" << endl;
+                            cout << "2-No" << endl;
+                            cin >> contin;
+                            if(contin == 2){
+                                break;
+                            }else{
+                            system("cls");
+                            }
+                    }
+                }
+
+            }
+            break;
+        case 3:
+            {
+            cout << "En este apartado solamente podra modificar el estado de los tickets los cuales usted tiene asignado..." << endl;
+            cout << "Los tickets asignados son:" << endl;
+            Cantidad = Archivo.CantidadTickets();
+            for(i=0;i<Cantidad;i++){
+                Ticket tleido = Archivo.LeerTicket(i);
+                if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
+                    tleido.MostrarTicket();
+                }
+            }
+            cout << "Ingrese el id de el ticket a modificar: " << endl;
+            cin >> idAsig;
+
+            bool esValido = validarIdElegido(idAsig, user1);
+            if(esValido == false){
+                cout << "El id ingresado no corresponde a ningun ticket asignado a usted." << endl;
+            }else{
+            int pos = Archivo.BuscarTicket(idAsig);
+            if(pos != -1){
+            Ticket tleido = Archivo.LeerTicket(pos);
+
+            cout << "Que estado desea asignar?" << endl;
+            cout << "0-Abierto" << endl;
+            cout << "1-Asignado" <<endl;
+            cout << "2-Resuelto" << endl;
+            cout << "3-Cerrado " << endl;
+            cout << "============================" << endl;
+            cin >> nuevoEstado;
+            if(nuevoEstado >= 0 && nuevoEstado <= 3){
+                tleido.setEstado(nuevoEstado);
+                guardado = Archivo.ModificarTicket(tleido, pos);
+                if(guardado == true){
+                    cout << "Estado cambiado con exito." << endl;
+                }else{
+                    cout << "No se pudo cambiar el estado de el ticket." << endl;
+                }
+            }else{
+                cout << "Estado invalido." << endl;
+            }
+            }else{
+                cout << "No se encontro el ticket!" <<endl;
+            }
+            }
+        }
+            break;
+
+        case 4:
+            {
+                int idBuscado;
+                respuestas resp;
+                Fecha fActual;
+                cout << "Ingrese el ID del ticket: ";
+                cin >> idBuscado;
+
+                int pos = Archivo.BuscarTicket(idBuscado);
+
+                if(pos != -1)
+                {
+                    Ticket tleido =  Archivo.LeerTicket(pos);
+                    tleido.MostrarTicket();
+
+                    cin.ignore();
+                    resp.setIdTicket(idBuscado);
+                    cout << "Ingrese el mensaje:  " << endl;
+                    cin.getline(mensaje,200);
+                    resp.setContenido(mensaje);
+                    fActual.CargarFechaActual();
+                    resp.setFechaHora(fActual);
+                    resp.setIdUsuarioAutor(user1.getIDUsuario());
+                    guardado = archResp.cargarArchivo(resp);
+                    if(guardado == true){
+                        cout << "Respuesta guardada con exito." << endl;
+                    }else{
+                        cout << "No se pudo guardar la respuesta." << endl;
+                    }
+
+                }
+                else
+                {
+                    cout << "No se encontro el ticket." << endl;
+                }
+
+                system("pause");
+                system("cls");
+            }
+            break;
+
+
+        case 0:
+
+            break;
+        }
+
+
+
+
+system("pause");
+system("cls");
+    }while(Opcion!=0);
+}

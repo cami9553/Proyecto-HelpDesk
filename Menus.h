@@ -7,18 +7,11 @@ void ingresoUsuarios();
 
 void MostrarMenuAdmin(Usuario &user1);
 void MostrarMenuCliente(Usuario &user1);
-void MostrarMenuSoporte(Usuario &user1);
 
 
-void MenuGestionUsuarios();
-void MenuGestionTickets();
-void MenuGestionCategorias();
-void MenuGestionAreasSoporte();
-void menuModificarAreaSoporte();
-void MenuGestionRoles();
-void MenuModificarRoles();
-void MenuGestionEstadisticas();
-void MenuAdmiConfiguracion(Usuario &user1);
+
+
+
 
 
 void ingresoUsuarios();
@@ -27,3 +20,4 @@ void menuSoporte();
 void MostrarMenuCliente(Usuario &user1);
 bool validarIdElegido(int idAsig, Usuario &user1);
 #endif // MENUS_H_INCLUDED
+

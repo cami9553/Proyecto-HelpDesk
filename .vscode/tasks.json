@@ -27,6 +27,7 @@
     "Roles.cpp",
     "ArchivoRespuestas.cpp",
     "Respuestas.cpp",
+    "MenuSoporte.cpp",
     "-o",
     "programa.exe"
 ],

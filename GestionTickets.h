@@ -7,5 +7,6 @@ void VisualizarTickets();
 void ReasignarTicket();
 void ModificarPrioridad();
 void ModificarEstado();
+void VerRdspuestasTicket();
 
 #endif // GESTIONTICKETS_H_INCLUDED

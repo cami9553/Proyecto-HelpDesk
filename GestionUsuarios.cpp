@@ -85,3 +85,5 @@ void listarUsuarios(){
     system("pause");
 
 }
+
+void VerRespuestasTicket();

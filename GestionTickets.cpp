@@ -4,7 +4,7 @@ using namespace std;
 #include "GestionTickets.h"
 #include "ticket.h"
 #include "TicketArchivo.h"
-
+#include "ArchivoRespuestas.h"
 void VisualizarTickets(){
 
  TickeArchivo arch; // objeto q permite trabajar con el archivo de tickets
@@ -193,6 +193,22 @@ void ModificarEstado(){
    prueba = arch.LeerTicket(pos);
 
    cout << "Estado guardado en archivo: " << prueba.getEstado() << endl;
+
+}
+
+void VerRespuestasTicket(){
+
+  archivoRespuesta archResp;
+  int idTicket;
+
+  cout << "Ingrese ID del ticket: ";
+  cin >> idTicket;
+
+  cout << "RESPUESTAS DEL TICKET" << idTicket << endl;
+
+  archResp.todasRespuestasxTicket(idTicket);
+
+  system("pause");
 
 }
 

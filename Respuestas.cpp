@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include "Respuestas.h"
+#include "ArchivoRespuestas.h"
 #include <cstring>
 respuestas::respuestas() {
     _idMensaje = 0;
@@ -13,7 +14,8 @@ respuestas::respuestas(int idMensaje, int idTicket, int idUsuarioAutor, std::str
     _idMensaje = idMensaje;
     _idTicket = idTicket;
     _idUsuarioAutor = idUsuarioAutor;
-    strcpy(_contenido,contenido.c_str());
+    strncpy(_contenido,contenido.c_str(), 199);
+    _contenido[199] = '\0';
 }
 
 // --- SETTERS ---
@@ -32,7 +34,8 @@ void respuestas::setIdUsuarioAutor(int idAutor) {
 
 void respuestas::setContenido(std::string contenido) {
 
-    strcpy(_contenido, contenido.c_str());
+    strncpy(_contenido, contenido.c_str(), 199);
+    _contenido[199] = '\0';
 
 }
 

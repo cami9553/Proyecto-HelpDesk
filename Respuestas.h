@@ -1,6 +1,7 @@
 #ifndef RESPUESTAS_H_INCLUDED
 #define RESPUESTAS_H_INCLUDED
-#include "fecha.h"
+#include "Fecha.h"
+#include <string> 
 
 class respuestas{
 private:

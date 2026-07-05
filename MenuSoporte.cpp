@@ -109,8 +109,9 @@ bool guardado;
             cout << "En este apartado solamente podra modificar el estado de los tickets los cuales usted tiene asignado..." << endl;
             cout << "Los tickets asignados son:" << endl;
             Cantidad = Archivo.CantidadTickets();
-            for(i=0;i<Cantidad;i++){
+            for(i = 0; i < Cantidad; i++){
                 Ticket tleido = Archivo.LeerTicket(i);
+
                 if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
                     tleido.MostrarTicket();
                 }
@@ -119,12 +120,15 @@ bool guardado;
             cin >> idAsig;
 
             bool esValido = validarIdElegido(idAsig, user1);
+
             if(esValido == false){
                 cout << "El id ingresado no corresponde a ningun ticket asignado a usted." << endl;
-            }else{
+            }
+            else{
             int pos = Archivo.BuscarTicket(idAsig);
+
             if(pos != -1){
-            Ticket tleido = Archivo.LeerTicket(pos);
+              Ticket tleido = Archivo.LeerTicket(pos);
 
             cout << "Que estado desea asignar?" << endl;
             cout << "0-Abierto" << endl;
@@ -133,24 +137,37 @@ bool guardado;
             cout << "3-Cerrado " << endl;
             cout << "============================" << endl;
             cin >> nuevoEstado;
+
             if(nuevoEstado >= 0 && nuevoEstado <= 3){
                 tleido.setEstado(nuevoEstado);
-                guardado = Archivo.ModificarTicket(tleido, pos);
-                if(guardado == true){
-                    cout << "Estado cambiado con exito." << endl;
-                }else{
-                    cout << "No se pudo cambiar el estado de el ticket." << endl;
-                }
-            }else{
-                cout << "Estado invalido." << endl;
-            }
-            }else{
-                cout << "No se encontro el ticket!" <<endl;
-            }
-            }
-        }
-            break;
 
+                if(nuevoEstado == 3){
+                    Fecha fActual;
+                    fActual.CargarFechaActual();
+                    tleido.setFechaCierre(fActual);
+            }
+             guardado = Archivo.ModificarTicket(tleido, pos);
+
+             if(guardado == true){
+                cout << "Estado cambiado con exito." << endl;
+             }
+             else{
+                cout << "No se pudo cambiar el estado del ticket." << endl;
+             }
+        }
+
+        else{
+            cout << "Estado invalido." << endl;
+        }
+
+    }
+            else{
+                 cout << "El estado ingresado no es valido." << endl;
+             }
+         }
+    }
+            break;
+            
         case 4:
             {
                 int idBuscado;
@@ -191,6 +208,7 @@ bool guardado;
                 system("cls");
             }
             break;
+
         case 5:
             {
                 archivoRespuesta resp;

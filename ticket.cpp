@@ -117,9 +117,13 @@ if(estado == 0){
 cout<<"Fecha creacion: ";
 fechaCreacion.MostrarFecha();
 cout<<endl;
+
+if(estado == 3){
+    cout << "Fecha cierre: ";
+    fechaCierre.MostrarFecha();
+    cout << endl;
+}
 cout<<"--------------------------"<<endl;
-
-
  }
 
   void Ticket::MostrarTicketPreview(){

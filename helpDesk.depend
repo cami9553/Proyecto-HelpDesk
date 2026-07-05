@@ -58,7 +58,7 @@
 	<ctime>
 	"fecha.h"
 
-1782431806 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1783236643 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
@@ -90,7 +90,7 @@
 
 1780351458 c:\users\ysyary\documents\github\proyecto-helpdesk\fecha.h
 
-1782368606 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.cpp
+1783243152 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.cpp
 	<iostream>
 	"Ticket.h"
 	"TicketArchivo.h"
@@ -99,14 +99,14 @@
 	"Fecha.h"
 	"usuarios.h"
 
-1782189679 c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.h
+1783235840 c:\users\ysyary\documents\github\proyecto-helpdesk\ticket.h
 	"fecha.h"
 	"usuarios.h"
 
 1780544795 c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.h
 	"Ticket.h"
 
-1782189378 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.cpp
+1783243278 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.cpp
 	<iostream>
 	"TicketArchivo.h"
 	"ticket.h"
@@ -378,7 +378,7 @@
 
 1782825861 c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.h
 
-1782828151 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
+1783246042 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
 	<iostream>
 	"MenuSoporte.h"
 	"ticket.h"

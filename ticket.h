@@ -23,6 +23,7 @@ public:
 
     bool CreatTicket (Usuario logd);
     void MostrarTicket();
+    void MostrarTicketPreview();
     int NumIdTicket ();
     void AgregarComentario();
 

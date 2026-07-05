@@ -38,11 +38,12 @@ bool guardado;
         cout << "2) VER TICKETS ABIERTOS" << endl;
         cout << "3) CAMBIAR ESTADO DE TICKET" << endl;
         cout << "4) RESPONDER TICKET" << endl;
+        cout << "5) VER RESPUESTAS DE TICKETS " << endl;
         cout << "------------------------------------" << endl<<endl;
         cout << "0) CERRAR SESION" << endl<<endl;
         cout<<"Opcion: ";
         cin>>Opcion;
-        if (Opcion < 0 || Opcion > 4) {
+        if (Opcion < 0 || Opcion > 5) {
         cout << endl<<endl;
         cout << "!!!Opcion invalida, intente de nuevo.!!!" << endl;
         cout << endl<<endl;
@@ -70,40 +71,37 @@ bool guardado;
             break;
 
         case 2:
+            {
+            int TicketAsignar=0;
             Cantidad = Archivo.CantidadTickets();
+            int *PosTicketAsignable = new int[Cantidad + 1];
             if(Cantidad==0){
                 cout <<"No hay tickets registrados."<< endl;
             }
             for(i=0;i<Cantidad;i++){
                 Ticket tleido = Archivo.LeerTicket(i);
                 if(tleido.getEstado() == 0){
-                    tleido.MostrarTicket();
-                    cout << "Desea asignarse este ticket?" << endl;
-                    cout << "1-Si" << endl;
-                    cout << "2-No" << endl;
-                    cin >> OpcAsig;
-                    if(OpcAsig==1){
-                        tleido.setEstado(1);
-                        tleido.setIdUsrSoporte(user1.getIDUsuario());
-                        guardado = Archivo.ModificarTicket(tleido,i);
-                        if(guardado ==  true){
-                            cout << "Ticket asignado con exito" << endl;
-                        }else{
-                            cout << "No se pudo asignar el ticket."<<endl;
-                            }
-
-                            cout << "Desea asignarse otro ticket?" <<endl;
-                            cout << "1-Si" << endl;
-                            cout << "2-No" << endl;
-                            cin >> contin;
-                            if(contin == 2){
-                                break;
-                            }else{
-                            system("cls");
-                            }
-                    }
+                   tleido.MostrarTicketPreview();
+                   PosTicketAsignable[i+1] = 1;
+                   //cout << PosTicketAsignable[i+1]<< endl;
                 }
-
+            }
+            cout << "INGRESE EL TICKET QUE SE QUIERE ASIGNAR: "<< endl;
+            cin >> TicketAsignar;
+            if(PosTicketAsignable[TicketAsignar] == 1){
+                Ticket tAsignar = Archivo.LeerTicket(TicketAsignar-1);
+                tAsignar.setEstado(1);
+                tAsignar.setIdUsrSoporte(user1.getIDUsuario());
+                guardado = Archivo.ModificarTicket(tAsignar,TicketAsignar-1);
+                if(guardado == true){
+                    cout << "ASIGNADO CON EXITO." << endl;
+                }else{
+                    cout << "NO FUE POSIBLE ASIGNARSE EL TICKET" << endl;
+                }
+            }else{
+                cout << "EL TICKET QUE SE QUIERE ASINGAR NO SE ENCUENTRA DISPONIBLE PARA ASIGNARSE." <<  endl;
+                }
+            delete[] PosTicketAsignable;
             }
             break;
         case 3:
@@ -193,8 +191,35 @@ bool guardado;
                 system("cls");
             }
             break;
-
-
+        case 5:
+            {
+                archivoRespuesta resp;
+            cout << "En este apartado solamente podra ver respuesta de los tickets los cuales usted tiene asignado..." << endl;
+            cout << "============================" << endl;
+            int IdTicketRespuestaBuscar=0;
+            Cantidad = Archivo.CantidadTickets();
+            int *PosTicketRespuesta = new int[Cantidad + 1];
+            if(Cantidad==0){
+                cout <<"No hay tickets registrados."<< endl;
+            }
+            for(i=0;i<Cantidad;i++){
+                Ticket tleido = Archivo.LeerTicket(i);
+                if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
+                   tleido.MostrarTicketPreview();
+                   PosTicketRespuesta[i+1] = 1;
+                   //cout << PosTicketAsignable[i+1]<< endl;
+                }
+            }
+            cout << "QUE TICKET DESEA VER LAS RESPUESTAS?" << endl;
+            cin >> IdTicketRespuestaBuscar ;
+            if(PosTicketRespuesta[IdTicketRespuestaBuscar]==1){
+                resp.todasRespuestasxTicket(IdTicketRespuestaBuscar);
+            }else{
+                cout << "EL TICKET ELEGIDO NO ESTA ASIGNADO A USTED." << endl;
+                }
+            delete[] PosTicketRespuesta;
+            }
+            break;
         case 0:
 
             break;

@@ -24,6 +24,8 @@ Fecha f1;
 system("cls");
 
 cout<<"--------- Crear Ticket ---------"<<endl;
+idUsrSoporte = 0;
+idAreaSoporte = 0;
 
 fechaCreacion.CargarFechaActual();
 
@@ -62,11 +64,7 @@ cin.getline(_comentario,200);
 strcpy(comentario,_comentario);
 cout << endl;
 
-cout << "--------- Fecha de Cierre ---------" << endl;
-fechaCierre.CargarFecha();
-cout << endl;
 
-cin.ignore();
 estado=0;
 
 
@@ -102,6 +100,7 @@ const char* Ticket::getComentario() { return comentario; }
 cout<<"--------- TICKET ---------"<<endl;
 cout<<"ID TICKET: "<<idTicket<<endl;
 cout<<"Cliente: "<<idUsuario<<endl;
+cout <<"Soporte asignado: " << idUsrSoporte << endl;
 cout<<"Asunto: "<<asunto<<endl;
 cout<<"Descripcion: "<<descripcion<<endl;
 cout<<"Categoria: "<<idCategoria<<endl;
@@ -122,6 +121,15 @@ cout<<"--------------------------"<<endl;
 
 
  }
+
+  void Ticket::MostrarTicketPreview(){
+cout<<"--------- TICKET ---------"<<endl;
+cout<<"ID TICKET: "<<idTicket<<endl;
+cout<<"Asunto: "<<asunto<<endl;
+cout<<"Prioridad: "<<prioridad<<endl;
+cout<<"--------------------------"<<endl;
+ }
+
 
 
  int Ticket::getIdTicket(){

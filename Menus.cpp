@@ -484,14 +484,15 @@ int Cantidad;
 do{
 
 
-cout<<"         Menu Cliente         "<<endl;
-cout<<"------------------------------"<<endl;
-cout<<" 1) Crear Ticket              "<<endl;
-cout<<" 2) Ver mis tickets           "<<endl;
-cout<<" 3) Ver Respuesta de un ticket"<<endl;
-cout<<" 4) Mis datos                 "<<endl;
-cout<<"------------------------------"<<endl;
-cout<<" 0) Cerrar sesion             "<<endl<<endl;
+cout <<"         Menu Cliente         " <<endl;
+cout <<"------------------------------" <<endl;
+cout <<" 1) Crear Ticket              " <<endl;
+cout <<" 2) Ver mis tickets           " <<endl;
+cout <<" 3) Ver Respuesta de un ticket" <<endl;
+cout <<" 4) Mis datos                 " <<endl;
+cout <<" 5) Responder Ticket" << endl;
+cout <<"------------------------------" <<endl;
+cout <<" 0) Cerrar sesion  " <<endl<<endl;
 
 cout<<"Opcion: ";
 cin >> opcion;
@@ -559,19 +560,72 @@ case 4:
     user1.mostrar();
     break;
 
+case 5:
+{
+    archivoRespuesta archResp;
+    respuestas resp;
+    Fecha fActual;
+
+    int idBuscado;
+    char mensaje[200];
+
+    cout << "Ingrese el ID del ticket que desea responder: ";
+    cin >> idBuscado;
+
+    int pos = Archivo.BuscarTicket(idBuscado);
+
+    if(pos != -1){
+        Ticket tleido = Archivo.LeerTicket(pos);
+
+        if(tleido.getIdUsuario() == user1.getIDUsuario()){
+
+            if(tleido.getEstado() == 3){
+                cout << "El ticket esta cerrado. No se pueden agregar nuevas respuestas." << endl;
+            }
+            else{
+                tleido.MostrarTicket();
+
+                cin.ignore();
+
+                cout << "Ingrese el mensaje: " << endl;
+                cin.getline(mensaje, 200);
+
+                resp.setIdTicket(idBuscado);
+                resp.setContenido(mensaje);
+
+                fActual.CargarFechaActual();
+                resp.setFechaHora(fActual);
+
+                resp.setIdUsuarioAutor(user1.getIDUsuario());
+
+                if(archResp.cargarArchivo(resp)){
+                    cout << "Respuesta guardada con exito." << endl;
+                }
+                else{
+                    cout << "No se pudo guardar la respuesta." << endl;
+                }
+            }
+        }
+        else{
+            cout << "Este ticket no pertenece a su usuario." << endl;
+        }
+    }
+    else{
+        cout << "No se encontro el ticket." << endl;
+    }
+}
+break;
 
 case 0:
-
     break;
 }
 
 if(opcion != 0){
-    system ("pause");
-    system ("cls");
+    system("pause");
+    system("cls");
 }
 
-
-}while(opcion!=0);
+}while(opcion != 0);
 
 }
 

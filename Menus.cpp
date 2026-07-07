@@ -378,6 +378,7 @@ void MenuGestionUsuarios(){
         cout << " 2- Alta/Baja logica" << endl;
         cout << " 3- Modificacion" << endl;
         cout << " 4- Listado" << endl;
+        cout << " 5- Cargar usuarios de prueba" << endl;
         cout << " 0- volver" << endl;
 
         cin >> opcion;
@@ -428,6 +429,10 @@ void MenuGestionUsuarios(){
             case 4:
             listarUsuarios();
             break;
+
+            case 5: 
+            CargarUsuariosPrueba();
+            break; 
         }
     } while(opcion != 0);
 

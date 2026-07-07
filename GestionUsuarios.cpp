@@ -2,7 +2,7 @@
 #include "GestionUsuarios.h"
 #include "ArchivoUsuarios.h"
 #include "usuarios.h"
-
+#include <cstring> 
 
 using namespace std;
 
@@ -87,3 +87,45 @@ void listarUsuarios(){
 }
 
 void VerRespuestasTicket();
+
+void CargarUsuariosPrueba(){
+
+
+  archivoUsuario arch;
+  Usuario usr;
+
+  usr.setNombre("Soporte2");
+  usr.setApellido("Test");
+  usr.setEmail("soporte2@mail.com");
+  usr.setClave("1234");
+  usr.setIdRol(2);
+  usr.setActivo(true);
+
+  if(arch.registrar(usr)){
+    cout << "Usuario soporte2@mail.com cargado. " << endl;
+  }
+
+  usr.setNombre("Soporte3");
+  usr.setApellido("Test");
+  usr.setEmail("soporte3@mail.com");
+  usr.setClave("1234");
+  usr.setIdRol(2);
+  usr.setActivo(true);
+
+  if(arch.registrar(usr)){
+    cout << "Usuario soporte3@mail.com cargado." << endl;
+  }
+
+  usr.setNombre("Cliente3");
+  usr.setApellido("Test");
+  usr.setEmail("ciente3@mai.com");
+  usr.setClave("1234");
+  usr.setIdRol(3);
+  usr.setActivo(true);
+
+  if(arch.registrar(usr)){
+    cout << "Usuario cliente3@mail.com cargado." << endl;
+  }
+  cout << "Carga de usuarios de prueba finalizada." << endl;
+  system("pause");
+}

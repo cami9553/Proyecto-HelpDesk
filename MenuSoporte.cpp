@@ -181,23 +181,36 @@ bool guardado;
                 if(pos != -1)
                 {
                     Ticket tleido =  Archivo.LeerTicket(pos);
-                    tleido.MostrarTicket();
-
-                    cin.ignore();
-                    resp.setIdTicket(idBuscado);
-                    cout << "Ingrese el mensaje:  " << endl;
-                    cin.getline(mensaje,200);
-                    resp.setContenido(mensaje);
-                    fActual.CargarFechaActual();
-                    resp.setFechaHora(fActual);
-                    resp.setIdUsuarioAutor(user1.getIDUsuario());
-                    guardado = archResp.cargarArchivo(resp);
-                    if(guardado == true){
-                        cout << "Respuesta guardada con exito." << endl;
-                    }else{
-                        cout << "No se pudo guardar la respuesta." << endl;
+                    
+                    if(tleido.getIdUsrSoporte() != user1.getIDUsuario()){
+                        cout << "Este ticket no esta asignado a usted." << endl;
+                    }
+                    else if(tleido.getEstado() == 3){
+                        cout << "El ticket esta cerrado. No se pueden agregar nuevas respuestas" << endl;
                     }
 
+                    else{
+                        tleido.MostrarTicket();
+
+                        cin.ignore();
+
+                        resp.setIdTicket(idBuscado);
+
+                        cout << "Ingrese el mensaje:  " << endl;
+                        cin.getline(mensaje,200);
+
+                        resp.setContenido(mensaje);
+                        fActual.CargarFechaActual();
+                        resp.setFechaHora(fActual);
+                        resp.setIdUsuarioAutor(user1.getIDUsuario());
+                        guardado = archResp.cargarArchivo(resp);
+                        if(guardado == true){
+                            cout << "Respuesta guardada con exito." << endl;
+                        }else{
+                            cout << "No se pudo guardar la respuesta." << endl;
+                        }
+
+                    }
                 }
                 else
                 {

@@ -13,7 +13,15 @@ void AltaUsuario(){
     bool guardado;
 
     guardado = reg.cargar();
+
     if(guardado == true){
+
+      Usuario usuarioEncontrado = arch.buscarPorEmail(reg.getEmail());
+      if(usuarioEncontrado.getIDUsuario() != -1){
+        cout << "Error. Ya existe un usuario activo con ese mail." << endl;
+        return;
+      }
+
     if(arch.registrar(reg)){
       cout << "Usuario guardado correctamente" << endl;
  }
@@ -118,7 +126,7 @@ void CargarUsuariosPrueba(){
 
   usr.setNombre("Cliente3");
   usr.setApellido("Test");
-  usr.setEmail("ciente3@mai.com");
+  usr.setEmail("cliente3@mail.com");
   usr.setClave("1234");
   usr.setIdRol(3);
   usr.setActivo(true);

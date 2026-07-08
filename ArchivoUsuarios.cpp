@@ -179,7 +179,7 @@ Usuario archivoUsuario::buscarPorEmail(const char *usuario){
     int totalUsuarios = contarTotalUsuarios();
     for(i=0;i<totalUsuarios;i++){
         Usuario usrAct = leerUsuario(i);
-        if(strcmp(usrAct.getEmail(),usuario)==0 && usrAct.getActivo()==1){
+        if(strcmp(usrAct.getEmail(),usuario)== 0){
             cout <<"IdUsuario:"<<usrAct.getIDUsuario()<<endl;
             cout <<"Email:"<<usrAct.getEmail()<<endl;
             cout <<"Nombre:"<<usrAct.getNombre()<<endl;

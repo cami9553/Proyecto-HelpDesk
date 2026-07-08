@@ -507,15 +507,22 @@ cin.ignore();
 switch(opcion){
 
 case 1:
+{
+    bool creado = t1.CreatTicket(user1);
 
-    t1.CreatTicket(user1);
-    if(Archivo.GuardarTicket(t1)){
-        cout<<"Tiket guardado correctamente"<<endl;
-    }else{
-    cout<<"Error al guardar ticket"<<endl;
+    if(creado == true){
+        if(Archivo.GuardarTicket(t1)){
+            cout << "Ticket guardado correctamente" << endl;
+        }
+        else{
+            cout << "Error al guardar ticket" << endl;
+        }
     }
-    break;
-
+    else{
+        cout << "El ticket no fue creado." << endl;
+    }
+}
+break;
 
 case 2:
 

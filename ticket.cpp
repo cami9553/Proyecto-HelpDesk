@@ -5,6 +5,8 @@
 #include <ctime>
 #include "Fecha.h"
 #include "usuarios.h"
+#include "ArchivoCategoria.h"
+#include "Categoria.h"
 
 using namespace std;
 
@@ -45,9 +47,29 @@ cin.getline(_descripcion,200 );
 strcpy(descripcion,_descripcion);
 cout<<endl;
 
-cout<<"Ingrese Id Catergoria: ";
-/// funcion que muestre las categorias cargadas
+ArchivoCategoria archCat;
+Categoria cat;
+bool categoriaValida = false;
+int cantidadCategorias = archCat.contarTotalCategorias();
+
+cout<<"Ingrese Id Categoria: ";
 cin>>_idCategoria;
+
+for(int i = 0 ; i < cantidadCategorias; i++){
+    cat = archCat.leerCategoria(i);
+
+    if(cat.getIdCategoria() == _idCategoria && cat.getActivo() == true){
+        categoriaValida = true;
+        break;
+    }
+}
+
+if(categoriaValida == false){
+    cout << "La categoria ingresada no existe o se encuentra inactiva." << endl;
+    system("pause");
+    return false;
+
+}
 idCategoria=_idCategoria;
 cout<<endl;
 

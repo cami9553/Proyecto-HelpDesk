@@ -474,6 +474,10 @@ do {
     cout << "ESTADISTICAS" << endl;
     cout << "-------------------" << endl;
     cout << "1- Resumen General " << endl;
+    cout << "2- Ticket por estado " << endl;
+    cout << "3- Usuarios por rol " <<endl;
+    cout << "4- Tickets por Categoria " << endl;
+    cout << "5- Tickets por prioridad " << endl;
     cout << "0- Volver" << endl;
     cin >> opcion;
 
@@ -492,7 +496,18 @@ do {
     case 1:
         ResumenGeneral();
         break;
-
+    case 2:
+        ticketXEstado();
+        break;
+    case 3:
+        usuariosxRol();
+        break;
+    case 4:
+        ticketXCategoria();
+        break;
+    case 5:
+        ticketXPrioridad();
+        break;
     case 0:
       break;
 

@@ -121,7 +121,7 @@
 	"ArchivoRoles.h"
 	"ArchivoUsuarios.h"
 
-1783656749 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
+1783754825 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
 	<iostream>
 	<string>
 	"ArchivoUsuarios.h"
@@ -267,7 +267,7 @@
 
 1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\gestioncategorias.h
 
-1783665587 c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.h
+1783754312 c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.h
 
 1781415894 c:\users\ysyary\documents\github\proyecto-helpdesk\archivoareasoporte.h
 	"AreaSoporte.h"
@@ -300,13 +300,16 @@
 	"usuarios.h"
 	<cstring>
 
-1783665164 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.cpp
+1783757839 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.cpp
 	<iostream>
 	"GestionEstadisticas.h"
 	"ticket.h"
 	"TicketArchivo.h"
 	"usuarios.h"
 	"ArchivoUsuarios.h"
+	"Fecha.h"
+	"Respuestas.h"
+	"ArchivoRespuestas.h"
 
 1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\categoria.h
 
@@ -366,7 +369,7 @@
 	"AreaSoporte.h"
 	"ArchivoUsuarios.h"
 
-1783665812 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.cpp
+1783757812 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.cpp
 	<iostream>
 	"Menus.h"
 	"MenuAdmin.h"
@@ -386,7 +389,7 @@
 
 1782825861 c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.h
 
-1783656258 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
+1783758322 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
 	<iostream>
 	"MenuSoporte.h"
 	"ticket.h"
@@ -398,7 +401,7 @@
 1782828030 c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.h
 	"usuarios.h"
 
-1782830460 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuclientes.cpp
+1783758054 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuclientes.cpp
 	<iostream>
 	"MenuClientes.h"
 	"ticket.h"

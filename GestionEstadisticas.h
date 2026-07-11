@@ -7,6 +7,8 @@ void ticketXEstado();
 void usuariosxRol();
 void ticketXPrioridad();
 void ticketXCategoria();
+void  ticketXSoporte();
+void promedioRespuestasTicket();
 int contarTotalUsuariios();
 
 

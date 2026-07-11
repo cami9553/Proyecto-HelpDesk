@@ -62,6 +62,7 @@ void ingresoUsuarios(){
 
     //cin.ignore();
    do{
+    system("cls");
     cout << "\n---Iniciar sesion---"<< endl;
     cout << "Ingrese 0 en email para finalizar programa." << endl;
     cout << "Ingrese email:"<< endl;

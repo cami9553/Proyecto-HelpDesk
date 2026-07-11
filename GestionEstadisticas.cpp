@@ -6,7 +6,9 @@ using namespace std;
 #include "TicketArchivo.h"
 #include "usuarios.h"
 #include "ArchivoUsuarios.h"
-
+#include "Fecha.h"
+#include "Respuestas.h"
+#include "ArchivoRespuestas.h"
 
 void ResumenGeneral(){
 
@@ -24,6 +26,8 @@ void ResumenGeneral(){
 
     cout << "Usuarios registrados: " << totalUsuarios << endl;
     cout << "Tickets registrados: " << totalTickets << endl;
+    system("pause");
+    system("cls");
 }
 
 void ticketXEstado(){
@@ -118,8 +122,58 @@ cout << "La cantidad de tickets de la Prioridad BAJA : " <<cBaja << endl;
 
 system("pause");
 system("cls");
+}
 
+void  ticketXSoporte(){
+archivoUsuario archU;
+TickeArchivo archT;
+int mes=0, anio=0,i=0;
+int cantUsuarios =  archU.contarTotalUsuarios();
+int cantTickets = archT.CantidadTickets();
 
+cout << "Ingrese mes (1-12): ";
+cin >> mes;
+cout <<"Ingrese anio :";
+cin >> anio;
 
+cout << "================================="<< endl;
+cout << "Tickets asignados en: " << mes << "/" << anio << endl;
+cout << "================================="<< endl;
 
+for(i=0;i<cantUsuarios;i++){
+    Usuario usrleido = archU.leerUsuario(i);
+    if(usrleido.getRol()==2 && usrleido.getActivo()){
+        int contador = 0;
+            for(int j = 0; j < cantTickets; j++){
+                Ticket tk = archT.LeerTicket(j);
+                if(tk.getIdUsrSoporte() == usrleido.getIDUsuario()
+                && tk.getFechaCreacion().GetMes() == mes
+                && tk.getFechaCreacion().GetAnio() == anio){
+                    contador++;
+                }
+            }
+            cout << usrleido.getNombre() << " " << usrleido.getApellido()
+                 << " (ID " << usrleido.getIDUsuario() << "): "
+                 << contador << " tickets" << endl;
+        }
+    }
+    system("pause");
+    system("cls");
+    }
+
+void promedioRespuestasTicket(){
+    TickeArchivo archT;
+    archivoRespuesta archR;
+    int totalTickets = archT.CantidadTickets();
+    int totalRespuestas = archR.cantidadRespuestas();
+    if(totalTickets == 0){
+        cout << "No hay tickets registrados." << endl;
+        return;
+    }
+    float promedio = (float)totalRespuestas / totalTickets;
+    cout << "Total tickets: " << totalTickets << endl;
+    cout << "Total respuestas: " << totalRespuestas << endl;
+    cout << "Promedio de respuestas por ticket: " << promedio << endl;
+    system("pause");
+    system("cls");
 }

@@ -14,7 +14,7 @@ int Cantidad;
 
 do{
 
-
+system("cls");
 cout<<"         Menu Cliente         "<<endl;
 cout<<"------------------------------"<<endl;
 cout<<" 1) Crear Ticket              "<<endl;
@@ -32,7 +32,7 @@ cin.ignore();
 switch(opcion){
 
 case 1:
-
+    system("cls");
     t1.CreatTicket(user1);
     if(Archivo.GuardarTicket(t1)){
         cout<<"Tiket guardado correctamente"<<endl;
@@ -43,7 +43,7 @@ case 1:
 
 
 case 2:
-
+  system("cls");
   Cantidad = Archivo.CantidadTickets();
 
   for(int i=0; i<Cantidad;i++){
@@ -54,6 +54,7 @@ case 2:
     break;
 case 3:
     {
+    system("cls");
     archivoRespuesta archr;
     int idTickBuscado;
     int i = 0;
@@ -86,13 +87,13 @@ case 3:
 
     break;
 case 4:
-
+    system("cls");
     user1.mostrar();
     break;
 
 
 case 0:
-
+    system("cls");
     break;
 }
 

@@ -26,6 +26,7 @@ void MostrarMenuAdmin(Usuario &user1){
     int cantidad;
 
     do{
+        system("cls");
         cout << "      MENU ADMINISTRADOR      " << endl;
         cout << "------------------------------" << endl;
         cout << " 1- GESTION DE USUARIOS" << endl;
@@ -46,34 +47,42 @@ void MostrarMenuAdmin(Usuario &user1){
         switch(opcion){
 
             case 1:
+           system("cls");
            MenuGestionUsuarios();
            break;
 
            case 2:
+           system("cls");
            MenuGestionTickets();
            break;
 
            case 3:
+           system("cls");
            MenuGestionCategorias();
            break;
 
            case 4:
+           system("cls");
            MenuGestionAreasSoporte();
            break;
 
            case 5:
+           system("cls");
            MenuGestionRoles();
            break;
 
            case 6:
+           system("cls");
            MenuGestionEstadisticas();
            break;
 
            case 7:
+           system("cls");
            MenuAdmiConfiguracion(user1);
            break;
 
            case 0:
+           system("cls");
            cout << "Sesion cerrada." << endl;
            break;
 
@@ -97,6 +106,7 @@ char nuevoValor[30];
    cout << "==========================" << endl;
 
     do{
+        system("cls");
         cout << "==========================" << endl;
         cout << "¿Que desea modificar?     " << endl;
         cout << "1-Nombre                  " << endl;
@@ -111,6 +121,7 @@ char nuevoValor[30];
         Usuario usrAEditar = arch.leerUsuario(usrAModificar - 1);
         switch(opcion){
     case 1:
+        system("cls");
         cout << "Ingrese nuevo nombre: "<< endl;
         cin.ignore();
         cin.getline(nuevoValor,30);
@@ -125,6 +136,7 @@ char nuevoValor[30];
         system("pause");
         break;
     case 2:
+        system("cls");
         cout << "Ingrese nuevo Apellido: " << endl;
         cin.ignore();
         cin.getline(nuevoValor,30);
@@ -139,6 +151,7 @@ char nuevoValor[30];
         system("pause");
         break;
     case 3:
+        system("cls");
         cout << "Ingrese el nuevo email: " << endl;
         cin >> nuevoValor;
         usrAEditar.setEmail(nuevoValor);
@@ -152,6 +165,7 @@ char nuevoValor[30];
         system("pause");
         break;
     case 4:
+        system("cls");
         cout << "Ingrese la nueva clave: " << endl;
         cin >> nuevoValor;
         usrAEditar.setClave(nuevoValor);
@@ -165,6 +179,7 @@ char nuevoValor[30];
         system("pause");
         break;
     case 5:
+        system("cls");
         cout << "Ingrese el nuevo rol: " << endl;
         cin >> nuevoValorRol;
         usrAEditar.setIdRol(nuevoValorRol);
@@ -178,6 +193,7 @@ char nuevoValor[30];
         system("pause");
         break;
     case 0:
+        system("cls");
         cout << "Saliendo del menu modificar!" << endl;
         break;
         }
@@ -192,6 +208,7 @@ void MenuAdmiConfiguracion(Usuario &user1){
     int opcion;
 
     do{
+        system("cls");
         cout << "1- Cambiar Clave" << endl;
         cout << "2- Ver Mis Datos" << endl;
         cout << "3- Copia de Seguridad" << endl;
@@ -213,28 +230,35 @@ void MenuAdmiConfiguracion(Usuario &user1){
     switch (opcion)
     {
     case 1:
+        system("cls");
         cambiarContrasenia(user1);
         break;
 
     case 2:
+        system("cls");
         verMisDatos(user1);
         break;
 
     case 3:
+       system("cls");
        MenuBackup();
         break;
 
     case 4:
+       system("cls");
        MenuRestauracion();
        break;
     case 5:
+      system("cls");
       MenuExportacionCSV();
       break;
 
     case 0:
+      system("cls");
       break;
 
     default:
+     system("cls");
      cout << "Opcion invalida." << endl;
         break;
     }
@@ -245,6 +269,7 @@ void MenuAdmiConfiguracion(Usuario &user1){
         int opcion;
 
     do{
+        system("cls");
         cout << "\n ====== GESTION DE CATEGORIAS ======" << endl;
         cout << "1 - Crear Categoria" << endl;
         cout << "2 - Alta/Baja Categoria" << endl;
@@ -257,11 +282,13 @@ void MenuAdmiConfiguracion(Usuario &user1){
         switch(opcion){
 
             case 1:
+            system("cls");
             AltaCategoria();
             break;
 
             case 2:
     {
+            system("cls");
             int opcionEstado, idCat;
             ArchivoCategoria archCat;
 
@@ -288,18 +315,22 @@ void MenuAdmiConfiguracion(Usuario &user1){
             break;
 
             case 3:
+            system("cls");
             ModificarCategoria();
             break;
 
             case 4:
+            system("cls");
             ListarCategorias();
             break;
 
             case 0:
+            system("cls");
             cout << "Volver al menu anterior" << endl;
             break;
 
             default:
+            system("cls");
             cout << "Opcion invalida." << endl;
             break;
 
@@ -315,6 +346,7 @@ void MenuGestionAreasSoporte(){
 
 
     do{
+       system("cls");
        cout << "Menu Gestion Areas" << endl;
        cout << "============================" << endl;
        cout << "1-CREAR AREA SOPORTE" << endl;
@@ -331,6 +363,7 @@ void MenuGestionAreasSoporte(){
        int idAlta,idBaja;
        switch(opcion){
         case 1:
+            system("cls");
             cout << "Ingrese el nombre del area nuevo: "<< endl;
             cin.getline(nameAr,30);
             AR.setNombre(nameAr);
@@ -340,22 +373,27 @@ void MenuGestionAreasSoporte(){
             arch.creaAreaSoporte(AR);
             break;
         case 2:
+            system("cls");
             cout << "Ingresar el id que quiere volver a activar: " << endl;
             cin >> idAlta;
             arch.altaLogica(idAlta);
             break;
         case 3:
+            system("cls");
             cout << "Ingresar el id que quiere dar de baja: " << endl;
             cin >> idBaja;
             arch.bajaLogica(idBaja);
             break;
         case 4:
+            system("cls");
             menuModificarAreaSoporte();
             break;
         case 5:
+            system("cls");
             arch.listarTodos();
             break;
         case 6:
+            system("cls");
             arch.listarActivos();
             break;
        }
@@ -369,6 +407,7 @@ void MenuGestionAreasSoporte(){
     rolesArchivo rarch;
      char descr[30];
     do{
+    system("cls");
     cout << "Menu Gestion Roles" << endl;
     cout << "1-Crear Rol" << endl;
     cout << "2-Modificacion Rol" << endl;
@@ -382,15 +421,18 @@ void MenuGestionAreasSoporte(){
     }
     switch(opcion){
 case 1:
+    system("cls");
     cout << "Ingrese la descripcion del nuevo ROL: "<< endl;
     cin.getline(descr,30);
     rol.setDescripcion(descr);
     rarch.registrar(rol);
     break;
 case 2:
+    system("cls");
     MenuModificarRoles();
     break;
 case 3:
+    system("cls");
     rarch.listarTodos();
     break;
     }
@@ -406,6 +448,7 @@ void MenuGestionUsuarios(){
     archivoUsuario archU;
     Usuario usr ;
     do{
+        system("cls");
         cout << "GESTION DE USUARIOS" << endl;
         cout << " 1- Crear" << endl;
         cout << " 2- Alta/Baja logica" << endl;
@@ -427,7 +470,7 @@ void MenuGestionUsuarios(){
             case 2:
                {
 
-
+            system("cls");
             cout << "Desea Activar o Desactivar un usuario?"<< endl;
             cout << "1-Activar" << endl;
             cout << "2-Desactivar" << endl;
@@ -455,10 +498,12 @@ void MenuGestionUsuarios(){
             break;
 
             case 3:
+            system("cls");
             menuModificarAdmin(usr);
             break;
 
             case 4:
+            system("cls");
             listarUsuarios();
             break;
         }
@@ -470,6 +515,7 @@ void MenuGestionEstadisticas(){
 int opcion;
 
 do {
+    system("cls");
     cout << "-------------------" << endl;
     cout << "ESTADISTICAS" << endl;
     cout << "-------------------" << endl;
@@ -478,6 +524,8 @@ do {
     cout << "3- Usuarios por rol " <<endl;
     cout << "4- Tickets por Categoria " << endl;
     cout << "5- Tickets por prioridad " << endl;
+    cout << "6- Tickets asignados por soporte (mes/anio) " << endl;
+    cout << "7- Promedio de respuestas por ticket " << endl;
     cout << "0- Volver" << endl;
     cin >> opcion;
 
@@ -507,6 +555,12 @@ do {
         break;
     case 5:
         ticketXPrioridad();
+        break;
+    case 6:
+        ticketXSoporte();
+        break;
+    case 7:
+        promedioRespuestasTicket();
         break;
     case 0:
       break;

@@ -31,7 +31,7 @@ bool guardado;
     do
     {
 
-
+        system("cls");
         cout << "MENU SOPORTE" << endl<<endl;
         cout << "------------------------------------" << endl;
         cout << "1) VER MIS TICKETS ASIGNADOS" << endl;
@@ -61,6 +61,7 @@ bool guardado;
 
 
         case 1:
+            system("cls");
             Cantidad = Archivo.CantidadTickets();
             for(i=0;i<Cantidad;i++){
                 Ticket tleido = Archivo.LeerTicket(i);
@@ -72,6 +73,7 @@ bool guardado;
 
         case 2:
             {
+            system("cls");
             int TicketAsignar=0;
             Cantidad = Archivo.CantidadTickets();
             int *PosTicketAsignable = new int[Cantidad + 1];
@@ -106,6 +108,7 @@ bool guardado;
             break;
         case 3:
             {
+            system("cls");
             cout << "En este apartado solamente podra modificar el estado de los tickets los cuales usted tiene asignado..." << endl;
             cout << "Los tickets asignados son:" << endl;
             Cantidad = Archivo.CantidadTickets();
@@ -167,9 +170,10 @@ bool guardado;
          }
     }
             break;
-            
+
         case 4:
             {
+                system("cls");
                 int idBuscado;
                 respuestas resp;
                 Fecha fActual;
@@ -181,7 +185,7 @@ bool guardado;
                 if(pos != -1)
                 {
                     Ticket tleido =  Archivo.LeerTicket(pos);
-                    
+
                     if(tleido.getIdUsrSoporte() != user1.getIDUsuario()){
                         cout << "Este ticket no esta asignado a usted." << endl;
                     }
@@ -224,6 +228,7 @@ bool guardado;
 
         case 5:
             {
+                system("cls");
                 archivoRespuesta resp;
             cout << "En este apartado solamente podra ver respuesta de los tickets los cuales usted tiene asignado..." << endl;
             cout << "============================" << endl;
@@ -252,7 +257,7 @@ bool guardado;
             }
             break;
         case 0:
-
+            system("cls");
             break;
         }
 

@@ -30,17 +30,19 @@ char mensaje[200];
 bool guardado;
     do
     {
-
         system("cls");
-        cout << "MENU SOPORTE" << endl<<endl;
-        cout << "------------------------------------" << endl;
-        cout << "1) VER MIS TICKETS ASIGNADOS" << endl;
-        cout << "2) VER TICKETS ABIERTOS" << endl;
-        cout << "3) CAMBIAR ESTADO DE TICKET" << endl;
-        cout << "4) RESPONDER TICKET" << endl;
-        cout << "5) VER RESPUESTAS DE TICKETS " << endl;
-        cout << "------------------------------------" << endl<<endl;
-        cout << "0) CERRAR SESION" << endl<<endl;
+        
+        cout << "========================================" << endl;
+        cout << "|           MENU SOPORTE               |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 1) VER MIS TICKETS ASIGNADOS         |" << endl;
+        cout << "| 2) VER TICKETS ABIERTOS              |" << endl;
+        cout << "| 3) CAMBIAR ESTADO DE TICKET          |" << endl;
+        cout << "| 4) RESPONDER TICKET                  |" << endl;
+        cout << "| 5) VER RESPUESTAS DE TICKETS         |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 0) CERRAR SESION                     |" << endl;
+        cout << "========================================" << endl;
         cout<<"Opcion: ";
         cin>>Opcion;
         if (Opcion < 0 || Opcion > 5) {
@@ -132,13 +134,15 @@ bool guardado;
 
             if(pos != -1){
               Ticket tleido = Archivo.LeerTicket(pos);
-
-            cout << "Que estado desea asignar?" << endl;
-            cout << "0-Abierto" << endl;
-            cout << "1-Asignado" <<endl;
-            cout << "2-Resuelto" << endl;
-            cout << "3-Cerrado " << endl;
-            cout << "============================" << endl;
+              
+            cout << "====================================" << endl;  
+            cout << "|      QUE ESTADO DESEA ASIGNAR?   |" << endl;
+            cout << "====================================" << endl;
+            cout << "| 0) Abierto                       |" << endl;
+            cout << "| 1) Asignado                      |" <<endl;
+            cout << "| 2) Resuelto                      |" << endl;
+            cout << "| 3) Cerrado                       |" << endl;
+            cout << "====================================" << endl;
             cin >> nuevoEstado;
 
             if(nuevoEstado >= 0 && nuevoEstado <= 3){
@@ -231,7 +235,7 @@ bool guardado;
                 system("cls");
                 archivoRespuesta resp;
             cout << "En este apartado solamente podra ver respuesta de los tickets los cuales usted tiene asignado..." << endl;
-            cout << "============================" << endl;
+            cout << "================================================================================================" << endl;
             int IdTicketRespuestaBuscar=0;
             Cantidad = Archivo.CantidadTickets();
             int *PosTicketRespuesta = new int[Cantidad + 1];

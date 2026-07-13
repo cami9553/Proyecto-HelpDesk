@@ -37,14 +37,19 @@ void MenuRestauracion(){
      int opcion;
 
      do{
+        system("cls");
 
-        cout << "RESTAURAR COPIA" << endl;
-        cout << "1- Usuarios" << endl;
-        cout << "2- Tickets" << endl;
-        cout << "3- Categorias" << endl;
-        cout << "4- Area de Soporte" << endl;
-        cout << "5- Todos los archivos" << endl;
-        cout << "0- Volver" << endl;
+        cout << "==============================" <<endl;
+        cout << "|       RESTAURAR COPIA      |" << endl;
+        cout << "==============================" <<endl;
+        cout << "| 1) Usuarios                |" << endl;
+        cout << "| 2) Tickets                 |" << endl;
+        cout << "| 3) Categorias              |" << endl;
+        cout << "| 4) Area de Soporte         |" << endl;
+        cout << "| 5) Todos los archivos      |" << endl;
+        cout << "==============================" <<endl;
+        cout << "| 0) Volver                  |" << endl;
+        cout << "==============================" <<endl;
 
          cout << "Opcion: ";
          cin >> opcion;
@@ -77,6 +82,10 @@ void MenuRestauracion(){
           cout << "Opcion invalida." << endl;
             break;
          }
+
+         if(opcion != 0){
+            system("pause");
+         }
         }while(opcion != 0);
 }
 
@@ -85,14 +94,18 @@ void MenuExportacionCSV(){
     int opcion;
 
     do{
+        system("cls");
 
-        cout << "EXPORTAR CSV" << endl;
-        cout << "1- Usuarios" << endl;
-        cout << "2- Tickets" << endl;
-        cout << "3- Categorias" << endl;
-        cout << "4- Areas de Soporte" << endl;
-        cout << "0- Volver" << endl;
-
+        cout << "==============================" <<endl;
+        cout << "|        EXPORTAR CSV        |" << endl;
+        cout << "==============================" <<endl;
+        cout << "| 1) Usuarios                |" << endl;
+        cout << "| 2) Tickets                 |" << endl;
+        cout << "| 3) Categorias              |" << endl;
+        cout << "| 4) Areas de Soporte        |" << endl;
+        cout << "==============================" <<endl;
+        cout << "| 0) Volver                  |" << endl;
+        cout << "==============================" <<endl;
         cout << "Opcion: ";
         cin >> opcion;
 
@@ -122,7 +135,9 @@ void MenuExportacionCSV(){
           cout << "Opcion invalida." << endl;
             break;
         }
-
+        if(opcion != 0){
+            system("pause");
+        }
     }while(opcion != 0);
 }
 
@@ -133,14 +148,19 @@ void MenuBackup(){
 
     do{
 
-        cout << "COPIA DE SEGURIDAD" << endl;
-        cout << "1- Usuarios" << endl;
-        cout << "2- Tickets" << endl;
-        cout << "3- Categorias" << endl;
-        cout << "4- Areas de Soporte" << endl;
-        cout << "5- Todos los archivos" << endl;
-        cout << "0- Volver" << endl;
+        system("cls");
 
+        cout << "==============================" <<endl;
+        cout << "|       COPIA DE SEGURIDAD   |" << endl;
+        cout << "==============================" <<endl;
+        cout << "| 1) Usuarios                |" << endl;
+        cout << "| 2) Tickets                 |" << endl;
+        cout << "| 3) Categorias              |" << endl;
+        cout << "| 4) Areas de Soporte        |" << endl;
+        cout << "| 5) Todos los archivos      |" << endl;
+        cout << "==============================" <<endl;
+        cout << "| 0) Volver                  |" << endl;
+        cout << "==============================" <<endl;
         cout << "Opcion: ";
         cin >> opcion;
 
@@ -186,6 +206,9 @@ void MenuBackup(){
         }
 
 
+        if(opcion != 0){
+            system("pause");
+        }
     }while(opcion != 0);
 
 }
@@ -209,10 +232,9 @@ void backupUsuarios(){
 
     destino << origen.rdbuf();
 
-    cout << "--------------------------------" << endl;
-    cout << "Backup realiziado correctamente." << endl;
-    cout << "--------------------------------" << endl;
-
+    cout << "====================================" << endl;
+    cout << "| Backup realiziado correctamente. |" << endl;
+    cout << "====================================" << endl;
     cout << "Copiando usuarios.dat..." << endl;
     origen.close();
     destino.close();

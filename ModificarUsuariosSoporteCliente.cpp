@@ -12,7 +12,8 @@ int opcion;
 char nuevoValor[30];
     do{
         cout << "==========================" << endl;
-        cout << "¿Que desea modificar?     " << endl;
+        cout << "Que desea modificar?      " << endl;
+        cout << "==========================" << endl;
         cout << "1-Nombre                  " << endl;
         cout << "2-Apellido                " << endl;
         cout << "3-Email                   " << endl;
@@ -80,6 +81,10 @@ char nuevoValor[30];
         break;
         }
 
+        if(opcion != 0){
+            system("pause");
+        }
+        
         }while(opcion != 0);
 
 

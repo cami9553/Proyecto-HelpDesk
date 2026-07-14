@@ -33,11 +33,12 @@ switch(opcion){
 
 case 1:
     system("cls");
-    t1.CreatTicket(user1);
+    if(t1.CreatTicket(user1)){
     if(Archivo.GuardarTicket(t1)){
         cout<<"Tiket guardado correctamente"<<endl;
     }else{
     cout<<"Error al guardar ticket"<<endl;
+    }
     }
     break;
 
@@ -48,7 +49,9 @@ case 2:
 
   for(int i=0; i<Cantidad;i++){
     t1=Archivo.LeerTicket(i);
+    if(t1.getIdUsuario()==user1.getIDUsuario()){
     t1.MostrarTicket();
+    }
   }
 
     break;

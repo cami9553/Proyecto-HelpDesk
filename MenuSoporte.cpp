@@ -76,7 +76,7 @@ bool guardado;
             system("cls");
             int TicketAsignar=0;
             Cantidad = Archivo.CantidadTickets();
-            int *PosTicketAsignable = new int[Cantidad + 1];
+            int *PosTicketAsignable = new int[Cantidad + 1]();
             if(Cantidad==0){
                 cout <<"No hay tickets registrados."<< endl;
             }

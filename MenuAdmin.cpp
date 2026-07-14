@@ -27,17 +27,19 @@ void MostrarMenuAdmin(Usuario &user1){
 
     do{
         system("cls");
-        cout << "      MENU ADMINISTRADOR      " << endl;
-        cout << "------------------------------" << endl;
-        cout << " 1- GESTION DE USUARIOS" << endl;
-        cout << " 2- GESTION DE TICKETS" << endl;
-        cout << " 3- GESTION DE CATEGORIAS" << endl;
-        cout << " 4- GESTION DE AREAS DE SOPORTE" << endl;
-        cout << " 5- GESTION DE ROLES" << endl;
-        cout << " 6- ESTADISTICAS" << endl;
-        cout << " 7- CONFIGURACION " << endl;
-        cout << "------------------------------" << endl;
-        cout << "0- CERRAR SESION" << endl;
+        cout << "====================================" << endl;
+        cout << "|           MENU ADMINISTRADOR     |" << endl;
+        cout << "====================================" << endl;
+        cout << "| 1) GESTION DE USUARIOS           |" << endl;
+        cout << "| 2) GESTION DE TICKETS            |" << endl;
+        cout << "| 3) GESTION DE CATEGORIAS         |" << endl;
+        cout << "| 4) GESTION DE AREAS DE SOPORTE   |" << endl;
+        cout << "| 5) GESTION DE ROLES              |" << endl;
+        cout << "| 6) ESTADISTICAS                  |" << endl;
+        cout << "| 7) CONFIGURACION                 |" << endl;
+        cout << "====================================" << endl;
+        cout << "| 0- CERRAR SESION                 |" << endl;
+        cout << "====================================" << endl;
 
         cout << "Opcion: ";
         cin >> opcion;
@@ -100,8 +102,9 @@ archivoUsuario arch;
 bool guardado;
 int opcion,usrAModificar,nuevoValorRol;
 char nuevoValor[30];
-   cout << "==========================" << endl;
-   cout << "Ingrese el idUsuario que desea modificar: "<<endl;
+   cout << "=============================================" << endl;
+   cout << "|  Ingrese el idUsuario que desea modificar: |"<<endl;
+   cout << "=============================================" << endl;
    cin  >> usrAModificar;
    cout << "==========================" << endl;
 
@@ -208,14 +211,15 @@ void MenuAdmiConfiguracion(Usuario &user1){
     int opcion;
 
     do{
-        system("cls");
-        cout << "1- Cambiar Clave" << endl;
-        cout << "2- Ver Mis Datos" << endl;
-        cout << "3- Copia de Seguridad" << endl;
-        cout << "4- Restaurar Copia" << endl;
-        cout << "5- Exportar CSV" << endl;
-        cout << "0- Volver" << endl;
-        cin >> opcion;
+        cout << "======================================" << endl;
+        cout << "| 1) Cambiar Clave                   |" << endl;
+        cout << "| 2) Ver Mis Datos                   |" << endl;
+        cout << "| 3) Copia de Seguridad              |" << endl;
+        cout << "| 4) Restaurar Copia                 |" << endl;
+        cout << "| 5) Exportar CSV                    |" << endl;
+        cout << "======================================" << endl;
+        cout << "| 0) Volver                          |" << endl;
+        cout << "======================================" << endl;
 
         if(cin.fail()){
         cout << "Algo salio mal. Debe ingresar un numero." << endl;
@@ -270,12 +274,16 @@ void MenuAdmiConfiguracion(Usuario &user1){
 
     do{
         system("cls");
-        cout << "\n ====== GESTION DE CATEGORIAS ======" << endl;
-        cout << "1 - Crear Categoria" << endl;
-        cout << "2 - Alta/Baja Categoria" << endl;
-        cout << "3 - Modificar Categoria" << endl;
-        cout << "4 - Listar categorias" << endl;
-        cout << "0 - Volver" << endl;
+        cout << "====================================" << endl;
+        cout << "|      GESTION DE CATEGORIAS       |" << endl;
+        cout << "====================================" << endl;
+        cout << "| 1) Crear Categoria               |" << endl;
+        cout << "| 2) Alta/Baja Categoria           |" << endl;
+        cout << "| 3) Modificar Categoria           |" << endl;
+        cout << "| 4) Listar categorias             |" << endl;
+        cout << "====================================" << endl;
+        cout << "| 0) Volver                        |" << endl;
+        cout << "====================================" << endl;
 
         cin >> opcion;
 
@@ -347,16 +355,18 @@ void MenuGestionAreasSoporte(){
 
     do{
        system("cls");
-       cout << "Menu Gestion Areas" << endl;
-       cout << "============================" << endl;
-       cout << "1-CREAR AREA SOPORTE" << endl;
-       cout << "2-ALTA AREA SOPORTE" << endl;
-       cout << "3-BAJA AREA SOPORTE" << endl;
-       cout << "4-MODIFICAR AREA SOPORTE" << endl;
-       cout << "5-MOSTRAR AREAS SOPORTE" << endl;
-       cout << "6-MOSTRAR AREA SOPORTE ACTIVAS" << endl;
-       cout << "0-SALIR                 " << endl;
-       cout << "============================" << endl;
+      cout << "====================================" << endl;
+       cout << "|         MENU GESTION AREAS       |" << endl;
+       cout << "====================================" << endl;
+       cout << "| 1) CREAR AREA SOPORTE            |" << endl;
+       cout << "| 2) ALTA AREA SOPORTE             |" << endl;
+       cout << "| 3) BAJA AREA SOPORTE             |" << endl;
+       cout << "| 4) MODIFICAR AREA SOPORTE        |" << endl;
+       cout << "| 5) MOSTRAR AREAS SOPORTE         |" << endl;
+       cout << "| 6) MOSTRAR AREA SOPORTE ACTIVAS  |" << endl;
+       cout << "====================================" << endl;
+       cout << "| 0) SALIR                         |" << endl;
+       cout << "====================================" << endl;
        cin  >> opcion;
        cin.ignore();
        areaSoporte AR;
@@ -408,11 +418,15 @@ void MenuGestionAreasSoporte(){
      char descr[30];
     do{
     system("cls");
-    cout << "Menu Gestion Roles" << endl;
-    cout << "1-Crear Rol" << endl;
-    cout << "2-Modificacion Rol" << endl;
-    cout << "3-Mostrar Roles" << endl;
-    cout << "0-Salir" << endl;
+     cout << "===================================" << endl;
+    cout << "|        MENU GESTION ROLES       |" << endl;
+    cout << "===================================" << endl;
+    cout << "| 1) Crear Rol                    |" << endl;
+    cout << "| 2) Modificacion Rol             |" << endl;
+    cout << "| 3) Mostrar Roles                |" << endl;
+    cout << "===================================" << endl;
+    cout << "| 0) Salir                        |" << endl;
+    cout << "===================================" << endl;
     cin >> opcion;
     cin.ignore();
     roles rol;
@@ -449,12 +463,16 @@ void MenuGestionUsuarios(){
     Usuario usr ;
     do{
         system("cls");
-        cout << "GESTION DE USUARIOS" << endl;
-        cout << " 1- Crear" << endl;
-        cout << " 2- Alta/Baja logica" << endl;
-        cout << " 3- Modificacion" << endl;
-        cout << " 4- Listado" << endl;
-        cout << " 0- volver" << endl;
+        cout << "================================" << endl;
+        cout << "|      GESTION DE USUARIOS     |" << endl;
+        cout << "================================" << endl;
+        cout << "| 1) Crear                     |" << endl;
+        cout << "| 2) Alta/Baja logica          |" << endl;
+        cout << "| 3) Modificacion              |" << endl;
+        cout << "| 4) Listado                   |" << endl;
+        cout << "================================" << endl;
+        cout << "| 0) volver                    |" << endl;
+        cout << "================================" << endl;
 
         cin >> opcion;
 
@@ -471,9 +489,12 @@ void MenuGestionUsuarios(){
                {
 
             system("cls");
-            cout << "Desea Activar o Desactivar un usuario?"<< endl;
-            cout << "1-Activar" << endl;
-            cout << "2-Desactivar" << endl;
+           cout << "===========================================" << endl;
+            cout << "| Desea Activar o Desactivar un usuario?  |"  << endl;
+            cout << "===========================================" << endl;
+            cout << "| 1) Activar                              |" << endl;
+            cout << "| 2) Desactivar                           |" << endl;
+            cout << "===========================================" << endl;
             cin >> OpcionEstado;
             if(OpcionEstado>0 && OpcionEstado < 3){
             if(OpcionEstado == 1){
@@ -516,17 +537,21 @@ int opcion;
 
 do {
     system("cls");
-    cout << "-------------------" << endl;
-    cout << "ESTADISTICAS" << endl;
-    cout << "-------------------" << endl;
-    cout << "1- Resumen General " << endl;
-    cout << "2- Ticket por estado " << endl;
-    cout << "3- Usuarios por rol " <<endl;
-    cout << "4- Tickets por Categoria " << endl;
-    cout << "5- Tickets por prioridad " << endl;
-    cout << "6- Tickets asignados por soporte (mes/anio) " << endl;
-    cout << "7- Promedio de respuestas por ticket " << endl;
-    cout << "0- Volver" << endl;
+    cout << "===============================================" << endl;
+    cout << "|       ESTADISTICAS                           |" << endl;
+    cout << "===============================================" << endl;
+    cout << "| 1) Resumen General                           |" << endl;
+    cout << "| 2) Ticket por estado                         |" << endl;
+    cout << "| 3) Usuarios por rol                          |" << endl;
+    cout << "| 4) Tickets por Categoria                     |" << endl;
+    cout << "| 5) Tickets por prioridad                     |" << endl;
+    cout << "| 6) Tickets asignados por soporte (mes/anio)  |" << endl;
+    cout << "| 7) Promedio de respuestas por ticket         |" << endl;
+    cout << "===============================================" << endl;
+    cout << "| 0) Volver                                    |" << endl;
+    cout << "===============================================" << endl;
+    cout << "Seleccione una opcion: ";
+
     cin >> opcion;
 
     if(cin.fail()){
@@ -583,22 +608,24 @@ void menuModificarAreaSoporte(){
 
     do{
 
-        cout << "==========================" << endl;
-        cout << "¿Que desea Modificar?" << endl;
-        cout << "1-Nombre area soporte" << endl;
-        cout << "2-Descripcion area soporte"<< endl;
-        cout << "3-Estado Area soporte " << endl;
-        cout << "0-Salir." << endl;
-        cout << "==========================" << endl;
+        cout << "=====================================" << endl;
+        cout << "|        QUE DESEA MODIFICAR?       |" << endl;
+        cout << "=====================================" << endl;
+        cout << "| 1) Nombre area soporte            |" << endl;
+        cout << "| 2) Descripcion area soporte       |"<< endl;
+        cout << "| 3) Estado Area soporte            |" << endl;
+        cout << "=====================================" << endl;
+        cout << "| 0) Salir.                         |" << endl;
+        cout << "=====================================" << endl;
         cin >> opcion;
         cin.ignore();
         if(opcion ==  0){
             cout << "Saliendo del menu modificar." << endl;
             break;
         }
-        cout << "==========================" << endl;
-        cout << "Ingrese el IdArea que desea modificar: "<< endl;
-        cout << "==========================" << endl;
+        cout << "===========================================" << endl;
+        cout << "| Ingrese el IdArea que desea modificar:  |"<< endl;
+        cout << "===========================================" << endl;
         cin >> idArea;
         cin.ignore();
         areaSoporte arModificar = arch.leerAreaSoporte(idArea);
@@ -669,20 +696,23 @@ void MenuModificarRoles(){
     rolesArchivo rArch;
     do{
 
-        cout << "==========================" << endl;
-        cout << "Que desea Modificar?" << endl;
-        cout << "1-Descripcion Rol" << endl;
-        cout << "2-Estado Rol" << endl;
-        cout << "0-Salir." << endl;
-        cout << "==========================" << endl;
+        cout << "==============================="<< endl;
+        cout << "|       QUE DESEA MODIFICAR?  |" << endl;
+        cout << "===============================" << endl;
+        cout << "| 1) Descripcion Rol          |" << endl;
+        cout << "| 2) Estado Rol               |" << endl;
+        cout << "===============================" << endl;
+        cout << "| 0) Salir.                   |" << endl;
+        cout << "===============================" << endl;
         cin >> opcion;
         cin.ignore();
         if(opcion ==  0){
             cout << "Saliendo del menu modificar." << endl;
             break;
         }
-        cout << "==========================" << endl;
-        cout <<"Ingrese el id del rol que desea modificar: "<< endl;
+        cout << "==============================================" << endl;
+        cout << "| Ingrese el id del rol que desea modificar: |"<< endl;
+        cout << "==============================================" << endl;
         cin >>idMod;
         cin.ignore();
         roles rol = rArch.leerRol(idMod-1);
@@ -735,14 +765,16 @@ void MenuGestionTickets()
     int opcion;
 
     do{
-        cout << " GESTION DE TICKETS" << endl;
-        cout << "------------------------------" << endl;
-        cout << " 1- Visualizar todos los tickets" << endl;
-        cout << " 2- Reasignar tickets" << endl;
-        cout << " 3- Modificar prioridad" << endl;
-        cout << " 4- Modificar estado" << endl;
-        cout << " 0- volver" << endl;
-
+        cout << "=====================================" << endl;
+        cout << "|         GESTION DE TICKETS        |" << endl;
+        cout << "=====================================" << endl;
+        cout << "| 1) Visualizar todos los tickets   |" << endl;
+        cout << "| 2) Reasignar tickets              |" << endl;
+        cout << "| 3) Modificar prioridad            |" << endl;
+        cout << "| 4) Modificar estado               |" << endl;
+        cout << "=====================================" << endl;
+        cout << "| 0) volver                         |" << endl;
+        cout << "=====================================" << endl;
         cout << "Opcion: ";
         cin >> opcion;
 

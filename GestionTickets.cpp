@@ -11,7 +11,7 @@ void VisualizarTickets(){
  Ticket reg; //ticket individual. Aca guardo cada ticket que leas del archivo.
  int cantidad; // guarda la cantidad de tickets que existen.
 
- cantidad = arch.CantidadTickets(); 
+ cantidad = arch.CantidadTickets();
 
 
   if (cantidad == 0)
@@ -19,9 +19,9 @@ void VisualizarTickets(){
     cout << "No hay tickets cargados." << endl;
     return;
   }
-  
+
  for(int i=0; i <cantidad; i++){
-   reg = arch.LeerTicket(i); 
+   reg = arch.LeerTicket(i);
    reg.MostrarTicket();
 
    cout << "===========================" << endl;
@@ -86,7 +86,7 @@ void ReasignarTicket(){
 }
 
 void ModificarPrioridad(){
-   
+
     TickeArchivo arch; // es mi clase qu8e esta en ticketarchivo.h
     int idTicket;  // creo la variable numerica llamada idTicket para guardar el id ticket
   // arch es el nombre del objeto
@@ -95,8 +95,8 @@ void ModificarPrioridad(){
     cin >> idTicket;  // leé lo que escriba el usuario y guardalo dentro de idTicket.
 
     int pos = arch.BuscarTicket(idTicket); // pos es el nmombre de la variable, Esta variable va a guardar en qué posición del archivo está el ticket.
-    
-    if(pos == -1){  
+
+    if(pos == -1){
 
       cout << "No se encontro el ticket." << endl;
       return;
@@ -110,22 +110,22 @@ void ModificarPrioridad(){
 
     int nuevaPrioridad;
     cout << "Ingrese nueva prioridad: " << endl;
-    cout << "1- Baja" << endl;
+    cout << "1- Alta" << endl;
     cout << "2- Media" << endl;
-    cout << "3- Alta" << endl;
+    cout << "3- Baja" << endl;
     cout << "Opcion: ";
     cin >> nuevaPrioridad;
 
     if(nuevaPrioridad < 1 || nuevaPrioridad > 3){
 
       cout << "Prioridad enviada. " << endl;
-      return; 
+      return;
     }
 
     reg.setPrioridad(nuevaPrioridad);
 
     cout << "Nueva prioridad en memoria: " << reg.getPrioridad() << endl;
-    
+
     bool modifico = arch.ModificarTicket(reg, pos);
 
     if(modifico){
@@ -141,14 +141,14 @@ void ModificarPrioridad(){
 
   }
 void ModificarEstado(){
-   
+
   TickeArchivo arch;
    int idTicket;
 
    cout << "Ingrese el ID del ticket: ";
    cin >> idTicket;
 
-   int pos = arch.BuscarTicket(idTicket); 
+   int pos = arch.BuscarTicket(idTicket);
 
    if(pos == -1){
 
@@ -165,20 +165,27 @@ void ModificarEstado(){
    int nuevoEstado;
 
    cout << "Ingrese nuevo estado: " << endl;
-   cout << "1- Abierto" << endl;
+   cout << "0- Sin Asignar "<< endl;
+   cout << "1- Asignado" << endl;
    cout << "2- En proceso" << endl;
    cout << "3- Cerrado" << endl;
-   cout << "Opcion: "; 
+   cout << "Opcion: ";
    cin >> nuevoEstado;
 
-   if (nuevoEstado < 1 || nuevoEstado > 3)
+   if (nuevoEstado < 0 || nuevoEstado > 3)
    {
     cout << "Estado invalido." << endl;
     return;
    }
    reg.setEstado(nuevoEstado);
 
-   cout << "Nuevo estado en  memoria: " << reg.getEstado() << endl;
+   if(nuevoEstado == 3){
+    Fecha fActual;
+    fActual.CargarFechaActual();
+    reg.setFechaCierre(fActual);
+   }
+
+   //cout << "Nuevo estado en  memoria: " << reg.getEstado() << endl;
    bool modifico = arch.ModificarTicket(reg, pos);
 
    if (modifico)
@@ -186,7 +193,7 @@ void ModificarEstado(){
     cout << "Estado modificado correctamente." << endl;
    }
    else{
-    cout << "Error al modificar el estado." << endl; 
+    cout << "Error al modificar el estado." << endl;
    }
    Ticket prueba;
 

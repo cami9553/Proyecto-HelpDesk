@@ -367,8 +367,7 @@ void restaurarAreaSoporte(){
     if (!origen){
       cout << "No existe el backup areaSoporte.dat." << endl;
       return;
-
-
+    }
     if (!destino) {
         cout << "No se pudo restaurar areaSoporte.dat" << endl;
         return;
@@ -380,7 +379,7 @@ void restaurarAreaSoporte(){
     origen.close();
     destino.close();
 
-}
+
 }
 
 void restaurarCompleto(){
@@ -454,7 +453,7 @@ void exportarUsuariosCSV(){
         archivoCSV << reg.getEmail()<< ",";
         archivoCSV << reg.getNombre() << ",";
         archivoCSV << reg.getApellido() << ",";
-        archivoCSV << reg.getRol() << ",";
+        archivoCSV << reg.getRol() << "," << endl;
     }
     archivoDat.close();
     archivoCSV.close();

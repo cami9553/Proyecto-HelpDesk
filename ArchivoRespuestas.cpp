@@ -82,6 +82,8 @@ bool archivoRespuesta::cargarArchivo(respuestas &resp) {
     if (f == NULL) {
         return false;
     }
+    int  siguienteID = obtenerSiguienteID();
+    resp.setIdMensaje(siguienteID);
     bool escribio = fwrite(&resp, sizeof(respuestas), 1, f);
     fclose(f);
     return escribio;

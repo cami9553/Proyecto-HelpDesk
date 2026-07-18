@@ -132,7 +132,7 @@ bool guardado;
     }
 }
 break;
-           
+
         case 3:
             {
             system("cls");
@@ -161,9 +161,9 @@ break;
               Ticket tleido = Archivo.LeerTicket(pos);
 
             cout << "Que estado desea asignar?" << endl;
-            cout << "0-Abierto" << endl;
+            cout << "0-Sin Asignar" << endl;
             cout << "1-Asignado" <<endl;
-            cout << "2-Resuelto" << endl;
+            cout << "2-En Proceso" << endl;
             cout << "3-Cerrado " << endl;
             cout << "============================" << endl;
             cin >> nuevoEstado;
@@ -247,7 +247,7 @@ break;
                 {
                     cout << "No se encontro el ticket." << endl;
                 }
-                
+
             break;
             }
         case 5:
@@ -258,7 +258,7 @@ break;
             cout << "============================" << endl;
             int IdTicketRespuestaBuscar=0;
             Cantidad = Archivo.CantidadTickets();
-            int *PosTicketRespuesta = new int[Cantidad + 1];
+            int *PosTicketRespuesta = new int[Cantidad + 1]();
             if(Cantidad==0){
                 cout <<"No hay tickets registrados."<< endl;
             }

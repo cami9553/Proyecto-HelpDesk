@@ -85,6 +85,7 @@ void MostrarMenuAdmin(Usuario &user1){
 
            case 8:
            promedioDiasTicket();
+           break;
 
            case 0:
            system("cls");
@@ -111,6 +112,22 @@ char nuevoValor[30];
    cin  >> usrAModificar;
    cout << "==========================" << endl;
 
+   int cantidad = arch.contarTotalUsuarios();
+
+    if(usrAModificar < 1 || usrAModificar > cantidad){
+        cout << "ID no valido." << endl;
+        system("pause");
+        return;
+    }
+
+    Usuario usrAEditar = arch.leerUsuario(usrAModificar - 1);
+
+    if(usrAEditar.getIDUsuario() != usrAModificar){
+        cout << "Usuario no encontrado." << endl;
+        system("pause");
+        return;
+    }
+
     do{
         system("cls");
         cout << "==========================" << endl;
@@ -124,7 +141,6 @@ char nuevoValor[30];
         cout << "==========================" << endl;
         cin >> opcion;
 
-        Usuario usrAEditar = arch.leerUsuario(usrAModificar - 1);
         switch(opcion){
     case 1:
         system("cls");
@@ -223,6 +239,10 @@ void MenuAdmiConfiguracion(Usuario &user1){
         cout << "======================================" << endl;
         cout << "| 0) Volver                          |" << endl;
         cout << "======================================" << endl;
+
+        cout << "OPCION: " ;
+        cin >> opcion;
+        cout << endl;
 
         if(cin.fail()){
         cout << "Algo salio mal. Debe ingresar un numero." << endl;
@@ -592,7 +612,7 @@ do {
         promedioRespuestasTicket();
         break;
 
-    case 8: 
+    case 8:
       promedioDiasTicket();
       break;
 
@@ -813,7 +833,7 @@ void MenuGestionTickets()
             cout << "Opcion invalida." << endl;
             break;
 
-        } 
+        }
         if(opcion != 0){
             system("pause");
         }

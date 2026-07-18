@@ -31,7 +31,7 @@ void ResumenGeneral(){
 }
 
 void ticketXEstado(){
-int i,sA,asig,enPro,cerra=0;
+int i = 0, sA = 0, asig = 0, enPro = 0, cerra = 0;
 TickeArchivo tkA;
 
 
@@ -164,16 +164,72 @@ for(i=0;i<cantUsuarios;i++){
 void promedioRespuestasTicket(){
     TickeArchivo archT;
     archivoRespuesta archR;
+
     int totalTickets = archT.CantidadTickets();
     int totalRespuestas = archR.cantidadRespuestas();
+
     if(totalTickets == 0){
         cout << "No hay tickets registrados." << endl;
+        system("pause");
+        system("cls");
         return;
     }
     float promedio = (float)totalRespuestas / totalTickets;
+
     cout << "Total tickets: " << totalTickets << endl;
     cout << "Total respuestas: " << totalRespuestas << endl;
     cout << "Promedio de respuestas por ticket: " << promedio << endl;
+
+    system("pause");
+    system("cls");
+}
+ 
+void promedioDiasTicket(){
+
+    TickeArchivo archT;
+
+    int cantidadTickets = archT.CantidadTickets();
+    int totalDias = 0;
+    int ticketsCerrados = 0;
+
+    if(cantidadTickets == 0){
+        cout << "No hay tickets registrados." << endl;
+        system("pause");
+        system("cls");
+        return;
+    }
+
+    for(int i = 0; i < cantidadTickets; i++){
+        Ticket tk = archT.LeerTicket(i);
+
+        if(tk.getEstado() == 3){
+            Fecha fechaInicio = tk.getFechaCreacion();
+            Fecha fechaFin = tk.getFechaCierre();
+
+            int diasInicio = fechaInicio.GetAnio() * 365 + fechaInicio.GetMes() * 30 + fechaInicio.GetDia();
+            int diasFin = fechaFin.GetAnio() * 365 + fechaFin.GetMes() * 30 + fechaFin.GetDia();
+
+            int diferencia = diasFin - diasInicio;
+
+            if(diferencia >= 0){
+                totalDias += diferencia;
+                ticketsCerrados++;
+            }
+        }
+    }
+
+    if(ticketsCerrados == 0){
+        cout << "No hay tickets cerrados para calcular el promedio." << endl;
+    }
+
+    else{
+        float promedio = (float)totalDias / ticketsCerrados;
+
+        cout << "Tickets cerrados: " << ticketsCerrados << endl;
+        cout << "Total de dias acumulados: " << totalDias << endl;
+        cout << "Promedio de dias por ticket cerrado: " << promedio << endl;
+    }
+
     system("pause");
     system("cls");
 }

@@ -83,6 +83,9 @@ void MostrarMenuAdmin(Usuario &user1){
            MenuAdmiConfiguracion(user1);
            break;
 
+           case 8:
+           promedioDiasTicket();
+
            case 0:
            system("cls");
            cout << "Sesion cerrada." << endl;
@@ -111,7 +114,7 @@ char nuevoValor[30];
     do{
         system("cls");
         cout << "==========================" << endl;
-        cout << "¿Que desea modificar?     " << endl;
+        cout << "ï¿½Que desea modificar?     " << endl;
         cout << "1-Nombre                  " << endl;
         cout << "2-Apellido                " << endl;
         cout << "3-Email                   " << endl;
@@ -539,7 +542,7 @@ do {
     system("cls");
     cout << "===============================================" << endl;
     cout << "|       ESTADISTICAS                           |" << endl;
-    cout << "===============================================" << endl;
+    cout << "==============================================="  << endl;
     cout << "| 1) Resumen General                           |" << endl;
     cout << "| 2) Ticket por estado                         |" << endl;
     cout << "| 3) Usuarios por rol                          |" << endl;
@@ -547,9 +550,10 @@ do {
     cout << "| 5) Tickets por prioridad                     |" << endl;
     cout << "| 6) Tickets asignados por soporte (mes/anio)  |" << endl;
     cout << "| 7) Promedio de respuestas por ticket         |" << endl;
-    cout << "===============================================" << endl;
+    cout << "| 8) Promedio dias por ticket                  |" << endl;
+    cout << "==============================================="  << endl;
     cout << "| 0) Volver                                    |" << endl;
-    cout << "===============================================" << endl;
+    cout << "==============================================="  << endl;
     cout << "Seleccione una opcion: ";
 
     cin >> opcion;
@@ -558,8 +562,8 @@ do {
         cout << "Algo salio mal. Debe ingresar un numero." << endl;
 
         cin.clear();
-        cin.ignore();
-
+        cin.ignore(1000, '\n');
+        system("pause");
         continue;
 
     }
@@ -587,11 +591,17 @@ do {
     case 7:
         promedioRespuestasTicket();
         break;
+
+    case 8: 
+      promedioDiasTicket();
+      break;
+
     case 0:
       break;
 
     default:
     cout << "Opcion invalida." << endl;
+    system("pause");
         break;
     }
 }while(opcion !=0);

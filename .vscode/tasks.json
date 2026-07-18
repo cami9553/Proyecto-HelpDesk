@@ -28,6 +28,8 @@
     "ArchivoRespuestas.cpp",
     "Respuestas.cpp",
     "MenuSoporte.cpp",
+    "MenuAdmin.cpp",
+    "MenuClientes.cpp",
     "-o",
     "programa.exe"
 ],

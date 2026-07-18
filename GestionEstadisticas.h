@@ -9,7 +9,7 @@ void ticketXPrioridad();
 void ticketXCategoria();
 void  ticketXSoporte();
 void promedioRespuestasTicket();
-int contarTotalUsuariios();
+int contarTotalUsuarios();
 
-
+void promedioDiasTicket();
 #endif

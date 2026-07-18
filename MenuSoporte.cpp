@@ -24,7 +24,7 @@ void MostrarMenuSoporte(Usuario &user1){
 Ticket t1;
 TickeArchivo Archivo;
 archivoRespuesta archResp;
-int Opcion,OpcAsig,contin,idAsig,nuevoEstado;
+int opcion,OpcAsig,contin,idAsig,nuevoEstado;
 int i,Cantidad=0;
 char mensaje[200];
 bool guardado;
@@ -42,8 +42,8 @@ bool guardado;
         cout << "------------------------------------" << endl<<endl;
         cout << "0) CERRAR SESION" << endl<<endl;
         cout<<"Opcion: ";
-        cin>>Opcion;
-        if (Opcion < 0 || Opcion > 5) {
+        cin>> opcion;
+        if (opcion < 0 || opcion > 5) {
         cout << endl<<endl;
         cout << "!!!Opcion invalida, intente de nuevo.!!!" << endl;
         cout << endl<<endl;
@@ -55,7 +55,7 @@ bool guardado;
     }
 
 
-        switch(Opcion)
+        switch(opcion)
         {
 
 
@@ -72,40 +72,67 @@ bool guardado;
             break;
 
         case 2:
-            {
-            system("cls");
-            int TicketAsignar=0;
-            Cantidad = Archivo.CantidadTickets();
-            int *PosTicketAsignable = new int[Cantidad + 1]();
-            if(Cantidad==0){
-                cout <<"No hay tickets registrados."<< endl;
+{
+         system("cls");
+
+         int idTicketAsignar = 0;
+         bool hayAbiertos = false;
+
+        Cantidad = Archivo.CantidadTickets();
+
+        if(Cantidad == 0){
+        cout << "No hay tickets registrados." << endl;
+        }
+        else{
+        cout << "Tickets abiertos disponibles:" << endl;
+        cout << "========================================" << endl;
+
+        for(i = 0; i < Cantidad; i++){
+            Ticket tleido = Archivo.LeerTicket(i);
+
+            if(tleido.getEstado() == 0){
+                tleido.MostrarTicketPreview();
+                hayAbiertos = true;
             }
-            for(i=0;i<Cantidad;i++){
-                Ticket tleido = Archivo.LeerTicket(i);
-                if(tleido.getEstado() == 0){
-                   tleido.MostrarTicketPreview();
-                   PosTicketAsignable[i+1] = 1;
-                   //cout << PosTicketAsignable[i+1]<< endl;
+        }
+
+        if(hayAbiertos == false){
+            cout << "No hay tickets abiertos disponibles para asignarse." << endl;
+        }
+        else{
+            cout << "Ingrese el ID del ticket que desea asignarse: ";
+            cin >> idTicketAsignar;
+
+            int pos = Archivo.BuscarTicket(idTicketAsignar);
+
+            if(pos != -1){
+                Ticket tAsignar = Archivo.LeerTicket(pos);
+
+                if(tAsignar.getEstado() == 0){
+                    tAsignar.setEstado(1);
+                    tAsignar.setIdUsrSoporte(user1.getIDUsuario());
+
+                    guardado = Archivo.ModificarTicket(tAsignar, pos);
+
+                    if(guardado == true){
+                        cout << "Ticket asignado con exito." << endl;
+                    }
+                    else{
+                        cout << "No fue posible asignarse el ticket." << endl;
+                    }
+                }
+                else{
+                    cout << "El ticket elegido no se encuentra abierto para asignarse." << endl;
                 }
             }
-            cout << "INGRESE EL TICKET QUE SE QUIERE ASIGNAR: "<< endl;
-            cin >> TicketAsignar;
-            if(PosTicketAsignable[TicketAsignar] == 1){
-                Ticket tAsignar = Archivo.LeerTicket(TicketAsignar-1);
-                tAsignar.setEstado(1);
-                tAsignar.setIdUsrSoporte(user1.getIDUsuario());
-                guardado = Archivo.ModificarTicket(tAsignar,TicketAsignar-1);
-                if(guardado == true){
-                    cout << "ASIGNADO CON EXITO." << endl;
-                }else{
-                    cout << "NO FUE POSIBLE ASIGNARSE EL TICKET" << endl;
-                }
-            }else{
-                cout << "EL TICKET QUE SE QUIERE ASINGAR NO SE ENCUENTRA DISPONIBLE PARA ASIGNARSE." <<  endl;
-                }
-            delete[] PosTicketAsignable;
+            else{
+                cout << "No se encontro un ticket con ese ID." << endl;
             }
-            break;
+        }
+    }
+}
+break;
+           
         case 3:
             {
             system("cls");
@@ -220,16 +247,13 @@ bool guardado;
                 {
                     cout << "No se encontro el ticket." << endl;
                 }
-
-                system("pause");
-                system("cls");
-            }
+                
             break;
-
+            }
         case 5:
             {
-                system("cls");
-                archivoRespuesta resp;
+            system("cls");
+            archivoRespuesta resp;
             cout << "En este apartado solamente podra ver respuesta de los tickets los cuales usted tiene asignado..." << endl;
             cout << "============================" << endl;
             int IdTicketRespuestaBuscar=0;
@@ -264,7 +288,8 @@ bool guardado;
 
 
 
-system("pause");
-system("cls");
-    }while(Opcion!=0);
+if(opcion != 0){
+    system("pause");
+}
+    }while(opcion != 0);
 }

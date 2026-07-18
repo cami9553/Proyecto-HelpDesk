@@ -803,9 +803,10 @@ void MenuGestionTickets()
             cout << "Opcion invalida." << endl;
             break;
 
+        } 
+        if(opcion != 0){
+            system("pause");
         }
-        system ("pause");
-        system ("cls");
 
     }while(opcion != 0);
 

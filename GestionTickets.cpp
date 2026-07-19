@@ -201,7 +201,10 @@ void ModificarEstado(){
     Fecha fActual;
     fActual.CargarFechaActual();
     reg.setFechaCierre(fActual);
-   }
+   }else if(nuevoEstado == 0){
+            reg.setIdAreaSoporte(0);
+            tleido.setIdUsrSoporte(0);
+                }
 
    //cout << "Nuevo estado en  memoria: " << reg.getEstado() << endl;
    bool modifico = arch.ModificarTicket(reg, pos);

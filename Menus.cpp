@@ -47,7 +47,7 @@ void MenuAdmiConfiguracion(Usuario &user1);
 
 void menuModificarAreaSoporte();
 void MenuModificarRoles();
-void menuModificarAdmin(Usuario &usr);
+void menuModificarAdmin();
 
 void ingresoUsuarios(){
     int cont=0;

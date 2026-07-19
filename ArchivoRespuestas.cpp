@@ -62,6 +62,7 @@ void archivoRespuesta::todasRespuestasxTicket(int idTicket){
     for(i=0;i<CantTickets;i++){
         resp = leerRespuesta(i);
         if(resp.getIdTicket()== idTicket){
+            cout <<"================================="<< endl;
             usr = archU.leerUsuario(resp.getIdUsuarioAutor()-1);
             cout << "Id Ticket: " << resp.getIdTicket() << endl;
             cout << "Autor: " << usr.getNombre()<<endl;

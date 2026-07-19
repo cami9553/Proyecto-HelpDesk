@@ -175,7 +175,10 @@ break;
                     Fecha fActual;
                     fActual.CargarFechaActual();
                     tleido.setFechaCierre(fActual);
-            }
+            }else if(nuevoEstado == 0){
+                tleido.setIdAreaSoporte(0);
+                tleido.setIdUsrSoporte(0);
+                }
              guardado = Archivo.ModificarTicket(tleido, pos);
 
              if(guardado == true){

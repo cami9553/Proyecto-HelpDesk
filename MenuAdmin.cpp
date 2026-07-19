@@ -83,9 +83,6 @@ void MostrarMenuAdmin(Usuario &user1){
            MenuAdmiConfiguracion(user1);
            break;
 
-           case 8:
-           promedioDiasTicket();
-           break;
 
            case 0:
            system("cls");
@@ -101,11 +98,15 @@ void MostrarMenuAdmin(Usuario &user1){
 
 }
 
-void menuModificarAdmin(Usuario &usrlog){
+void menuModificarAdmin(){
 archivoUsuario arch;
 bool guardado;
 int opcion,usrAModificar,nuevoValorRol;
 char nuevoValor[30];
+   cout << "preview de usuarios: "<< endl;
+   arch.listarTodosPreview();
+   system("pause");
+   system("cls");
    cout << "=============================================" << endl;
    cout << "|  Ingrese el idUsuario que desea modificar: |"<<endl;
    cout << "=============================================" << endl;
@@ -131,7 +132,7 @@ char nuevoValor[30];
     do{
         system("cls");
         cout << "==========================" << endl;
-        cout << "�Que desea modificar?     " << endl;
+        cout << "Que desea modificar?     " << endl;
         cout << "1-Nombre                  " << endl;
         cout << "2-Apellido                " << endl;
         cout << "3-Email                   " << endl;
@@ -377,6 +378,7 @@ void MenuGestionAreasSoporte(){
 
 
     do{
+
        system("cls");
       cout << "====================================" << endl;
        cout << "|         MENU GESTION AREAS       |" << endl;
@@ -424,10 +426,12 @@ void MenuGestionAreasSoporte(){
         case 5:
             system("cls");
             arch.listarTodos();
+            system("pause");
             break;
         case 6:
             system("cls");
             arch.listarActivos();
+            system("pause");
             break;
        }
 
@@ -471,6 +475,7 @@ case 2:
 case 3:
     system("cls");
     rarch.listarTodos();
+    system("pause");
     break;
     }
 
@@ -483,7 +488,7 @@ void MenuGestionUsuarios(){
     int OpcionEstado=0;
     int IdUsr;
     archivoUsuario archU;
-    Usuario usr ;
+
     do{
         system("cls");
         cout << "================================" << endl;
@@ -503,16 +508,20 @@ void MenuGestionUsuarios(){
 
             case 1:
 
-            system("pause");
+
             system("cls");
             AltaUsuario();
+            system("pause");
             break;
 
             case 2:
                {
 
+            cout << "preview de usuarios: "<< endl;
+            archU.listarTodosPreview();
+            system("pause");
             system("cls");
-           cout << "===========================================" << endl;
+            cout << "===========================================" << endl;
             cout << "| Desea Activar o Desactivar un usuario?  |"  << endl;
             cout << "===========================================" << endl;
             cout << "| 1) Activar                              |" << endl;
@@ -543,7 +552,7 @@ void MenuGestionUsuarios(){
 
             case 3:
             system("cls");
-            menuModificarAdmin(usr);
+            menuModificarAdmin();
             break;
 
             case 4:
@@ -657,6 +666,11 @@ void menuModificarAreaSoporte(){
         cout << "| Ingrese el IdArea que desea modificar:  |"<< endl;
         cout << "===========================================" << endl;
         cin >> idArea;
+        if(idArea<0 || idArea>arch.contarTotalAreaSoporte()){
+            cout << "El idArea es incorrecto." << endl;
+            system("pause");
+            return;
+        }
         cin.ignore();
         areaSoporte arModificar = arch.leerAreaSoporte(idArea);
 
@@ -744,6 +758,12 @@ void MenuModificarRoles(){
         cout << "| Ingrese el id del rol que desea modificar: |"<< endl;
         cout << "==============================================" << endl;
         cin >>idMod;
+        if(idMod<0 || idMod>rArch.contarTotalRoles()){
+            cout << "Ingreso un id rol incorrecto. " << endl;
+            system("pause");
+            return;
+
+        }
         cin.ignore();
         roles rol = rArch.leerRol(idMod-1);
 

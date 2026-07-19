@@ -130,6 +130,20 @@ void archivoUsuario::listarTodos(){
     }
 
 }
+void archivoUsuario::listarTodosPreview(){
+    Usuario usr;
+    int i=0;
+    int totalUsuarios = contarTotalUsuarios();
+    for(i=0;i<totalUsuarios;i++){
+         usr = leerUsuario(i);
+        cout <<"IdUsuario:"<<usr.getIDUsuario()<<endl;
+        cout <<"Email:"<<usr.getEmail()<<endl;
+        cout <<"Nombre:"<<usr.getApellido()<<","<<usr.getNombre()<<endl;
+        cout <<"Rol:"<<usr.getRol()<<endl;
+        cout <<"================================"<<endl;
+    }
+
+}
 void archivoUsuario::altaLogica(int idUsuario){
     Usuario usr;
     FILE *f = fopen(_archivo.c_str(),"rb+");

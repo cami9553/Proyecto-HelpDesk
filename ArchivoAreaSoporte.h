@@ -14,6 +14,7 @@ public:
     int contarTotalAreaSoporte(); //DESARROLLADA
     void listarActivos(); //DESARROLLADA
     void listarTodos();  //DESARROLLADA
+    void listarTodosPreview();
     archivoAreaSoporte();
     archivoAreaSoporte(std::string archivoArea);
     int obtenerSiguienteID(); //DESARROLLADA

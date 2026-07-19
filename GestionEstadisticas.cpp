@@ -116,7 +116,7 @@ for(i=0;i<cantidadTicket;i++){
                     cBaja++;
                     }
 }
-cout << "La cantidad de tickets de la Prioridad MAXIMA : " << cMax << endl;
+cout << "La cantidad de tickets de la Prioridad ALTA : " << cMax << endl;
 cout << "La cantidad de tickets de la Prioridad MEDIA : " << cMedio << endl;
 cout << "La cantidad de tickets de la Prioridad BAJA : " <<cBaja << endl;
 
@@ -183,7 +183,7 @@ void promedioRespuestasTicket(){
     system("pause");
     system("cls");
 }
- 
+
 void promedioDiasTicket(){
 
     TickeArchivo archT;

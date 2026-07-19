@@ -5,6 +5,9 @@ using namespace std;
 #include "ticket.h"
 #include "TicketArchivo.h"
 #include "ArchivoRespuestas.h"
+#include "ArchivoAreaSoporte.h"
+#include "AreaSoporte.h"
+
 void VisualizarTickets(){
 
  TickeArchivo arch; // objeto q permite trabajar con el archivo de tickets
@@ -33,6 +36,7 @@ void VisualizarTickets(){
 void ReasignarTicket(){
 
    TickeArchivo arch;
+   archivoAreaSoporte archAS;
    int idTicket;
 
    cout << "Ingrese ID del ticket areasignar: ";
@@ -40,7 +44,7 @@ void ReasignarTicket(){
 
    int pos = arch.BuscarTicket(idTicket);
 
-   cout << "Posicion encontrada: "  << pos << endl;
+   //cout << "Posicion encontrada: "  << pos << endl;
 
    if(pos == -1){
     cout << "No se encontro el ticket." << endl;
@@ -54,9 +58,23 @@ void ReasignarTicket(){
     reg.MostrarTicket();
 
     int nuevaArea;
-
+    system("cls");
+    cout << "Areas Existentes: "<< endl;
+    archAS.listarTodosPreview();
     cout << "Ingrese nuevo ID de area de soporte: ";
     cin >> nuevaArea;
+
+    if(nuevaArea<0 || nuevaArea>archAS.contarTotalAreaSoporte()){
+        cout << "El id que ingreso es incorrecto." << endl;
+        system("pause");
+        return;
+    }
+    areaSoporte area = archAS.leerAreaSoporte(nuevaArea);
+    if(area.getActivo()==false){
+        cout << "Error, el area que se quiere asignar no esta activo."<< endl;
+        system("pause");
+        return;
+    }
 
     reg.setIdAreaSoporte(nuevaArea);
 
@@ -118,7 +136,7 @@ void ModificarPrioridad(){
 
     if(nuevaPrioridad < 1 || nuevaPrioridad > 3){
 
-      cout << "Prioridad enviada. " << endl;
+      cout << "Prioridad invalida. " << endl;
       return;
     }
 

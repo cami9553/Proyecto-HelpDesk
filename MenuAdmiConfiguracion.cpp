@@ -7,6 +7,7 @@ using namespace std;
 #include "ticket.h"
 #include "AreaSoporte.h"
 #include "ArchivoUsuarios.h"
+#include <direct.h>
 
 void cambiarContrasenia(Usuario &user1){
     archivoUsuario archU;
@@ -128,7 +129,7 @@ void MenuExportacionCSV(){
 
 
 void MenuBackup(){
-
+    _mkdir("backups");
     int opcion;
 
     do{
@@ -210,7 +211,7 @@ void backupUsuarios(){
     destino << origen.rdbuf();
 
     cout << "--------------------------------" << endl;
-    cout << "Backup realiziado correctamente." << endl;
+    cout << "Backup realizado correctamente." << endl;
     cout << "--------------------------------" << endl;
 
     cout << "Copiando usuarios.dat..." << endl;
@@ -234,7 +235,7 @@ void backupTickets(){
 
     destino << origen.rdbuf();
 
-    cout << "Backup realiziado correctamente." << endl;
+    cout << "Backup realizado correctamente." << endl;
 
     origen.close();
     destino.close();
@@ -449,11 +450,11 @@ void exportarUsuariosCSV(){
     archivoCSV <<"ID, Email, Nombre, Apellido, Rol" << endl;
 
     while(archivoDat.read((char*)&reg, sizeof(Usuario))){
-        archivoCSV << reg.getIDUsuario() << ",";
+        archivoCSV << reg.getIDUsuario()<<",";
         archivoCSV << reg.getEmail()<< ",";
         archivoCSV << reg.getNombre() << ",";
         archivoCSV << reg.getApellido() << ",";
-        archivoCSV << reg.getRol() << "," << endl;
+        archivoCSV << reg.getRol() << endl;
     }
     archivoDat.close();
     archivoCSV.close();
@@ -479,10 +480,13 @@ void exportarTicketCSV(){
     }
     Ticket reg;
 
-    archivoCSV << "ID" << endl;
+    archivoCSV << "ID,ASUNTO,ESTADO,PRIORIDAD" << endl;
 
        while(archivoDat.read((char*)&reg, sizeof(Ticket))){
-        archivoCSV << reg.getIdTicket() << endl;
+        archivoCSV << reg.getIdTicket() << ",";
+        archivoCSV << reg.getAsunto() << ",";
+        archivoCSV << reg.getEstado() << ",";
+        archivoCSV << reg.getPrioridad() << endl;
     }
 
     archivoDat.close();

@@ -182,3 +182,23 @@ void archivoAreaSoporte::listarTodos(){
     fclose(f);
 
 }
+
+void archivoAreaSoporte::listarTodosPreview(){
+    areaSoporte ar;
+    int totalArea = contarTotalAreaSoporte();
+    FILE *f = fopen(_archivoArea.c_str(),"rb");
+    if(f == NULL){
+        cout << "Error al abrir el archivo, el sistema se cerrara" << endl;
+        exit(1);
+    }
+    for(int i=0;i<totalArea;i++){
+        fread(&ar,sizeof(areaSoporte),1,f);
+
+            cout << "Id: " << ar.getIdAreaSoporte()<<endl;
+            cout << "Nombre: "<<ar.getNombre()<<endl;
+            cout << "Estado: " << ar.getActivo()<<endl;
+            cout << "================================" << endl;
+    }
+    fclose(f);
+
+}

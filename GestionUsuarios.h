@@ -4,7 +4,6 @@
 
 void AltaUsuario();
 void BajaUsuario();
-void ModificacionUsuario();
 void listarUsuarios();
 void CargarUsuariosPrueba();
-#endif 
+#endif

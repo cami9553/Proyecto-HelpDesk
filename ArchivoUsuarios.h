@@ -15,6 +15,7 @@ public:
     void listarPorRol(int idRol); //Desarrollada ok
     void listarActivos(); //Desarrollada ok
     void listarTodos(); //Corregida OK
+    void listarTodosPreview();
     int contarActivos(); //Desarrollada Ok
     int contarTotalUsuarios(); //Desarrollada ok
     archivoUsuario(); //Desarrollada ok

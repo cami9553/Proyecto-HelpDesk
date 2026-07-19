@@ -52,6 +52,7 @@ Categoria cat;
 bool categoriaValida = false;
 int cantidadCategorias = archCat.contarTotalCategorias();
 
+archCat.listarCategoriasPRActivas();
 cout<<"Ingrese Id Categoria: ";
 cin>>_idCategoria;
 
@@ -73,8 +74,14 @@ if(categoriaValida == false){
 idCategoria=_idCategoria;
 cout<<endl;
 
-cout<<"Indique Prioridad: ";
+
+cout << "Indique Prioridad (1-Alta, 2-Media, 3-Baja): ";
 cin>>_prioridad;
+if(_prioridad < 1 || _prioridad > 3){
+      cout << "Prioridad invalida." << endl;
+      system("pause");
+      return false;
+}
 prioridad=_prioridad;
 cout<<endl;
 
@@ -123,6 +130,7 @@ cout<<"--------- TICKET ---------"<<endl;
 cout<<"ID TICKET: "<<idTicket<<endl;
 cout<<"Cliente: "<<idUsuario<<endl;
 cout <<"Soporte asignado: " << idUsrSoporte << endl;
+cout <<"idArea soporte: " << idAreaSoporte << endl;
 cout<<"Asunto: "<<asunto<<endl;
 cout<<"Descripcion: "<<descripcion<<endl;
 cout<<"Categoria: "<<idCategoria<<endl;
@@ -152,6 +160,16 @@ cout<<"--------------------------"<<endl;
 cout<<"--------- TICKET ---------"<<endl;
 cout<<"ID TICKET: "<<idTicket<<endl;
 cout<<"Asunto: "<<asunto<<endl;
+cout<<"Estado: " ;
+if(estado==0){
+        cout << "Sin asignar" << endl;
+}else if(estado==1){
+    cout << "Asignado" << endl;
+    }else if(estado==2){
+        cout << "En Proceso" << endl;
+        }else if(estado == 3){
+            cout << "Cerrado" << endl;
+            }
 cout<<"Prioridad: "<<prioridad<<endl;
 cout<<"--------------------------"<<endl;
  }

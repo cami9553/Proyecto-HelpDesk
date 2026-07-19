@@ -21,6 +21,7 @@ cout<<" 1) Crear Ticket              "<<endl;
 cout<<" 2) Ver mis tickets           "<<endl;
 cout<<" 3) Ver Respuesta de un ticket"<<endl;
 cout<<" 4) Mis datos                 "<<endl;
+cout<<" 5) Responder ticket          "<<endl;
 cout<<"------------------------------"<<endl;
 cout<<" 0) Cerrar sesion             "<<endl<<endl;
 
@@ -35,7 +36,7 @@ case 1:
     system("cls");
     if(t1.CreatTicket(user1)){
     if(Archivo.GuardarTicket(t1)){
-        cout<<"Tiket guardado correctamente"<<endl;
+        cout<<"Ticket guardado correctamente"<<endl;
     }else{
     cout<<"Error al guardar ticket"<<endl;
     }
@@ -68,21 +69,20 @@ case 3:
     for(i=0;i<Cantidad;i++){
         Ticket tleido = Archivo.LeerTicket(i);
         if(tleido.getIdUsuario() == user1.getIDUsuario()){
-            tleido.MostrarTicket();
+            tleido.MostrarTicketPreview();
             PosTicketsCreado[i+1]=1;
-            system("pause");
+
             }
         }
-        cout << "Ingrese el ticket que usted desea modificar: " << endl;
+        cout << "Ingrese el ticket que usted desea visualizar las respuestas: " << endl;
         cin >> idTickBuscado;
+        system("cls");
         if(PosTicketsCreado[idTickBuscado]==1){
-            cout <<"Este ticket lo tiene asignado" << endl;
-            cout <<"================================="<< endl;
             Ticket leidoOk = Archivo.LeerTicket(idTickBuscado-1);
              int idTicketValidado = leidoOk.getIdTicket();
             archr.todasRespuestasxTicket(idTicketValidado);
         }else{
-            cout << "Este ticket no se encuentra asignado a usted." << endl;
+            cout << "Este ticket no lo creo usted." << endl;
         }
 
      delete[] PosTicketsCreado;
@@ -93,8 +93,61 @@ case 4:
     system("cls");
     user1.mostrar();
     break;
+case 5:
+    {
+                system("cls");
+                int idBuscado;
+                respuestas resp;
+                Fecha fActual;
+                archivoRespuesta archResp;
+                char mensaje[200];
+                bool guardado;
 
+                cout << "Ingrese el ID del ticket: ";
+                cin >> idBuscado;
 
+                int pos = Archivo.BuscarTicket(idBuscado);
+
+                if(pos != -1)
+                {
+                    Ticket tleido =  Archivo.LeerTicket(pos);
+
+                    if(tleido.getIdUsuario() != user1.getIDUsuario()){
+                        cout << "Este ticket no esta asignado a usted." << endl;
+                    }
+                    else if(tleido.getEstado() == 3){
+                        cout << "El ticket esta cerrado. No se pueden agregar nuevas respuestas" << endl;
+                    }
+
+                    else{
+                        tleido.MostrarTicketPreview();
+
+                        cin.ignore();
+
+                        resp.setIdTicket(idBuscado);
+
+                        cout << "Ingrese el mensaje:  " << endl;
+                        cin.getline(mensaje,200);
+
+                        resp.setContenido(mensaje);
+                        fActual.CargarFechaActual();
+                        resp.setFechaHora(fActual);
+                        resp.setIdUsuarioAutor(user1.getIDUsuario());
+                        guardado = archResp.cargarArchivo(resp);
+                        if(guardado == true){
+                            cout << "Respuesta guardada con exito." << endl;
+                        }else{
+                            cout << "No se pudo guardar la respuesta." << endl;
+                        }
+
+                    }
+                }
+                else
+                {
+                    cout << "No se encontro el ticket." << endl;
+                }
+    break;
+    }
 case 0:
     system("cls");
     break;

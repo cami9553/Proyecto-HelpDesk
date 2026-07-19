@@ -74,6 +74,27 @@ void ArchivoCategoria::listarTodas(){
 
     fclose(f);
 }
+void ArchivoCategoria::listarCategoriasPRActivas(){
+    Categoria catLeida;
+    int totalCategorias = contarTotalCategorias();
+    bool primeraCat = true;
+
+    for(int i = 0; i < totalCategorias; i++){
+        catLeida = leerCategoria(i);
+        if(catLeida.getActivo() == true){
+            if(!primeraCat){
+                cout << ", ";
+            }
+            cout << catLeida.getIdCategoria() << "-" << catLeida.getNombre();
+            primeraCat = false;
+        }
+    }
+
+    if(!primeraCat){
+        cout << endl;
+    }
+    cout << "================================" << endl;
+}
 
 void ArchivoCategoria::bajaLogica(int idCategoria){
 

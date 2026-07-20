@@ -58,7 +58,7 @@
 	<ctime>
 	"fecha.h"
 
-1783236643 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
@@ -113,7 +113,7 @@
 	"TicketArchivo.h"
 	"ticket.h"
 
-1782364504 source:c:\users\ysyary\documents\github\proyecto-helpdesk\usuarios.cpp
+1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\usuarios.cpp
 	<iostream>
 	"usuarios.h"
 	<cstring>
@@ -293,7 +293,7 @@
 	<cstring>
 	"ArchivoAreaSoporte.h"
 
-1784451366 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionusuarios.cpp
+1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionusuarios.cpp
 	<iostream>
 	"GestionUsuarios.h"
 	"ArchivoUsuarios.h"
@@ -352,7 +352,7 @@
 	"ArchivoRespuestas.h"
 	<cstring>
 
-1784457101 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestiontickets.cpp
+1784458642 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestiontickets.cpp
 	<iostream>
 	"GestionTickets.h"
 	"ticket.h"
@@ -361,7 +361,7 @@
 	"ArchivoAreaSoporte.h"
 	"AreaSoporte.h"
 
-1784455365 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.cpp
+1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.cpp
 	<iostream>
 	"MenuAdmiConfiguracion.h"
 	"AreaSoporte.h"
@@ -392,7 +392,7 @@
 
 1782825861 c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.h
 
-1784450321 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
+1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
 	<iostream>
 	"MenuSoporte.h"
 	"ticket.h"
@@ -404,7 +404,7 @@
 1782828030 c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.h
 	"usuarios.h"
 
-1784455314 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuclientes.cpp
+1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuclientes.cpp
 	<iostream>
 	"MenuClientes.h"
 	"ticket.h"

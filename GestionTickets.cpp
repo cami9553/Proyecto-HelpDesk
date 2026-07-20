@@ -64,7 +64,7 @@ void ReasignarTicket(){
     cout << "Ingrese nuevo ID de area de soporte: ";
     cin >> nuevaArea;
 
-    if(nuevaArea<0 || nuevaArea>archAS.contarTotalAreaSoporte()){
+    if(nuevaArea<1 || nuevaArea>archAS.contarTotalAreaSoporte()){
         cout << "El id que ingreso es incorrecto." << endl;
         system("pause");
         return;

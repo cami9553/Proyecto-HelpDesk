@@ -524,7 +524,7 @@ void MenuGestionUsuarios(){
             system("pause");
             system("cls");
 
-            int opcionEstado;
+
             int idUsr;
             int totalUsuarios = archU.contarTotalUsuarios();
 
@@ -537,7 +537,7 @@ void MenuGestionUsuarios(){
             cout << "Opcion: ";
             cin >> OpcionEstado;
 
-            if(OpcionEstado != 1 && opcionEstado != 2){
+            if(OpcionEstado != 1 && OpcionEstado != 2){
                 cout << "Opcion incorrecta." << endl;
                 break;
             }
@@ -693,7 +693,7 @@ void menuModificarAreaSoporte(){
         cout << "| Ingrese el IdArea que desea modificar:  |"<< endl;
         cout << "===========================================" << endl;
         cin >> idArea;
-        if(idArea<0 || idArea>arch.contarTotalAreaSoporte()){
+        if(idArea<1 || idArea>arch.contarTotalAreaSoporte()){
             cout << "El idArea es incorrecto." << endl;
             system("pause");
             return;
@@ -785,7 +785,7 @@ void MenuModificarRoles(){
         cout << "| Ingrese el id del rol que desea modificar: |"<< endl;
         cout << "==============================================" << endl;
         cin >>idMod;
-        if(idMod<0 || idMod>rArch.contarTotalRoles()){
+        if(idMod<1 || idMod>rArch.contarTotalRoles()){
             cout << "Ingreso un id rol incorrecto. " << endl;
             system("pause");
             return;

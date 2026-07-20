@@ -38,14 +38,17 @@ void MenuRestauracion(){
      int opcion;
 
      do{
-
-        cout << "RESTAURAR COPIA" << endl;
-        cout << "1- Usuarios" << endl;
-        cout << "2- Tickets" << endl;
-        cout << "3- Categorias" << endl;
-        cout << "4- Area de Soporte" << endl;
-        cout << "5- Todos los archivos" << endl;
-        cout << "0- Volver" << endl;
+        cout << "========================================" << endl;
+        cout << "|           RESTAURAR COPIA            |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 1- Usuarios                          |" << endl;
+        cout << "| 2) Tickets                           |" << endl;
+        cout << "| 3) Categorias                        |" << endl;
+        cout << "| 4) Area de Soporte                   |" << endl;
+        cout << "| 5) Todos los archivos                |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 0) Volver                            |" << endl;
+        cout << "========================================" << endl;
 
          cout << "Opcion: ";
          cin >> opcion;
@@ -86,14 +89,16 @@ void MenuExportacionCSV(){
     int opcion;
 
     do{
-
-        cout << "EXPORTAR CSV" << endl;
-        cout << "1- Usuarios" << endl;
-        cout << "2- Tickets" << endl;
-        cout << "3- Categorias" << endl;
-        cout << "4- Areas de Soporte" << endl;
-        cout << "0- Volver" << endl;
-
+        cout << "========================================" << endl;
+        cout << "|               EXPORTAR CSV           |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 1) Usuarios                          |" << endl;
+        cout << "| 2) Tickets                           |" << endl;
+        cout << "| 3) Categorias                        |" << endl;
+        cout << "| 4) Areas de Soporte                  |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 0) Volver                            |" << endl;
+        cout << "========================================" << endl;
         cout << "Opcion: ";
         cin >> opcion;
 
@@ -133,14 +138,17 @@ void MenuBackup(){
     int opcion;
 
     do{
-
-        cout << "COPIA DE SEGURIDAD" << endl;
-        cout << "1- Usuarios" << endl;
-        cout << "2- Tickets" << endl;
-        cout << "3- Categorias" << endl;
-        cout << "4- Areas de Soporte" << endl;
-        cout << "5- Todos los archivos" << endl;
-        cout << "0- Volver" << endl;
+        cout << "========================================" << endl;
+        cout << "|             COPIA DE SEGURIDAD       |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 1) Usuarios                          |" << endl;
+        cout << "| 2) Tickets                           |" << endl;
+        cout << "| 3) Categorias                        |" << endl;
+        cout << "| 4) Areas de Soporte                  |" << endl;
+        cout << "| 5) Todos los archivos                |" << endl;
+        cout << "========================================" << endl;
+        cout << "| 0) Volver                            |" << endl;
+        cout << "========================================" << endl;
 
         cout << "Opcion: ";
         cin >> opcion;

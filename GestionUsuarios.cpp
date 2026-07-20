@@ -17,17 +17,40 @@ void AltaUsuario(){
     if(guardado == true){
 
       Usuario usuarioEncontrado = arch.buscarPorEmail(reg.getEmail());
+
       if(usuarioEncontrado.getIDUsuario() != -1){
-        cout << "Error. Ya existe un usuario activo con ese mail." << endl;
+        cout << "=====================================================" << endl;
+        cout << "|  Error. Ya existe un usuario activo con ese mail. |" << endl;
+        cout << "|  Presione enter para volver al menu.              |" << endl;
+        cout << "=====================================================" << endl;
+        system("pause"); 
         return;
       }
 
     if(arch.registrar(reg)){
-      cout << "Usuario guardado correctamente" << endl;
+      cout << "==========================================" << endl;
+      cout << "|  Usuario guardado correctamente        |" << endl;
+      cout << "|  Presione enter para volver al menu.    |" << endl;
+      cout << "==========================================" << endl;
+      system("pause");
+
  }
     else{
-        cout << "Error al guardar el usuario" << endl;
+        cout << "========================================" << endl;
+        cout << "| Error al guardar el usuario          |" << endl;
+        cout << "| Presione enter para volver al menu.   |" << endl;
+        cout << "========================================" << endl;
+        system("pause");
     }
+  }
+
+  else{
+    cout << "=============================================" << endl;
+    cout << "| No se pudo cargar el usuario.             |" << endl;
+    cout << "| Presione enter para volver al menu.       |" << endl;
+    cout << "=============================================" << endl;
+    system("pause");
+
   }
 }
 void BajaUsuario(){

@@ -112,6 +112,8 @@ void Usuario::mostrar(){
 
         cout << "Los roles existentes son: " << endl;
         rArchivo.listarTodos();
+
+        cout << "Ingrese el ID del rol que desea asignar al usuario: " << endl;
         cin >> rol;
 
         int cantrol = rArchivo.contarTotalRoles();

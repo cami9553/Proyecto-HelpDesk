@@ -13,9 +13,12 @@ using namespace std;
 void crearAdminAviso(){
 archivoUsuario arch;
 
-if(arch.contarTotalUsuarios() > 0){
-   return;
+Usuario adminEncontrado = arch.buscarPorEmail("asmin@mail.com");
+
+if(adminEncontrado.getIDUsuario() != -1){
+    return;
 }
+
 Usuario admin;
 
 admin.setEmail("admin@mail.com");

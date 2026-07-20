@@ -132,13 +132,15 @@ char nuevoValor[30];
     do{
         system("cls");
         cout << "==========================" << endl;
-        cout << "Que desea modificar?     " << endl;
-        cout << "1-Nombre                  " << endl;
-        cout << "2-Apellido                " << endl;
-        cout << "3-Email                   " << endl;
-        cout << "4-Clave                   " << endl;
-        cout << "5-Rol                     " << endl;
-        cout << "0-Salir.                  " << endl;
+        cout << "| QUE DESEA MODIFICAR?   |" << endl;
+        cout << "==========================" << endl;
+        cout << "| 1) Nombre              |" << endl;
+        cout << "| 2) Apellido            |" << endl;
+        cout << "| 3) Email               |" << endl;
+        cout << "| 4) Clave               |" << endl;
+        cout << "| 5) Rol                 |" << endl;
+        cout << "==========================" << endl;
+        cout << "| 0) Salir.              |" << endl;
         cout << "==========================" << endl;
         cin >> opcion;
 
@@ -521,34 +523,62 @@ void MenuGestionUsuarios(){
             archU.listarTodosPreview();
             system("pause");
             system("cls");
+<<<<<<< HEAD
+=======
+
+            int opcionEstado;
+            int idUsr;
+            int totalUsuarios = archU.contarTotalUsuarios();
+
+>>>>>>> 983e3c2 (ajustes finales de menus y usuarios)
             cout << "===========================================" << endl;
             cout << "| Desea Activar o Desactivar un usuario?  |"  << endl;
             cout << "===========================================" << endl;
             cout << "| 1) Activar                              |" << endl;
             cout << "| 2) Desactivar                           |" << endl;
             cout << "===========================================" << endl;
+            cout << "Opcion: ";
             cin >> OpcionEstado;
-            if(OpcionEstado>0 && OpcionEstado < 3){
-            if(OpcionEstado == 1){
-                cout << "Ingrese el id que desea volver a activar." << endl;
-                cin >> IdUsr;
-                Usuario usrleido = archU.leerUsuario(IdUsr - 1);
-                usrleido.setActivo(true);
-                bool guardado = archU.modificar(usrleido);
-                if(guardado == true){
-                    cout << "estado modificado con exito" << endl;
-                }else{
-                    cout << "No se pudo modificar "<< endl;
-                }
 
-            }else{
-            BajaUsuario();
+            if(OpcionEstado != 1 && opcionEstado != 2){
+                cout << "Opcion incorrecta." << endl;
+                break;
             }
-            }else{
-                cout << "Ingreso opcion incorrecta" << endl;
+
+            cout << endl;
+            cout << "Usuarios registrados: " << endl;
+            cout << "====================================" << endl;
+            archU.listarTodos();
+
+            cout << "Ingrese el ID del usuario: " << endl;
+            cin >> idUsr;
+
+            if(idUsr <= 0 || idUsr > totalUsuarios){
+                cout << "ID de usuario inexistente." << endl;
+                break;
             }
+
+            Usuario usrleido = archU.leerUsuario(idUsr - 1);
+
+               if(OpcionEstado == 1){
+                usrleido.setActivo(true);
                }
+               else{
+                usrleido.setActivo(false);
+               }
+
+               bool guardado = archU.modificar(usrleido);
+
+               if(guardado == true){
+                cout << "Estado del usuario modificado con exito." << endl;
+               }
+
+               else{
+                cout << "No se pudo modificar el estado del usuario." << endl;
+               }
+            }
             break;
+
 
             case 3:
             system("cls");

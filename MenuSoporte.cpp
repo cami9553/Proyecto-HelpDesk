@@ -32,15 +32,17 @@ bool guardado;
     {
 
         system("cls");
-        cout << "MENU SOPORTE" << endl<<endl;
-        cout << "------------------------------------" << endl;
-        cout << "1) VER MIS TICKETS ASIGNADOS" << endl;
-        cout << "2) VER TICKETS ABIERTOS" << endl;
-        cout << "3) CAMBIAR ESTADO DE TICKET" << endl;
-        cout << "4) RESPONDER TICKET" << endl;
-        cout << "5) VER RESPUESTAS DE TICKETS " << endl;
-        cout << "------------------------------------" << endl<<endl;
-        cout << "0) CERRAR SESION" << endl<<endl;
+        cout << "=======================================" << endl;
+        cout << "|          MENU SOPORTE               |" << endl;
+        cout << "=======================================" << endl;
+        cout << "| 1) VER MIS TICKETS ASIGNADOS        |" << endl;
+        cout << "| 2) VER TICKETS ABIERTOS             |" << endl;
+        cout << "| 3) CAMBIAR ESTADO DE TICKET         |" << endl;
+        cout << "| 4) RESPONDER TICKET                 |" << endl;
+        cout << "| 5) VER RESPUESTAS DE TICKETS        |" << endl;
+        cout << "=======================================" << endl;
+        cout << "| 0) CERRAR SESION                    |" << endl;
+        cout << "=======================================" << endl;
         cout<<"Opcion: ";
         cin>> opcion;
         if (opcion < 0 || opcion > 5) {
@@ -58,17 +60,27 @@ bool guardado;
         switch(opcion)
         {
 
-
-
         case 1:
+        {
             system("cls");
+
+            bool tieneAsignados =  false;
+
             Cantidad = Archivo.CantidadTickets();
-            for(i=0;i<Cantidad;i++){
+
+            for(i=0; i < Cantidad; i++){
                 Ticket tleido = Archivo.LeerTicket(i);
+
                 if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
                     tleido.MostrarTicket();
+                    tieneAsignados = true;
                 }
             }
+
+            if(tieneAsignados == false){
+                cout << "Aun no tenes tickets asignados." << endl;
+            }
+        }
             break;
 
         case 2:
@@ -160,12 +172,14 @@ break;
             if(pos != -1){
               Ticket tleido = Archivo.LeerTicket(pos);
 
-            cout << "Que estado desea asignar?" << endl;
-            cout << "0-Sin Asignar" << endl;
-            cout << "1-Asignado" <<endl;
-            cout << "2-En Proceso" << endl;
-            cout << "3-Cerrado " << endl;
-            cout << "============================" << endl;
+            cout << "=======================================" << endl;
+            cout << "|     Que estado desea asignar?       |" << endl;
+            cout << "=======================================" << endl;
+            cout << "| 0-Abierto                           |" << endl;
+            cout << "| 1-Asignado                          |" <<endl;
+            cout << "| 2-Resuelto                          | " << endl;
+            cout << "| 3-Cerrado                           |" << endl;
+            cout << "=======================================" << endl;
             cin >> nuevoEstado;
 
             if(nuevoEstado >= 0 && nuevoEstado <= 3){

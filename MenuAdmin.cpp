@@ -523,14 +523,11 @@ void MenuGestionUsuarios(){
             archU.listarTodosPreview();
             system("pause");
             system("cls");
-<<<<<<< HEAD
-=======
 
             int opcionEstado;
             int idUsr;
             int totalUsuarios = archU.contarTotalUsuarios();
 
->>>>>>> 983e3c2 (ajustes finales de menus y usuarios)
             cout << "===========================================" << endl;
             cout << "| Desea Activar o Desactivar un usuario?  |"  << endl;
             cout << "===========================================" << endl;

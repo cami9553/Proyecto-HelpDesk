@@ -14,16 +14,18 @@ int Cantidad;
 
 do{
 
-system("cls");
-cout<<"         Menu Cliente         "<<endl;
-cout<<"------------------------------"<<endl;
-cout<<" 1) Crear Ticket              "<<endl;
-cout<<" 2) Ver mis tickets           "<<endl;
-cout<<" 3) Ver Respuesta de un ticket"<<endl;
-cout<<" 4) Mis datos                 "<<endl;
-cout<<" 5) Responder ticket          "<<endl;
-cout<<"------------------------------"<<endl;
-cout<<" 0) Cerrar sesion             "<<endl<<endl;
+system("cls"); 
+cout << "===================================" << endl;
+cout << "|           Menu Cliente          |" << endl;
+cout << "===================================" << endl;
+cout << "| 1) Crear Ticket                 |" << endl;
+cout << "| 2) Ver mis tickets              |" << endl;
+cout << "| 3) Ver Respuesta de un ticket   |" << endl;
+cout << "| 4) Mis datos                    |" << endl;
+cout << "| 5) Responder ticket             |" << endl;
+cout << "===================================" << endl;
+cout << "| 0) Cerrar sesion                |" << endl;
+cout << "===================================" << endl;
 
 cout<<"Opcion: ";
 cin >> opcion;

@@ -155,7 +155,7 @@ break;
                 Ticket tleido = Archivo.LeerTicket(i);
 
                 if(tleido.getIdUsrSoporte() == user1.getIDUsuario()){
-                    tleido.MostrarTicket();
+                    tleido.MostrarTicketPreview();
                 }
             }
             cout << "Ingrese el id de el ticket a modificar: " << endl;

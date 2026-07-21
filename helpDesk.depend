@@ -373,7 +373,7 @@
 	"ArchivoUsuarios.h"
 	<direct.h>
 
-1784593680 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.cpp
+1784595177 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.cpp
 	<iostream>
 	"Menus.h"
 	"MenuAdmin.h"

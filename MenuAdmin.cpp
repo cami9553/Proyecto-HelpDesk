@@ -236,6 +236,7 @@ void MenuAdmiConfiguracion(Usuario &user1){
 
     do{
         system("cls");
+
         cout << "======================================" << endl;
         cout << "| 1) Cambiar Clave                   |" << endl;
         cout << "| 2) Ver Mis Datos                   |" << endl;
@@ -271,7 +272,9 @@ void MenuAdmiConfiguracion(Usuario &user1){
     case 2:
         system("cls");
         verMisDatos(user1);
+        cout << endl;
         system("pause");
+        system("cls");
         break;
 
     case 3:
@@ -936,6 +939,7 @@ void MenuGestionTickets()
         }
         if(opcion != 0){
             system("pause");
+            system("cls");
         }
 
     }while(opcion != 0);

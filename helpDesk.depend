@@ -58,7 +58,7 @@
 	<ctime>
 	"fecha.h"
 
-1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
+1784581236 source:c:\users\ysyary\documents\github\proyecto-helpdesk\main.cpp
 	<iostream>
 	"ArchivoUsuarios.h"
 	"usuarios.h"
@@ -105,10 +105,10 @@
 	"fecha.h"
 	"usuarios.h"
 
-1780544795 c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.h
+1784593342 c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.h
 	"Ticket.h"
 
-1783243278 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.cpp
+1784593320 source:c:\users\ysyary\documents\github\proyecto-helpdesk\ticketarchivo.cpp
 	<iostream>
 	"TicketArchivo.h"
 	"ticket.h"
@@ -121,7 +121,7 @@
 	"ArchivoRoles.h"
 	"ArchivoUsuarios.h"
 
-1784457613 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
+1784591048 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menus.cpp
 	<iostream>
 	<string>
 	"ArchivoUsuarios.h"
@@ -288,7 +288,7 @@
 	"AreaSoporte.h"
 	<cstring>
 
-1784457101 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivoareasoporte.cpp
+1784587163 source:c:\users\ysyary\documents\github\proyecto-helpdesk\archivoareasoporte.cpp
 	<iostream>
 	<cstring>
 	"ArchivoAreaSoporte.h"
@@ -300,7 +300,7 @@
 	"usuarios.h"
 	<cstring>
 
-1784446353 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.cpp
+1784594623 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestionestadisticas.cpp
 	<iostream>
 	"GestionEstadisticas.h"
 	"ticket.h"
@@ -310,6 +310,7 @@
 	"Fecha.h"
 	"Respuestas.h"
 	"ArchivoRespuestas.h"
+	"ArchivoCategoria.h"
 
 1781143751 c:\users\ysyary\documents\github\proyecto-helpdesk\categoria.h
 
@@ -352,7 +353,7 @@
 	"ArchivoRespuestas.h"
 	<cstring>
 
-1784458642 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestiontickets.cpp
+1784523309 source:c:\users\ysyary\documents\github\proyecto-helpdesk\gestiontickets.cpp
 	<iostream>
 	"GestionTickets.h"
 	"ticket.h"
@@ -361,7 +362,7 @@
 	"ArchivoAreaSoporte.h"
 	"AreaSoporte.h"
 
-1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.cpp
+1784590147 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmiconfiguracion.cpp
 	<iostream>
 	"MenuAdmiConfiguracion.h"
 	"AreaSoporte.h"
@@ -372,7 +373,7 @@
 	"ArchivoUsuarios.h"
 	<direct.h>
 
-1784457659 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.cpp
+1784593680 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.cpp
 	<iostream>
 	"Menus.h"
 	"MenuAdmin.h"
@@ -392,7 +393,7 @@
 
 1782825861 c:\users\ysyary\documents\github\proyecto-helpdesk\menuadmin.h
 
-1784522063 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
+1784593376 source:c:\users\ysyary\documents\github\proyecto-helpdesk\menusoporte.cpp
 	<iostream>
 	"MenuSoporte.h"
 	"ticket.h"
@@ -414,7 +415,7 @@
 1782830422 c:\users\ysyary\documents\github\proyecto-helpdesk\menuclientes.h
 	"usuarios.h"
 
-1784003970 source:c:\users\ysyary\documents\github\proyecto-helpdesk\modificarusuariossoportecliente.cpp
+1784590871 source:c:\users\ysyary\documents\github\proyecto-helpdesk\modificarusuariossoportecliente.cpp
 	<iostream>
 	"ModificarUsuariosSoporteCliente.h"
 	"ArchivoUsuarios.h"

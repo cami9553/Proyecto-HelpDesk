@@ -38,6 +38,7 @@ void MenuRestauracion(){
      int opcion;
 
      do{
+        system("cls");
         cout << "========================================" << endl;
         cout << "|           RESTAURAR COPIA            |" << endl;
         cout << "========================================" << endl;
@@ -56,29 +57,41 @@ void MenuRestauracion(){
          switch (opcion)
          {
          case 1:
+            system("cls");
             restaurarUsuarios();
+            system("pause");
             break;
         case 2:
+           system("cls");
            restaurarTickets();
+           system("pause");
            break;
 
         case 3:
+           system("cls");
            restaurarCategorias();
+           system("pause");
            break;
 
         case 4:
+          system("cls");
           restaurarAreaSoporte();
+          system("pause");
           break;
 
         case 5:
+         system("cls");
          restaurarCompleto();
+         system("pause");
          break;
 
         case 0:
          break;
 
           default:
+          system("cls");
           cout << "Opcion invalida." << endl;
+          system("pause");
             break;
          }
         }while(opcion != 0);
@@ -89,6 +102,7 @@ void MenuExportacionCSV(){
     int opcion;
 
     do{
+        system("cls");
         cout << "========================================" << endl;
         cout << "|               EXPORTAR CSV           |" << endl;
         cout << "========================================" << endl;
@@ -105,19 +119,27 @@ void MenuExportacionCSV(){
         switch (opcion){
 
         case 1:
+            system("cls");
             exportarUsuariosCSV();
+            system("pause");
             break;
 
         case 2:
+          system("cls");
           exportarTicketCSV();
+          system("pause");
            break;
 
         case 3:
+         system("cls");
          exportarCategoriasCSV();
+         system("pause");
           break;
 
         case 4:
+           system("cls");
            exportarAreaSoporteCSV();
+            system("pause");
             break;
 
         case 0:
@@ -125,7 +147,9 @@ void MenuExportacionCSV(){
 
 
           default:
+          system("cls");
           cout << "Opcion invalida." << endl;
+          system("pause");
             break;
         }
 
@@ -138,6 +162,7 @@ void MenuBackup(){
     int opcion;
 
     do{
+        system("cls");
         cout << "========================================" << endl;
         cout << "|             COPIA DE SEGURIDAD       |" << endl;
         cout << "========================================" << endl;
@@ -165,24 +190,34 @@ void MenuBackup(){
         switch (opcion)
         {
         case 1:
+            system("cls");
             backupUsuarios();
+            system("pause");
             break;
 
 
         case 2:
+            system("cls");
             backupTickets();
+            system("pause");
             break;
 
         case 3:
+            system("cls");
             backupCategorias();
+            system("pause");
             break;
 
         case 4:
+            system("cls");
             backupAreaSoporte();
+            system("pause");
             break;
 
         case 5:
+            system("cls");
             backupCompleto();
+            system("pause");
             break;
 
         case 0:
@@ -190,7 +225,9 @@ void MenuBackup(){
 
 
         default:
+            system("cls");
             cout << "Opcion invalida." << endl;
+            system("pause");
             break;
         }
 
@@ -222,7 +259,7 @@ void backupUsuarios(){
     cout << "Backup realizado correctamente." << endl;
     cout << "--------------------------------" << endl;
 
-    cout << "Copiando usuarios.dat..." << endl;
+
     origen.close();
     destino.close();
 }

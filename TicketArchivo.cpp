@@ -138,3 +138,23 @@ void TickeArchivo::ListarTickets(){
     }
 
 }
+void TickeArchivo::ListarTicketsPreview(){
+    Ticket tk;
+    int i = 0;
+    int totalTickets = CantidadTickets();
+    for(i=0;i<totalTickets;i++){
+        tk = LeerTicket(i);
+        cout << "========================================"<< endl;
+        cout << "ID TICKET: " << tk.getIdTicket() << endl;
+        cout << "Cargado por el usuario: "<< tk.getIdUsuario() <<endl ;
+        cout << "Asunto : " << tk.getAsunto() <<endl;
+        cout << "Estado: " << tk.getEstado() << endl;
+        cout << "ID CATEGORIA: " << tk.getIdCategoria() <<endl;
+        cout << "PRIORIDAD TICKET: " << tk.getPrioridad() << endl;
+
+
+    }
+
+}
+
+

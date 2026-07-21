@@ -157,6 +157,7 @@ void archivoAreaSoporte::listarActivos(){
             cout << "Id: " << ar.getIdAreaSoporte() <<endl;
             cout <<"Nombre: "<<ar.getNombre()<<endl;
             cout << "Descripcion: "<<ar.getDescripcion() <<endl;
+            cout << "========================" << endl;
         }
     }
     fclose(f);
@@ -177,7 +178,7 @@ void archivoAreaSoporte::listarTodos(){
             cout << "Nombre: "<<ar.getNombre()<<endl;
             cout << "Descripcion: "<<ar.getDescripcion() <<endl;
             cout << "Estado: " << ar.getActivo()<<endl;
-
+            cout << "========================" << endl;
     }
     fclose(f);
 

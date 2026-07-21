@@ -9,6 +9,7 @@ using namespace std;
 #include "Fecha.h"
 #include "Respuestas.h"
 #include "ArchivoRespuestas.h"
+#include "ArchivoCategoria.h"
 
 void ResumenGeneral(){
 
@@ -80,26 +81,38 @@ system("cls");
 }
 
 void ticketXCategoria(){
-int i=0,cHard=0,cSoft=0,cOtro=0;
-TickeArchivo tkA;
-
-int cantidadTicket = tkA.CantidadTickets();
-for(i=0;i<cantidadTicket;i++){
-    Ticket tleido = tkA.LeerTicket(i);
-     if(tleido.getIdCategoria()==1){
-            cHard++;
-            }else if(tleido.getIdCategoria()==2){
-                cSoft++;
-                }else if(tleido.getIdCategoria()==3){
-                    cOtro++;
-                    }
-}
-cout << "La cantidad de tickets de la categoria HARDWARE : " << cHard << endl;
-cout << "La cantidad de tickets de la categoria SOFTWARE : " << cSoft << endl;
-cout << "La cantidad de tickets de la categoria OTROS : " <<cOtro << endl;
-
-system("pause");
-system("cls");
+    ArchivoCategoria archCat;
+    TickeArchivo tkA;
+    int cantidadCategorias = archCat.contarTotalCategorias();
+    int cantidadTickets = tkA.CantidadTickets();
+    if(cantidadCategorias == 0){
+        cout << "No hay categorias registradas." << endl;
+        system("pause");
+        system("cls");
+        return;
+    }
+    cout << "=================================" << endl;
+    cout << "Tickets por categoria" << endl;
+    cout << "=================================" << endl;
+    for(int i = 0; i < cantidadCategorias; i++){
+        Categoria cat = archCat.leerCategoria(i);
+        int contador = 0;
+        for(int j = 0; j < cantidadTickets; j++){
+            Ticket tk = tkA.LeerTicket(j);
+            if(tk.getIdCategoria() == cat.getIdCategoria()){
+                contador++;
+            }
+        }
+        cout << cat.getNombre()
+             << " (ID " << cat.getIdCategoria() << "): "
+             << contador << " tickets";
+        if(cat.getActivo() == false){
+            cout << " [INACTIVA]";
+        }
+        cout << endl;
+    }
+    system("pause");
+    system("cls");
 }
 void ticketXPrioridad(){
 int cMax=0,cMedio=0,cBaja=0,i=0;

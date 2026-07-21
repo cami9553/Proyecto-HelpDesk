@@ -10,6 +10,7 @@ public:
 bool  GuardarTicket (Ticket t1);
 
 void ListarTickets();
+void ListarTicketsPreview();
 
 int CantidadTickets();
 

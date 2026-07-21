@@ -103,9 +103,10 @@ void ingresoUsuarios(){
         }
         //break; para que no me muestre nuevamente el iniciar sesion.
     }else{
-
+        system("cls");
         cout<< "Contrasena incorrecta."<< endl;
         cont++;
+        system("pause");
         //cout<<"contador: " <<cont<<endl;
         cin.ignore();
         muereXLogin(cont); //Si ingresa 3 veces mal usuario contra se cierra el programa.

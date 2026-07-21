@@ -90,7 +90,9 @@ void MostrarMenuAdmin(Usuario &user1){
            break;
 
            default:
+           system("cls");
            cout << "Opcion invalida. " << endl;
+           system("pause");
            break;
         }
 
@@ -233,6 +235,7 @@ void MenuAdmiConfiguracion(Usuario &user1){
     int opcion;
 
     do{
+        system("cls");
         cout << "======================================" << endl;
         cout << "| 1) Cambiar Clave                   |" << endl;
         cout << "| 2) Ver Mis Datos                   |" << endl;
@@ -262,25 +265,30 @@ void MenuAdmiConfiguracion(Usuario &user1){
     case 1:
         system("cls");
         cambiarContrasenia(user1);
+        system("pause");
         break;
 
     case 2:
         system("cls");
         verMisDatos(user1);
+        system("pause");
         break;
 
     case 3:
        system("cls");
        MenuBackup();
+
         break;
 
     case 4:
        system("cls");
        MenuRestauracion();
+
        break;
     case 5:
       system("cls");
       MenuExportacionCSV();
+
       break;
 
     case 0:
@@ -290,6 +298,7 @@ void MenuAdmiConfiguracion(Usuario &user1){
     default:
      system("cls");
      cout << "Opcion invalida." << endl;
+     system("pause");
         break;
     }
     } while (opcion != 0);
@@ -325,8 +334,10 @@ void MenuAdmiConfiguracion(Usuario &user1){
             system("cls");
             int opcionEstado, idCat;
             ArchivoCategoria archCat;
-
+            cout << "Preview categorias: " << endl;
             archCat.listarTodas();
+            system("pause");
+            system("cls");
 
             cout << "Desea Activar o Desactivar una categoria?" << endl;
             cout << "1-Activar" << endl;
@@ -334,12 +345,23 @@ void MenuAdmiConfiguracion(Usuario &user1){
             cin >> opcionEstado;
 
             if(opcionEstado == 1){
+
                 cout << "Ingrese el ID de la categoria a activar: ";
                 cin >> idCat;
+                if(idCat<1 || idCat>archCat.contarTotalCategorias()){
+                    cout << "Ingreso un idCategoria invalido." << endl;
+                    system("pause");
+                    return;
+                }
                 archCat.altaLogica(idCat);
             }else if(opcionEstado == 2){
                 cout << "Ingrese el ID de la categoria a desactivar: ";
                 cin >> idCat;
+                if(idCat<1 || idCat>archCat.contarTotalCategorias()){
+                    cout << "Ingreso un idCategoria invalido." << endl;
+                    system("pause");
+                    return;
+                }
                 archCat.bajaLogica(idCat);
             }else{
                 cout << "Opcion invalida." << endl;
@@ -408,22 +430,26 @@ void MenuGestionAreasSoporte(){
             cin.getline(descAr,30);
             AR.setDescripcion(descAr);
             arch.creaAreaSoporte(AR);
+            system("pause");
             break;
         case 2:
             system("cls");
             cout << "Ingresar el id que quiere volver a activar: " << endl;
             cin >> idAlta;
             arch.altaLogica(idAlta);
+            system("pause");
             break;
         case 3:
             system("cls");
             cout << "Ingresar el id que quiere dar de baja: " << endl;
             cin >> idBaja;
             arch.bajaLogica(idBaja);
+            system("pause");
             break;
         case 4:
             system("cls");
             menuModificarAreaSoporte();
+
             break;
         case 5:
             system("cls");
@@ -469,6 +495,7 @@ case 1:
     cin.getline(descr,30);
     rol.setDescripcion(descr);
     rarch.registrar(rol);
+    system("pause");
     break;
 case 2:
     system("cls");
@@ -518,7 +545,7 @@ void MenuGestionUsuarios(){
 
             case 2:
                {
-
+            system("cls");
             cout << "preview de usuarios: "<< endl;
             archU.listarTodosPreview();
             system("pause");
@@ -539,6 +566,7 @@ void MenuGestionUsuarios(){
 
             if(OpcionEstado != 1 && OpcionEstado != 2){
                 cout << "Opcion incorrecta." << endl;
+                system("pause");
                 break;
             }
 
@@ -552,6 +580,7 @@ void MenuGestionUsuarios(){
 
             if(idUsr <= 0 || idUsr > totalUsuarios){
                 cout << "ID de usuario inexistente." << endl;
+                system("pause");
                 break;
             }
 
@@ -573,6 +602,7 @@ void MenuGestionUsuarios(){
                else{
                 cout << "No se pudo modificar el estado del usuario." << endl;
                }
+               system("pause");
             }
             break;
 
@@ -673,7 +703,7 @@ void menuModificarAreaSoporte(){
     archivoAreaSoporte arch;
 
     do{
-
+        system("cls");
         cout << "=====================================" << endl;
         cout << "|        QUE DESEA MODIFICAR?       |" << endl;
         cout << "=====================================" << endl;
@@ -689,6 +719,11 @@ void menuModificarAreaSoporte(){
             cout << "Saliendo del menu modificar." << endl;
             break;
         }
+        system("cls");
+        cout << "Preview de area soporte: " << endl;
+        arch.listarTodosPreview();
+        system("pause");
+        system("cls");
         cout << "===========================================" << endl;
         cout << "| Ingrese el IdArea que desea modificar:  |"<< endl;
         cout << "===========================================" << endl;
@@ -712,6 +747,7 @@ void menuModificarAreaSoporte(){
             }else {
                 cout << "El nuevo nombre de area no se pudo guardar "<< endl;
                 }
+                system("pause");
                 break;
     case 2:
         cout << "Ingrese la descripcion nueva de el area soporte: " << endl;
@@ -723,6 +759,7 @@ void menuModificarAreaSoporte(){
             }else {
                 cout << "la nueva descripcion de area no se pudo guardar "<< endl;
                 }
+                system("pause");
                 break;
     case 3:
         cout << "ingrese 1 : Activar " << endl;
@@ -745,6 +782,7 @@ void menuModificarAreaSoporte(){
                 cout << "No se pudo guardar el nuevo estado." << endl;
                 }
             }
+                system("pause");
                 break;
     case 0:
         cout << "Saliendo del menu modificar." << endl;
@@ -766,7 +804,7 @@ void MenuModificarRoles(){
     char newDesc[30];
     rolesArchivo rArch;
     do{
-
+        system("cls");
         cout << "==============================="<< endl;
         cout << "|       QUE DESEA MODIFICAR?  |" << endl;
         cout << "===============================" << endl;
@@ -781,6 +819,11 @@ void MenuModificarRoles(){
             cout << "Saliendo del menu modificar." << endl;
             break;
         }
+        system("cls");
+        cout << "Preview de roles: " << endl;
+        rArch.listarTodos();
+        system("pause");
+        system("cls");
         cout << "==============================================" << endl;
         cout << "| Ingrese el id del rol que desea modificar: |"<< endl;
         cout << "==============================================" << endl;
@@ -796,6 +839,7 @@ void MenuModificarRoles(){
 
         switch(opcion){
     case 1:
+        system("cls");
         cout << "Ingrese la nueva descripcion: "<<endl;
         cin.getline(newDesc,30);
         rol.setDescripcion(newDesc);
@@ -805,8 +849,10 @@ void MenuModificarRoles(){
         }else{
             cout <<"No se pudo guardad la nueva descripcion del rol."<< endl;
         }
+        system("pause");
         break;
     case 2:
+        system("cls");
         cout << "ingrese 1 : Activar " << endl;
         cout << "ingrese 2 : Desactivar " << endl;
         cin >> Estado;
@@ -827,6 +873,7 @@ void MenuModificarRoles(){
                     cout << "No se pudo guardar el nuevo estado del rol" << endl;
                     }
                 }
+                system("pause");
                 break;
         }
 
@@ -842,6 +889,7 @@ void MenuGestionTickets()
     int opcion;
 
     do{
+        system("cls");
         cout << "=====================================" << endl;
         cout << "|         GESTION DE TICKETS        |" << endl;
         cout << "=====================================" << endl;
@@ -858,22 +906,27 @@ void MenuGestionTickets()
         switch(opcion){
 
             case 1:
+            system("cls");
             VisualizarTickets();
             break;
 
             case 2:
+            system("cls");
             ReasignarTicket();
             break;
 
             case 3:
+            system("cls");
             ModificarPrioridad();
             break;
 
             case 4:
+            system("cls");
             ModificarEstado();
             break;
 
             case 0:
+            system("cls");
             break;
 
             default:

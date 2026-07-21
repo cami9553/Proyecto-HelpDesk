@@ -11,6 +11,7 @@ bool guardado;
 int opcion;
 char nuevoValor[30];
     do{
+        system("cls");
         cout << "==========================" << endl;
         cout << "¿Que desea modificar?     " << endl;
         cout << "1-Nombre                  " << endl;
@@ -20,6 +21,7 @@ char nuevoValor[30];
         cout << "0-Salir.                  " << endl;
         cout << "==========================" << endl;
         cin >> opcion;
+        system("cls");
         switch(opcion){
     case 1:
         cout << "Ingrese nuevo nombre: "<< endl;

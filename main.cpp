@@ -13,7 +13,7 @@ using namespace std;
 void crearAdminAviso(){
 archivoUsuario arch;
 
-Usuario adminEncontrado = arch.buscarPorEmail("asmin@mail.com");
+Usuario adminEncontrado = arch.buscarPorEmail("admin@mail.com");
 
 if(adminEncontrado.getIDUsuario() != -1){
     return;
